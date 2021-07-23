@@ -5,31 +5,39 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] private float playerSpeed = 2.0f;
+    [SerializeField] private float jumpHeight = 1.0f;
+    [SerializeField][Range(0, 100)] private float interpolationPercentage;
 
+    Vector3 move = Vector3.zero;
     Rigidbody rb;
-    Vector3 movement;
+    Vector3 targetVelocity = Vector3.zero;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        StartCoroutine(ManageMove());
     }
 
-
+    private void Update()
+    {
+        if (rb.velocity.magnitude < playerSpeed)
+        {
+            rb.velocity += move * (interpolationPercentage / 100);
+        }
+        else
+        {
+            rb.velocity = rb.velocity.normalized * playerSpeed;
+        }
+    }
 
     public void Move(InputAction.CallbackContext context)
     {
-        movement = context.ReadValue<Vector2>();
-        movement = new Vector3(movement.x, 0, movement.y);
-    }
+        Vector2 movement = context.ReadValue<Vector2>();
+        move = new Vector3(movement.x, 0, movement.y);
 
-    IEnumerator ManageMove()
-    {
-        while (true)
+        if (context.canceled)
         {
-            rb.velocity = movement * Time.deltaTime * speed * 100;
-            yield return new WaitForEndOfFrame();
+            move = Vector3.zero;
         }
     }
 }
