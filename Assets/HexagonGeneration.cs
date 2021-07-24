@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class HexagonGeneration : MonoBehaviour
 {
-    public int maxWidth = 5;
-    public int maxHeight = 5;
+    [SerializeField]
+    int maxWidth = 5;
+    [SerializeField]
+    int maxHeight = 5;
+
+    
 
     public GameObject[] Hexagons = new GameObject[3];
 
@@ -37,8 +41,8 @@ public class HexagonGeneration : MonoBehaviour
 
 
                 int HexType = (int)Random.Range(0, Hexagons.Length);   //using random hexagon models
-
-                Vector3 nextPosition = new Vector3(x * 8 + offsetX, 0, y * 7);
+                Vector2 CalculatePos = new Vector2(x * 8 + offsetX, y * 7);
+                Vector3 nextPosition = new Vector3(CalculatePos.x, Mathf.PerlinNoise(CalculatePos.x/16, CalculatePos.y/16) * 6 - 3, CalculatePos.y);
 
                 Hexagons[HexType].transform.position = nextPosition;
 
