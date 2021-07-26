@@ -23,7 +23,8 @@ public class HexagonBehavior : MonoBehaviour
         ShakeState,
         FallState,
         ReviveState,
-        ElevateState
+        ElevateState,
+        RotateState
     }
     States state;
     float elevateStateTime;
@@ -61,11 +62,14 @@ public class HexagonBehavior : MonoBehaviour
             case States.ElevateState:
                 ElevateState();
                 break;
+            case States.RotateState:
+                RotateState();
+                break;
         }
     }
 
     float stationaryTime = 0;
-
+    float lastRotationZ;
 
     void BaseState()                                        // Do basic Stationary State
     {
@@ -90,6 +94,15 @@ public class HexagonBehavior : MonoBehaviour
         else if (Random.value < 0.002f)         //Change it later!!!
         {
             state = States.ElevateState;
+        }
+        else if (Random.value < 0.0002f)
+        {
+            
+            if (Random.value > .5f) direction = 1;
+            else direction = -1;
+            rotateItteration = Random.Range(1, 6);
+            lastRotationZ = this.transform.localEulerAngles.y;
+            state = States.RotateState;
         }
 
     }
@@ -184,6 +197,24 @@ public class HexagonBehavior : MonoBehaviour
         }
         
         
+    }
+
+    float direction = 0;
+    int rotateItteration = 0;
+    void RotateState()
+    {
+
+
+
+
+        if (this.transform.localEulerAngles.y >= lastRotationZ + rotateItteration * 60 || this.transform.localEulerAngles.y <= lastRotationZ - rotateItteration * 60)  // fakt dlha podmienka XD sry
+        {
+            state = States.BaseState;
+        }
+
+        
+        Quaternion target = Quaternion.Euler(0, 0, 0);
+        this.transform.Rotate(0, 0, direction * Time.deltaTime * 20);
     }
 
     float PerlinNoiseMove(float x, float y)

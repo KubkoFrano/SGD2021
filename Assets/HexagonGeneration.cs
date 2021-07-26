@@ -12,6 +12,7 @@ public class HexagonGeneration : MonoBehaviour
     
 
     public GameObject[] Hexagons = new GameObject[3];
+    
 
     void Start()
     {
