@@ -19,10 +19,11 @@ public class HexagonBehavior : MonoBehaviour
     enum States
     {
         BaseState,
-        ElevateState,
+        LevitateState,
         ShakeState,
         FallState,
-        ReviveState
+        ReviveState,
+        ElevateState
     }
     States state;
     float elevateStateTime;
@@ -30,7 +31,7 @@ public class HexagonBehavior : MonoBehaviour
 
     private void Start()
     {
-        elevateStateTime = Random.Range(0, 60);
+        elevateStateTime = Random.Range(0, 80);
         state = States.BaseState;
         spawnedPossition = this.transform.position;
     }
@@ -44,8 +45,8 @@ public class HexagonBehavior : MonoBehaviour
                 BaseState();
                 break;
 
-            case States.ElevateState:
-                ElevateState();
+            case States.LevitateState:
+                LevitateState();
                 break;
 
             case States.ShakeState:
@@ -56,6 +57,9 @@ public class HexagonBehavior : MonoBehaviour
                 break;
             case States.ReviveState:
                 ReviveState();
+                break;
+            case States.ElevateState:
+                ElevateState();
                 break;
         }
     }
@@ -75,26 +79,32 @@ public class HexagonBehavior : MonoBehaviour
         {
             smoothStart = 0; 
             stationaryTime = 0;
-            startPos = this.transform.position.y;
-            state = States.ElevateState;
+            lastPos = this.transform.position;
+            state = States.LevitateState;
         }
-        else if (Random.Range(0, 1f) < 0.0001f)         //Change it later!!!
+        else if (Random.value < 0.0002f)         //Change it later!!!
         {
+            lastPos = this.transform.position;
             state = States.ShakeState;
+        }
+        else if (Random.value < 0.002f)         //Change it later!!!
+        {
+            state = States.ElevateState;
         }
 
     }
 
     float smoothStart = 0;
     float elevatingDuration = 0;
-    float startPos;
-    void ElevateState()                                 // Do elevating State
+    
+    Vector3 lastPos;
+    void LevitateState()                                 // Do elevating State
     {
         if (smoothStart < 1) smoothStart += 0.001f;
         else smoothStart = 1;
 
         float y = PerlinNoiseMove(this.transform.position.x, this.transform.position.z) * smoothStart;
-        this.transform.position = new Vector3(this.transform.position.x, (startPos * (1 - smoothStart)) + y * elevatingMagnitude, this.transform.position.z);
+        this.transform.position = new Vector3(this.transform.position.x, (lastPos.y * (1 - smoothStart)) + y * elevatingMagnitude, this.transform.position.z);
 
         elevatingDuration += Time.deltaTime;
         if (elevatingDuration > 8f)
@@ -108,7 +118,7 @@ public class HexagonBehavior : MonoBehaviour
     void ShakeState()
     {
         shakeStateTimer += Time.deltaTime;
-        this.transform.position = spawnedPossition + new Vector3(Random.Range(0f, .5f), 0, Random.Range(0f, .5f));
+        this.transform.position = lastPos + new Vector3(Random.Range(0f, .5f), 0, Random.Range(0f, .5f));
         
         if (shakeStateTimer > shakeDuration) 
         { 
@@ -147,6 +157,33 @@ public class HexagonBehavior : MonoBehaviour
         else acceleration += fallingSpeed * Time.deltaTime;
 
         this.transform.Translate(Vector3.forward * acceleration);
+    }
+
+    void ElevateState()
+    {
+
+        if (Random.value > .5f) // elevate upp
+        {
+            acceleration += (fallingSpeed / 20) * Time.deltaTime;
+            this.transform.Translate(Vector3.forward * acceleration);
+            if (this.transform.position.y >= elevatingMagnitude / 4 + elevatingMagnitude /2 * Random.value)
+            {
+                acceleration = 0;
+                state = States.BaseState;
+            }
+        }
+        else                    // elevate down
+        {
+            acceleration -= (fallingSpeed / 10) * Time.deltaTime;
+            this.transform.Translate(Vector3.forward * acceleration);
+            if (this.transform.position.y <= -elevatingMagnitude / 4 - elevatingMagnitude/2 * Random.value)
+            {
+                acceleration = 0;
+                state = States.BaseState;
+            }
+        }
+        
+        
     }
 
     float PerlinNoiseMove(float x, float y)

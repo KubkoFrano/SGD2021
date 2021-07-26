@@ -27,7 +27,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elevatingSpeed: 0.5
-  elevatingMagnitude: 3
+  elevatingMagnitude: 5
   shakeDuration: 3
   fallingSpeed: 1
 --- !u!1001 &2492670807228430866
@@ -47,7 +47,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 55833a011b101b948860973c2d3c0d73, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.0396206
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 55833a011b101b948860973c2d3c0d73, type: 3}
       propertyPath: m_LocalPosition.z

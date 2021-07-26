@@ -3,7 +3,8 @@ Shader "Unlit/unlitShader"
     Properties
     {
         //_MainTex ("Texture", 2D) = "white" {}
-        _Color("Example color", Color) = (.25, .5, .5, 1)
+        _Color("Material Color", Color) = (.25, .5, .5, 1)
+        _BackLight("BackLight", Color) = (.15, .1, .075, 1)
     }
     SubShader
     {
@@ -37,13 +38,14 @@ Shader "Unlit/unlitShader"
             };
 
             float4 _Color;
+            float4 _BackLight;
 
             VertexOutput vert (VertexInput v)
             {
                 VertexOutput o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = v.uv;
-                o.normal = v.normal;
+                o.normal = UnityObjectToWorldNormal( v.normal );
                 o.clipSpace = UnityObjectToClipPos(v.vertex);
 
                 return o;
@@ -51,11 +53,15 @@ Shader "Unlit/unlitShader"
 
             fixed4 frag(VertexOutput i) : SV_Target
             {
+                
                 float3 lightDir = _WorldSpaceLightPos0;
 
                 float f = max(0, dot(lightDir, i.normal));
                 float3 color = _Color * f;
-                
+
+                color += _BackLight;
+                //color += half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w);
+
                 return float4(color, 1.0);
             }
             ENDCG
