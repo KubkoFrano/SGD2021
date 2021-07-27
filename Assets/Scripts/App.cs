@@ -6,4 +6,5 @@ public static class App
 {
     public static ScreenManager screenManager;
     public static AudioManager audioManager;
+    public static GameManager gameManager;
 }
