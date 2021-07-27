@@ -12,7 +12,7 @@ public class ShakeState : State
     {
 
         data.timeSinceLastChange += Time.deltaTime;
-        data.Position =  data.lastPosition + new Vector3(Random.value * .5f, 0, Random.value * .5f);
+        data.transform.position =  data.lastPosition + new Vector3(Random.value * .5f, 0, Random.value * .5f);
 
         if (data.timeSinceLastChange > data.shakeDuration)
         {
