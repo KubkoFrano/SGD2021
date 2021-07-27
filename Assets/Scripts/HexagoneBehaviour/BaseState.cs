@@ -25,9 +25,13 @@ public class BaseState : State
             data.UpdateOnChange();
             return new ShakeState(data);
         }
-        
+        else if (Random.value < 0.0002f)
+        {
+            data.UpdateOnChange();
+            return new RotateState(data);
+        }
 
 
-        return new BaseState(data);
+            return new BaseState(data);
     }
 }
