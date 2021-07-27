@@ -47,7 +47,7 @@ Shader "Unlit/unlitShader"
                 o.uv = v.uv;
                 o.normal = UnityObjectToWorldNormal( v.normal );
                 o.clipSpace = UnityObjectToClipPos(v.vertex);
-
+               
                 return o;
             }
 
@@ -58,7 +58,7 @@ Shader "Unlit/unlitShader"
 
                 float f = max(0, dot(lightDir, i.normal));
                 float3 color = _Color * f;
-
+                
                 color += _BackLight;
                 //color += half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w);
 
