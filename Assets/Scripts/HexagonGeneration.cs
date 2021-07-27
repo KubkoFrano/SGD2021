@@ -9,7 +9,8 @@ public class HexagonGeneration : MonoBehaviour
     [SerializeField]
     int maxHeight = 5;
 
-    
+    float hexagoneRadius = 3.5f;
+    public float SpacingLenght = 0.5f;
 
     public GameObject[] Hexagons = new GameObject[3];
     
@@ -23,17 +24,18 @@ public class HexagonGeneration : MonoBehaviour
     {
         float offsetX = 0; //offset for every row
         int addPart = -1;  //adding that extra part
+        float positionOffset = SpacingLenght + 2 * hexagoneRadius;
 
         for (int y = 0; y < maxWidth; y++)
         {
             if (y <= (maxWidth - 1) / 2)
             {
-                offsetX -= 4f;
+                offsetX -= positionOffset/2;
                 addPart += 1;
             }
             else
             {
-                offsetX += 4f;
+                offsetX += positionOffset/2;
                 addPart -= 1;
             }
 
@@ -42,7 +44,7 @@ public class HexagonGeneration : MonoBehaviour
 
 
                 int HexType = (int)Random.Range(0, Hexagons.Length);   //using random hexagon models
-                Vector2 CalculatePos = new Vector2(x * 8 + offsetX, y * 7);
+                Vector2 CalculatePos = new Vector2(x * positionOffset + offsetX, y * positionOffset );
                 Vector3 nextPosition = new Vector3(CalculatePos.x, Mathf.PerlinNoise(CalculatePos.x/16, CalculatePos.y/16) * 6 - 3, CalculatePos.y);
 
                 Hexagons[HexType].transform.position = nextPosition;

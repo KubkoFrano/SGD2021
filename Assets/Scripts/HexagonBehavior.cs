@@ -35,6 +35,7 @@ public class HexagonBehavior : MonoBehaviour
         elevateStateTime = Random.Range(0, 80);
         state = States.BaseState;
         spawnedPossition = this.transform.position;
+        
     }
 
 
@@ -88,7 +89,7 @@ public class HexagonBehavior : MonoBehaviour
         }
         else if (Random.value < 0.0002f)         //Change it later!!!
         {
-            lastPos = this.transform.position;
+            lastPos = this.transform.localPosition;
             state = States.ShakeState;
         }
         else if (Random.value < 0.002f)         //Change it later!!!
@@ -131,10 +132,11 @@ public class HexagonBehavior : MonoBehaviour
     void ShakeState()
     {
         shakeStateTimer += Time.deltaTime;
-        this.transform.position = lastPos + new Vector3(Random.Range(0f, .5f), 0, Random.Range(0f, .5f));
+        this.transform.position = this.transform.parent.position + lastPos + new Vector3(Random.value * .5f, 0, Random.value * .5f);
         
         if (shakeStateTimer > shakeDuration) 
-        { 
+        {
+            this.transform.position = this.transform.parent.position + lastPos;
             state = States.FallState;    // switch to fallState
             shakeStateTimer = 0;
         }
@@ -203,18 +205,13 @@ public class HexagonBehavior : MonoBehaviour
     int rotateItteration = 0;
     void RotateState()
     {
-
-
-
+        Quaternion target = Quaternion.Euler(0, 0, 0);
+        this.transform.Rotate(0, 0, direction * Time.deltaTime * 20);
 
         if (this.transform.localEulerAngles.y >= lastRotationZ + rotateItteration * 60 || this.transform.localEulerAngles.y <= lastRotationZ - rotateItteration * 60)  // fakt dlha podmienka XD sry
         {
             state = States.BaseState;
         }
-
-        
-        Quaternion target = Quaternion.Euler(0, 0, 0);
-        this.transform.Rotate(0, 0, direction * Time.deltaTime * 20);
     }
 
     float PerlinNoiseMove(float x, float y)

@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ReviveState : State
+{
+    public ReviveState(HexagonData data) : base(data)
+    {
+    }
+
+    public override State Execute()
+    {
+
+        if (data.Position.y >= Random.Range(-data.magnitude, +data.magnitude))
+        {
+            data.UpdateOnChange();
+            return new BaseState(data);
+        }
+        else
+        {
+            data.acc += data.fallSpeed * Time.deltaTime;
+
+            //data.Position = (Vector3.up * - data.acc);
+            data.Position += Vector3.up * data.acc;
+            data.rb.MovePosition(data.Position);
+
+            return new ReviveState(data);
+        }
+    }
+}
