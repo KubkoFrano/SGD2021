@@ -11,7 +11,7 @@ public class ReviveState : State
     public override State Execute()
     {
 
-        if (data.Position.y >= Random.Range(-data.magnitude, +data.magnitude))
+        if (data.transform.position.y >= Random.Range(-data.magnitude, +data.magnitude))
         {
             data.UpdateOnChange();
             return new BaseState(data);
@@ -21,8 +21,8 @@ public class ReviveState : State
             data.acc += data.fallSpeed * Time.deltaTime;
 
             //data.Position = (Vector3.up * - data.acc);
-            data.Position += Vector3.up * data.acc;
-            data.rb.MovePosition(data.Position);
+            Vector3 newPos = data.transform.position + Vector3.up * data.acc;
+            data.rb.MovePosition(newPos);
 
             return new ReviveState(data);
         }

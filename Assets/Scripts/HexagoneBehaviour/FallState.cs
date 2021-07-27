@@ -9,7 +9,7 @@ public class FallState : State
     }
     public override State Execute()
     {
-        if (data.Position.y <= -10)
+        if (data.transform.position.y <= -10)
         {
 
             data.timeSinceLastChange += Time.deltaTime;
@@ -25,8 +25,8 @@ public class FallState : State
             data.acc -= data.fallSpeed * Time.deltaTime;
 
             //data.Position = (Vector3.up * - data.acc);
-            data.Position += Vector3.up * data.acc;
-            data.rb.MovePosition(data.Position);
+            Vector3 newPos = data.transform.position + Vector3.up * data.acc;
+            data.rb.MovePosition(newPos);
 
         }
 

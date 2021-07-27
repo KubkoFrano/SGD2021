@@ -8,7 +8,7 @@ public class HexagonData : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         spawnedPosition = this.transform.position;
-        Position = spawnedPosition;
+        //Position = spawnedPosition;
     }
     public Rigidbody rb;
 
@@ -29,7 +29,7 @@ public class HexagonData : MonoBehaviour
 
     public Vector3 spawnedPosition;
     public Vector3 lastPosition;
-    public Vector3 Position;
+    //public Vector3 Position;
     
 
     public void UpdateOnChange()
@@ -52,7 +52,7 @@ public class HexagonData : MonoBehaviour
 
     private void Update()
     {
-        this.transform.position = Position;
+        //this.transform.position = Position;
     }
 
 }
