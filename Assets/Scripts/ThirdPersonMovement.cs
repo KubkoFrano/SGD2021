@@ -24,6 +24,7 @@ public class ThirdPersonMovement : MonoBehaviour
         cameraTransform = GetComponentInChildren<Camera>().transform;
         groundCheck = GetComponentInChildren<GroundCheck>();
         rb = GetComponent<Rigidbody>();
+        rb.velocity = Vector3.zero;
     }
 
 
@@ -51,6 +52,9 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
+        if (!App.gameManager.CompareGameState(GameState.game))
+            return;
+
         Vector2 temp = context.ReadValue<Vector2>();
         movement = new Vector3(temp.x, 0, temp.y).normalized;
 
@@ -60,7 +64,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.canceled || context.performed || !groundCheck.IsGrounded())
+        if (!groundCheck.IsGrounded())
             return;
 
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);

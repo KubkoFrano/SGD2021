@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 852091445496981439}
   - component: {fileID: 852091445496981438}
+  - component: {fileID: 1663606668071681117}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -44,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 0
-  m_MaxPlayerCount: -1
+  m_MaxPlayerCount: 4
   m_AllowJoining: 1
   m_JoinBehavior: 1
   m_PlayerJoinedEvent:
@@ -90,3 +91,51 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &1663606668071681117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852091445496981437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f090017d21b9c35449144e5c960847b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraMasks:
+  - serializedVersion: 2
+    m_Bits: 87
+  - serializedVersion: 2
+    m_Bits: 151
+  - serializedVersion: 2
+    m_Bits: 279
+  - serializedVersion: 2
+    m_Bits: 535
+  cameraLayers: 06000000070000000800000009000000
+  viewports2:
+  - X: 0
+    Y: 0
+    W: 0.5
+    H: 1
+  - X: 0.5
+    Y: 0
+    W: 0.5
+    H: 1
+  viewports4:
+  - X: 0
+    Y: 0.5
+    W: 0.5
+    H: 0.5
+  - X: 0.5
+    Y: 0.5
+    W: 0.5
+    H: 0.5
+  - X: 0
+    Y: 0
+    W: 0.5
+    H: 0.5
+  - X: 0.5
+    Y: 0
+    W: 0.5
+    H: 0.5
