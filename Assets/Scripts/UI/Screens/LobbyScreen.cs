@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class LobbyScreen : ScreenBase
 {
+    public override void Show()
+    {
+        base.Show();
+        App.playerManager.SetJoining(true);
+    }
+
+    public override void Hide()
+    {
+        base.Hide();
+        App.playerManager.SetJoining(false);
+    }
+
     public void BackButtonClicked()
     {
         App.gameManager.SetGameState(GameState.menu);
@@ -15,6 +27,7 @@ public class LobbyScreen : ScreenBase
     {
         App.gameManager.SetGameState(GameState.game);
         App.screenManager.Show<InGameScreen>();
+        App.playerManager.InitPlayers();
         Hide();
     }
 }
