@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 23.699997, y: 10.799999}
-  m_SizeDelta: {x: 35.0558, y: 12.279602}
+  m_AnchoredPosition: {x: 264, y: 107.8}
+  m_SizeDelta: {x: 368.8, y: 97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1328418395825488216
 CanvasRenderer:
@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3426243292129460773}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8066516683062922348}
+        m_TargetAssemblyTypeName: WinScreen, Assembly-CSharp
+        m_MethodName: MenuButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2036453397758658143
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,8 +303,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5
-  m_fontSizeBase: 5
+  m_fontSize: 73.1
+  m_fontSizeBase: 73.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -367,8 +379,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 42.315594}
-  m_SizeDelta: {x: 108.1, y: 22.9688}
+  m_AnchoredPosition: {x: -0.000012354, y: 418.1653}
+  m_SizeDelta: {x: 947.142, y: 241.023}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1666584097179820410
 CanvasRenderer:
@@ -425,8 +437,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.6
-  m_fontSizeBase: 20.6
+  m_fontSize: 124.1
+  m_fontSizeBase: 124.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -503,8 +515,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -22.800003, y: 10.799999}
-  m_SizeDelta: {x: 35.0558, y: 12.279602}
+  m_AnchoredPosition: {x: -248, y: 107.8}
+  m_SizeDelta: {x: 368.8, y: 97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6791329551182734820
 CanvasRenderer:
@@ -587,7 +599,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3311754639082440693}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8066516683062922348}
+        m_TargetAssemblyTypeName: WinScreen, Assembly-CSharp
+        m_MethodName: LobbyButttonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5580761957541394850
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,8 +704,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5
-  m_fontSizeBase: 5
+  m_fontSize: 73.1
+  m_fontSizeBase: 73.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -731,6 +755,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3360435765612222628}
+  - component: {fileID: 8066516683062922348}
   m_Layer: 0
   m_Name: WinScreen
   m_TagString: Untagged
@@ -758,3 +783,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8066516683062922348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6812055917957751261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85b434419286fad42b1b46d008018ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

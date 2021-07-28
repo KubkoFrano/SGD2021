@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    GameState gameState = GameState.menu;
+
     private void Start()
     {
         App.gameManager = this;
@@ -38,5 +40,15 @@ public class GameManager : MonoBehaviour
     public void StartSceneUnloading(string sceneName)
     {
         StartCoroutine(UnloadSelectedScene(sceneName));
+    }
+
+    public bool CompareGameState(GameState gameState)
+    {
+        return this.gameState == gameState;
+    }
+
+    public void SetGameState(GameState gameState)
+    {
+        this.gameState = gameState;
     }
 }

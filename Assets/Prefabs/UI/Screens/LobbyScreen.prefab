@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.1
-  m_fontSizeBase: 6.1
+  m_fontSize: 85.2
+  m_fontSizeBase: 85.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -246,10 +246,10 @@ RectTransform:
   m_Father: {fileID: 5156830484367763145}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 79.8, y: -44.6}
-  m_SizeDelta: {x: 27.8475, y: 10.4775}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -255, y: 108}
+  m_SizeDelta: {x: 364.63007, y: 107.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6319020987409606114
 CanvasRenderer:
@@ -332,7 +332,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3754810816753927675}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2741263112059288891}
+        m_TargetAssemblyTypeName: LobbyScreen, Assembly-CSharp
+        m_MethodName: PlayButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5287846171638022500
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,10 +379,10 @@ RectTransform:
   m_Father: {fileID: 5156830484367763145}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -81.524, y: -44.6}
-  m_SizeDelta: {x: 27.8475, y: 10.4775}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 247, y: 108}
+  m_SizeDelta: {x: 364.63, y: 107.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8817062609215781918
 CanvasRenderer:
@@ -453,7 +465,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1729418936359162622}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2741263112059288891}
+        m_TargetAssemblyTypeName: LobbyScreen, Assembly-CSharp
+        m_MethodName: BackButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5758149684656785605
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,8 +512,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 42.3}
-  m_SizeDelta: {x: 135.2, y: 20.6}
+  m_AnchoredPosition: {x: 0, y: 400.34}
+  m_SizeDelta: {x: 1240.973, y: 276.666}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1833633127180535548
 CanvasRenderer:
@@ -546,8 +570,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.8
-  m_fontSizeBase: 18.8
+  m_fontSize: 174.9
+  m_fontSizeBase: 174.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -597,6 +621,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4148630051274116130}
+  - component: {fileID: 2741263112059288891}
   m_Layer: 0
   m_Name: LobbyScreen
   m_TagString: Untagged
@@ -624,6 +649,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2741263112059288891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7945220818946894928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd4682555a96b7458782dd034200033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9208554317871041897
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,8 +753,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.1
-  m_fontSizeBase: 6.1
+  m_fontSize: 85.2
+  m_fontSizeBase: 85.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

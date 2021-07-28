@@ -12,6 +12,16 @@ public class SettingsScreen : ScreenBase
     public Slider sfxSlider;
     public Slider ambientSlider;
 
+    public void BackButtonClicked()
+    {
+        if (App.gameManager.CompareGameState(GameState.menu))
+            App.screenManager.Show<MenuScreen>();
+        else
+            App.screenManager.Show<PauseScreen>();
+
+        Hide();
+    }
+
     public override void Show()
     {
         base.Show();

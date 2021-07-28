@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 332109693766061829}
+  - component: {fileID: 2678074634927241787}
   m_Layer: 0
   m_Name: MenuScreen
   m_TagString: Untagged
@@ -36,6 +37,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2678074634927241787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332109693766061828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049286bd0a3ec474998249d3e086a494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1216340016957630382
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,8 +85,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -63.6, y: -9.290202}
-  m_SizeDelta: {x: 52.1756, y: 10.7951}
+  m_AnchoredPosition: {x: 0.0000047684, y: -126}
+  m_SizeDelta: {x: 494.559, y: 110.202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8622517612633647129
 CanvasRenderer:
@@ -156,7 +169,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4556310650569592674}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2678074634927241787}
+        m_TargetAssemblyTypeName: MenuScreen, Assembly-CSharp
+        m_MethodName: AboutButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1745399621549393743
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,8 +274,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.9
-  m_fontSizeBase: 6.9
+  m_fontSize: 69.2
+  m_fontSizeBase: 69.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -327,8 +352,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -63.6, y: 1.5049}
-  m_SizeDelta: {x: 52.1756, y: 10.7951}
+  m_AnchoredPosition: {x: 0.0000047684, y: 0.0000081062}
+  m_SizeDelta: {x: 494.559, y: 110.202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8593078572898699251
 CanvasRenderer:
@@ -411,7 +436,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2627263242883105947}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2678074634927241787}
+        m_TargetAssemblyTypeName: MenuScreen, Assembly-CSharp
+        m_MethodName: SettingsButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2599219023801175428
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,8 +541,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.9
-  m_fontSizeBase: 6.9
+  m_fontSize: 69.2
+  m_fontSizeBase: 69.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -638,8 +675,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.9
-  m_fontSizeBase: 6.9
+  m_fontSize: 69.2
+  m_fontSizeBase: 69.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -716,8 +753,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -63.6, y: -20.085}
-  m_SizeDelta: {x: 52.1756, y: 10.7951}
+  m_AnchoredPosition: {x: 0.0000047684, y: -253}
+  m_SizeDelta: {x: 494.559, y: 110.202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7403174794853234352
 CanvasRenderer:
@@ -800,7 +837,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3218180850772945435}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2678074634927241787}
+        m_TargetAssemblyTypeName: MenuScreen, Assembly-CSharp
+        m_MethodName: ExitButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4326775160329072296
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,8 +884,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -34.690018, y: 40.460915}
-  m_SizeDelta: {x: 130.6199, y: 31.0782}
+  m_AnchoredPosition: {x: 0.0000052452, y: 381.37}
+  m_SizeDelta: {x: 1238.114, y: 317.267}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6129534878186328026
 CanvasRenderer:
@@ -893,8 +942,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.05
-  m_fontSizeBase: 19.05
+  m_fontSize: 123.79
+  m_fontSizeBase: 123.79
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1029,8 +1078,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.9
-  m_fontSizeBase: 6.9
+  m_fontSize: 69.2
+  m_fontSizeBase: 69.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1187,8 +1236,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -63.6, y: 12.3}
-  m_SizeDelta: {x: 52.1756, y: 10.7951}
+  m_AnchoredPosition: {x: 0.0000047684, y: 124}
+  m_SizeDelta: {x: 494.559, y: 110.202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5712023854573506431
 CanvasRenderer:
@@ -1271,4 +1320,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4730499727454784644}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2678074634927241787}
+        m_TargetAssemblyTypeName: MenuScreen, Assembly-CSharp
+        m_MethodName: PlayButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
