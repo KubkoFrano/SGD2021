@@ -35,8 +35,11 @@ public class InputDecider : MonoBehaviour
             return;
 
         if (App.gameManager.CompareGameState(GameState.game))
+        {
             App.screenManager.Show<PauseScreen>();
-        else if (App.gameManager.CompareGameState(GameState.pause))
+            App.gameManager.SetCurrentController(this.gameObject);
+        }
+        else if (App.gameManager.CompareGameState(GameState.pause) && App.gameManager.CompareCurrentController(this.gameObject))
         {
             App.screenManager.Hide<PauseScreen>();
             Time.timeScale = 1;

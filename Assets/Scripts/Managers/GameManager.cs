@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] string levelScene;
+
     GameState gameState = GameState.menu;
+    GameObject currentController;
 
     private void Start()
     {
@@ -56,5 +58,15 @@ public class GameManager : MonoBehaviour
     public string GetLevelScene()
     {
         return levelScene;
+    }
+
+    public void SetCurrentController(GameObject controller)
+    {
+        currentController = controller;
+    }
+
+    public bool CompareCurrentController(GameObject controller)
+    {
+        return controller == currentController;
     }
 }
