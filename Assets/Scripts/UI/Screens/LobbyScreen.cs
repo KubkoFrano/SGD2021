@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class LobbyScreen : ScreenBase
 {
-    [SerializeField] string sceneToLoad;
-
     public override void Show()
     {
         base.Show();
@@ -30,8 +28,8 @@ public class LobbyScreen : ScreenBase
         if (!(App.playerManager.GetPlayerCount() == 2 || App.playerManager.GetPlayerCount() == 4))
             return;
 
-        Camera.main.enabled = false;
-        App.gameManager.StartSceneLoading(sceneToLoad);
+        Time.timeScale = 1;
+        App.gameManager.StartSceneLoading(App.gameManager.GetLevelScene());
         App.gameManager.SetGameState(GameState.game);
         App.screenManager.Show<InGameScreen>();
         App.playerManager.InitPlayers();

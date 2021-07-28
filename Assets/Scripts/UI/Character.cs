@@ -12,7 +12,7 @@ public class Character : MonoBehaviour
 
     Image image;
 
-    private void Start()
+    private void Awake()
     {
         image = GetComponent<Image>();
         image.color = baseColor;

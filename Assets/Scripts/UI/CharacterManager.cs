@@ -6,7 +6,7 @@ public class CharacterManager : MonoBehaviour
 {
     [SerializeField] Character[] characters;
 
-    private void Start()
+    private void Awake()
     {
         App.characterManager = this;
     }

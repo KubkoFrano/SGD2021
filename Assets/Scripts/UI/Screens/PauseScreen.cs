@@ -4,9 +4,23 @@ using UnityEngine;
 
 public class PauseScreen : ScreenBase
 {
+    public override void Show()
+    {
+        base.Show();
+        App.gameManager.SetGameState(GameState.pause);
+        Time.timeScale = 0;
+    }
+
+    public override void Hide()
+    {
+        App.gameManager.SetGameState(GameState.game);
+        base.Hide();
+    }
+
     public void BackButtonClicked()
     {
         App.gameManager.SetGameState(GameState.game);
+        Time.timeScale = 1;
         Hide();
     }
 
@@ -20,6 +34,8 @@ public class PauseScreen : ScreenBase
     {
         App.gameManager.SetGameState(GameState.menu);
         App.screenManager.Show<MenuScreen>();
+        App.screenManager.Hide<InGameScreen>();
+        App.gameManager.StartSceneUnloading(App.gameManager.GetLevelScene());
         Hide();
     }
 }

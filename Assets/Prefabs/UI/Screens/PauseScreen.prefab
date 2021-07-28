@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00007338893, y: 104.09999}
+  m_AnchoredPosition: {x: -0.000084877014, y: 13.100029}
   m_SizeDelta: {x: 374.9, y: 101.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7271634653251781890
@@ -169,10 +169,10 @@ RectTransform:
   m_Father: {fileID: 2741921605112539367}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 885.61, y: 652}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7922356114994020153
 CanvasRenderer:
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.89411765}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -248,7 +248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -23}
+  m_AnchoredPosition: {x: 0.000025373, y: -104}
   m_SizeDelta: {x: 374.9, y: 101.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1221245619930215952
@@ -379,7 +379,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030518, y: 436.251}
+  m_AnchoredPosition: {x: -0.00012742, y: 204}
   m_SizeDelta: {x: 1343.74, y: 204.848}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1399489365980301551
@@ -783,7 +783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00002861, y: -143}
+  m_AnchoredPosition: {x: -0.000028803, y: -221}
   m_SizeDelta: {x: 374.9, y: 101.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4307697585388133362

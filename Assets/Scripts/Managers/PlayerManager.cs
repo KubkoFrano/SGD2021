@@ -95,7 +95,6 @@ public class PlayerManager : MonoBehaviour
     {
         for (int i = 0; i < players.Length; i++)
         {
-            Debug.Log(i);
             players[i]?.GetComponent<PlayerLobbyBehaviour>().SetMasks(cameraMasks[i], cameraLayers[i]);
 
             if (playerCount == 2)
@@ -106,6 +105,14 @@ public class PlayerManager : MonoBehaviour
             {
                 players[i]?.GetComponent<PlayerLobbyBehaviour>().SetViewport(viewports4[i]);
             }
+        }
+    }
+
+    public void DeleteAllPlayers()
+    {
+        foreach (GameObject player in players)
+        {
+            GetComponent<PlayerLobbyBehaviour>().Leave();
         }
     }
 }

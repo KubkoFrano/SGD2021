@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9806b93fa59f14ca018fe93d39ddf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelScene: TestLevel
 --- !u!4 &68680512
 Transform:
   m_ObjectHideFlags: 0
@@ -201,7 +202,7 @@ Camera:
   m_GameObject: {fileID: 1152649403}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -220,10 +221,10 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

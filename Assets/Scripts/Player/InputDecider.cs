@@ -28,4 +28,18 @@ public class InputDecider : MonoBehaviour
             playerMovement.Jump(context);
         }
     }
+
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (context.canceled || context.performed)
+            return;
+
+        if (App.gameManager.CompareGameState(GameState.game))
+            App.screenManager.Show<PauseScreen>();
+        else if (App.gameManager.CompareGameState(GameState.pause))
+        {
+            App.screenManager.Hide<PauseScreen>();
+            Time.timeScale = 1;
+        }
+    }
 }

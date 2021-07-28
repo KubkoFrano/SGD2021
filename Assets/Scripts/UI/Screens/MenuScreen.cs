@@ -8,6 +8,7 @@ public class MenuScreen : ScreenBase
     {
         App.gameManager.SetGameState(GameState.lobby);
         App.screenManager.Show<LobbyScreen>();
+        App.characterManager.ResetCharacters();
         Hide();
     }
 

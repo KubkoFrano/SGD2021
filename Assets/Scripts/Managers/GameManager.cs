@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] string levelScene;
     GameState gameState = GameState.menu;
 
     private void Start()
@@ -50,5 +51,10 @@ public class GameManager : MonoBehaviour
     public void SetGameState(GameState gameState)
     {
         this.gameState = gameState;
+    }
+
+    public string GetLevelScene()
+    {
+        return levelScene;
     }
 }
