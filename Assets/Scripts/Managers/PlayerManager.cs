@@ -5,10 +5,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField] LayerMask[] cameraMasks;
+    [SerializeField] int[] cameraLayers;
+    [SerializeField] Viewport[] viewports2 = new Viewport[2];
+    [SerializeField] Viewport[] viewports4 = new Viewport[4];
+
     PlayerInputManager inputManager;
 
-    public GameObject[] players;
-    int playerCount;
+    GameObject[] players;
+    int playerCount = 0;
+
+    Vector3[] spawnPositions;
 
     private void Start()
     {
@@ -17,6 +24,9 @@ public class PlayerManager : MonoBehaviour
         SetJoining(false);
 
         players = new GameObject[] { null, null, null, null };
+
+        //Temp
+        spawnPositions = new Vector3[] { new Vector3(2, 2, 0), new Vector3(-2, 2, 0), new Vector3(0, 2, 2), new Vector3(0, 2, -2) };
     }
 
     public void SetJoining(bool value)
@@ -57,7 +67,45 @@ public class PlayerManager : MonoBehaviour
     {
         foreach (GameObject player in players)
         {
-            player.GetComponent<PlayerLobbyBehaviour>().InitPlayer();
+            player?.GetComponent<PlayerLobbyBehaviour>().InitPlayer();
+        }
+
+        SetPlayerPositions();
+    }
+
+    public void CreatePlayerPositions(Vector3[] positions)
+    {
+        spawnPositions = positions;
+    }
+
+    public void SetPlayerPositions()
+    {
+        for (int i = 0; i < playerCount; i++)
+        {
+            players[i].transform.position = spawnPositions[i];
+        }
+    }
+
+    public int GetPlayerCount()
+    {
+        return playerCount;
+    }
+
+    public void SetupCameras()
+    {
+        for (int i = 0; i < players.Length; i++)
+        {
+            Debug.Log(i);
+            players[i]?.GetComponent<PlayerLobbyBehaviour>().SetMasks(cameraMasks[i], cameraLayers[i]);
+
+            if (playerCount == 2)
+            {
+                players[i]?.GetComponent<PlayerLobbyBehaviour>().SetViewport(viewports2[i]);
+            }
+            else if (playerCount == 4)
+            {
+                players[i]?.GetComponent<PlayerLobbyBehaviour>().SetViewport(viewports4[i]);
+            }
         }
     }
 }

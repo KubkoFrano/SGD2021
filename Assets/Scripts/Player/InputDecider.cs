@@ -25,7 +25,7 @@ public class InputDecider : MonoBehaviour
         }
         else if (App.gameManager.CompareGameState(GameState.game))
         {
-            playerMovement.Move(context);
+            playerMovement.Jump(context);
         }
     }
 }
