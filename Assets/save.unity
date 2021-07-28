@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4440443, g: 0.4934488, b: 0.57289416, a: 1}
+  m_IndirectSpecularColor: {r: 0.44404376, g: 0.49344808, b: 0.5728929, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -227,9 +227,12 @@ MonoBehaviour:
   fallSpeed: 1
   magnitude: 8
   acc: 0
+  lastRotationZ: 0
+  direction: 0
+  rotateItteration: 0
   spawnedPosition: {x: 0, y: 0, z: 0}
   lastPosition: {x: 0, y: 0, z: 0}
-  Position: {x: 0, y: 0, z: 0}
+  shakeMultiplePlatforms: 0
 --- !u!54 &483291837
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -356,7 +359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1394355170
 AudioListener:
   m_ObjectHideFlags: 0
@@ -432,6 +435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1582558516}
   - component: {fileID: 1582558515}
+  - component: {fileID: 1582558517}
   m_Layer: 0
   m_Name: PlayGround
   m_TagString: Untagged
@@ -451,13 +455,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7562cd75ccac3ab478c6f9bc33325c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxWidth: 9
-  maxHeight: 6
+  maxWidth: 5
+  maxHeight: 4
+  index: 0
+  position: []
   SpacingLenght: 0.5
   Hexagons:
   - {fileID: 483291829}
   - {fileID: 483291829}
   - {fileID: 483291829}
+  HexagoneList: []
+  SpawnablePlayerPositions:
+  - {x: 5.0463924e-23, y: 4.68e-43, z: 0}
+  - {x: 0, y: -1.7258746e+29, z: 4.65e-43}
+  - {x: 4.6e-44, y: 0, z: 5.0463924e-23}
+  - {x: 4.68e-43, y: 5.0464025e-23, z: 4.68e-43}
 --- !u!4 &1582558516
 Transform:
   m_ObjectHideFlags: 0
@@ -472,3 +484,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1582558517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582558514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f1fcf1b9ba58646951fc38e9c41457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPlatform: {x: 7, y: 22}

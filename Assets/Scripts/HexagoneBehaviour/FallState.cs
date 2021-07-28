@@ -25,7 +25,7 @@ public class FallState : State
             data.acc -= data.fallSpeed * Time.deltaTime;
 
             //data.Position = (Vector3.up * - data.acc);
-            Vector3 newPos = data.transform.position + Vector3.up * data.acc;
+            Vector3 newPos = new Vector3(data.spawnedPosition.x, data.transform.position.y, data.spawnedPosition.z) + Vector3.up * data.acc;
             data.rb.MovePosition(newPos);
 
         }
