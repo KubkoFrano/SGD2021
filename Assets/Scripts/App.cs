@@ -10,4 +10,7 @@ public static class App
     public static PlayerManager playerManager;
     public static CharacterManager characterManager;
     public static Timer timer;
+    public static InGameScreen inGameScreen;
+    public static KingOfTheHill kingOfTheHill;
+    public static WinScreen winScreen;
 }

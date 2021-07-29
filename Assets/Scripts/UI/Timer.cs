@@ -36,6 +36,8 @@ public class Timer : MonoBehaviour
             timer--;
             RefreshTimer();
         }
+
+        App.kingOfTheHill.EndMinigame();
     }
 
     void RefreshTimer()

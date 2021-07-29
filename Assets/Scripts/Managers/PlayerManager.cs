@@ -93,17 +93,19 @@ public class PlayerManager : MonoBehaviour
 
     public void SetupCameras()
     {
-        for (int i = 0; i < players.Length; i++)
+        List<GameObject> tempPlayerList = GetPlayerList();
+
+        for (int i = 0; i < tempPlayerList.Count; i++)
         {
-            players[i]?.GetComponent<PlayerLobbyBehaviour>().SetMasks(cameraMasks[i], cameraLayers[i]);
+            tempPlayerList[i]?.GetComponent<PlayerLobbyBehaviour>().SetMasks(cameraMasks[i], cameraLayers[i]);
 
             if (playerCount == 2)
             {
-                players[i]?.GetComponent<PlayerLobbyBehaviour>().SetViewport(viewports2[i]);
+                tempPlayerList[i]?.GetComponent<PlayerLobbyBehaviour>().SetViewport(viewports2[i]);
             }
             else if (playerCount == 4)
             {
-                players[i]?.GetComponent<PlayerLobbyBehaviour>().SetViewport(viewports4[i]);
+                tempPlayerList[i]?.GetComponent<PlayerLobbyBehaviour>().SetViewport(viewports4[i]);
             }
         }
     }
@@ -112,7 +114,19 @@ public class PlayerManager : MonoBehaviour
     {
         foreach (GameObject player in players)
         {
-            GetComponent<PlayerLobbyBehaviour>()?.Leave();
+            player?.GetComponent<PlayerLobbyBehaviour>().Leave();
         }
+    }
+
+    public List<GameObject> GetPlayerList()
+    {
+        List<GameObject> tempList = new List<GameObject>();
+        foreach (GameObject player in players)
+        {
+            if (player)
+                tempList.Add(player);
+        }
+
+        return tempList;
     }
 }

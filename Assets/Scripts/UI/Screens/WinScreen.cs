@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class WinScreen : ScreenBase
 {
+    [SerializeField] TextMeshProUGUI winnerText;
+
+    private void Awake()
+    {
+        App.winScreen = this;
+    }
+
     public void LobbyButttonClicked()
     {
         App.gameManager.SetGameState(GameState.lobby);
@@ -16,5 +24,10 @@ public class WinScreen : ScreenBase
         App.gameManager.SetGameState(GameState.menu);
         App.screenManager.Show<MenuScreen>();
         Hide();
+    }
+
+    public void SetWinnerText(int winner)
+    {
+        winnerText.text = "Winner: " + winner;
     }
 }

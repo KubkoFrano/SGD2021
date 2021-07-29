@@ -10,6 +10,16 @@ public class PlayerScore : MonoBehaviour
     int score;
     int scoreIndex;
 
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public int GetScoreIndex()
+    {
+        return scoreIndex;
+    }
+
     public void StartScoring()
     {
         StartCoroutine(Scoring());
@@ -17,7 +27,7 @@ public class PlayerScore : MonoBehaviour
 
     public void StopScoring()
     {
-        StopCoroutine(Scoring());
+        StopCoroutine(Scoring()); Debug.Log(scoreIndex + " stopped");
     }
 
     public void SetScoreIndex(int index)
@@ -30,7 +40,8 @@ public class PlayerScore : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(secondsBetweenScores);
-            score += scoreToAdd;
+            score += scoreToAdd; Debug.Log(scoreIndex + " score added");
+            App.kingOfTheHill.UpdateScore(scoreIndex, score);
         }
     }
 }

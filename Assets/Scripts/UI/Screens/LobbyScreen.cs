@@ -37,6 +37,7 @@ public class LobbyScreen : ScreenBase
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         App.timer.StartTimer();
+        App.inGameScreen.ResetScores();
         Hide();
     }
 }
