@@ -36,6 +36,7 @@ public class LobbyScreen : ScreenBase
         App.playerManager.SetupCameras();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        App.timer.StartTimer();
         Hide();
     }
 }

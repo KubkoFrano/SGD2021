@@ -9,4 +9,5 @@ public static class App
     public static GameManager gameManager;
     public static PlayerManager playerManager;
     public static CharacterManager characterManager;
+    public static Timer timer;
 }
