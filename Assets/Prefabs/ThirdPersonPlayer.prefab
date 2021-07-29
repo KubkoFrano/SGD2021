@@ -699,6 +699,7 @@ GameObject:
   - component: {fileID: 940658420567578557}
   - component: {fileID: 7414466038111613339}
   - component: {fileID: 2774579439439945837}
+  - component: {fileID: 2055330703783609812}
   m_Layer: 0
   m_Name: ThirdPersonPlayer
   m_TagString: Player
@@ -897,6 +898,20 @@ MonoBehaviour:
   camera: {fileID: 963194225}
   cinemachine: {fileID: 3685033884450872016}
   playerMovement: {fileID: 3685033884851739438}
+--- !u!114 &2055330703783609812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3685033884851739436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706b445468110de4c8b87ef614c18f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToAdd: 1
+  secondsBetweenScores: 2
 --- !u!1 &3685033885440908007
 GameObject:
   m_ObjectHideFlags: 0

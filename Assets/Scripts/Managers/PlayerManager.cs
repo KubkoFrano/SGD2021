@@ -112,7 +112,7 @@ public class PlayerManager : MonoBehaviour
     {
         foreach (GameObject player in players)
         {
-            GetComponent<PlayerLobbyBehaviour>().Leave();
+            GetComponent<PlayerLobbyBehaviour>()?.Leave();
         }
     }
 }
