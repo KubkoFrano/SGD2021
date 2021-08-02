@@ -18,7 +18,7 @@ public class PowerUpSpawner : MonoBehaviour
     {
         if(Random.value < 0.5f)
         {
-            if(ListOfPowerUPs.Count <= maxAmmountOfPowerUPs)
+            if(ListOfPowerUPs.Count < maxAmmountOfPowerUPs)
             {
                 ListOfPowerUPs.Add(Instantiate(PowerUP[Random.Range(0, PowerUP.Length)]));
                 int randomIndex = Random.Range(0, hexGen.HexagoneList.Count);

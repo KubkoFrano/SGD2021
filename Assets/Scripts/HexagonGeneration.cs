@@ -19,9 +19,11 @@ public class HexagonGeneration : MonoBehaviour
 
     public Vector3[] SpawnablePlayerPositions = new Vector3[4];
 
-    void Start()
+    void Awake()
     {
         GeneratePossitions();
+        App.playerManager.SetSpawnPositions(SpawnablePlayerPositions);
+        App.playerManager.SetPlayerPositions();
     }
 
     public void GeneratePossitions()
@@ -72,7 +74,7 @@ public class HexagonGeneration : MonoBehaviour
 
         for(int i = 0; i < SpawnablePlayerPositions.Length; i ++)
         {
-            SpawnablePlayerPositions[i] += Vector3.up * 5;
+            SpawnablePlayerPositions[i] += Vector3.up * 10;
         }
     }
 }

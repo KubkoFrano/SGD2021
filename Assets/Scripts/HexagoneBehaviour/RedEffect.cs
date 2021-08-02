@@ -5,7 +5,8 @@ using UnityEngine;
 public class RedEffect : MonoBehaviour
 {
     SyncFallState syncFall;
-    public List<Transform> playerPosition = new List<Transform>();  // Asign here every player
+
+    Transform[] playerTransforms;
 
 
     private void Start()
@@ -13,8 +14,7 @@ public class RedEffect : MonoBehaviour
         
         syncFall = this.transform.parent.parent.parent.GetComponent<SyncFallState>();
 
-        playerPosition.Add(GameObject.Find("/TestPlayer 1").transform);
-        playerPosition.Add(GameObject.Find("/TestPlayer 2").transform);
+        playerTransforms = App.playerManager.GetPlayerTransforms();
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -29,9 +29,9 @@ public class RedEffect : MonoBehaviour
     void ifPlayerCollide(Transform activePlayer)
     {
         List<Transform> enemies = new List<Transform>();
-        for (int i = 0; i < playerPosition.Count; i++)
+        for (int i = 0; i < playerTransforms.Length; i++)
         {
-            if (playerPosition[i] != activePlayer) enemies.Add(playerPosition[i]);
+            if (playerTransforms[i] != activePlayer) enemies.Add(playerTransforms[i]);
         }
 
 

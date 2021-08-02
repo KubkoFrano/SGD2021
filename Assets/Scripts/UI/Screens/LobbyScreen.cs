@@ -39,6 +39,7 @@ public class LobbyScreen : ScreenBase
         App.timer.StartTimer();
         App.inGameScreen.ResetScores();
         App.inGameScreen.SetPlayerNumber(App.playerManager.GetPlayerCount());
+        App.playerManager.CreatePlayerTransforms();
         Hide();
     }
 }

@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestLevel.unity
     guid: 9b3f77ecbae16674fadfa5f2a1fbd03d
+  - enabled: 1
+    path: Assets/Scenes/KingOfTheHill.unity
+    guid: 3b27c753d3f58ef42a2e7493196ed9f8
   m_configObjects: {}

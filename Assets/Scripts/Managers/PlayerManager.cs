@@ -17,16 +17,15 @@ public class PlayerManager : MonoBehaviour
 
     Vector3[] spawnPositions;
 
-    private void Start()
+    Transform[] playerTransforms;
+
+private void Start()
     {
         App.playerManager = this;
         inputManager = GetComponent<PlayerInputManager>();
         SetJoining(false);
 
         players = new GameObject[] { null, null, null, null };
-
-        //Temp
-        spawnPositions = new Vector3[] { new Vector3(2, 2, 0), new Vector3(-2, 2, 0), new Vector3(0, 2, 2), new Vector3(0, 2, -2) };
     }
 
     public void SetJoining(bool value)
@@ -69,8 +68,6 @@ public class PlayerManager : MonoBehaviour
         {
             player?.GetComponent<PlayerLobbyBehaviour>().InitPlayer();
         }
-
-        SetPlayerPositions();
     }
 
     public void CreatePlayerPositions(Vector3[] positions)
@@ -128,5 +125,26 @@ public class PlayerManager : MonoBehaviour
         }
 
         return tempList;
+    }
+
+    public void CreatePlayerTransforms()
+    {
+        List<GameObject> playerList = GetPlayerList();
+        playerTransforms = new Transform[playerList.Count];
+
+        for (int i = 0; i < playerList.Count; i++)
+        {
+            playerTransforms[i] = playerList[i].transform;
+        }
+    }
+
+    public Transform[] GetPlayerTransforms()
+    {
+        return playerTransforms;
+    }
+
+    public void SetSpawnPositions(Vector3[] positions)
+    {
+        spawnPositions = positions;
     }
 }

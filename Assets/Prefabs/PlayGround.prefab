@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &153638974189926372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 153638974189926370}
+  - component: {fileID: 153638974189926373}
+  - component: {fileID: 153638974189926371}
+  - component: {fileID: 153638974189926368}
+  m_Layer: 0
+  m_Name: PlayGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &153638974189926370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153638974189926372}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &153638974189926373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153638974189926372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7562cd75ccac3ab478c6f9bc33325c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxWidth: 9
+  maxHeight: 6
+  index: 0
+  position: []
+  SpacingLenght: 0.5
+  Hexagons:
+  - {fileID: 7684549791523798986, guid: b8eb18cd460bff4478c011122a7931bc, type: 3}
+  - {fileID: 7684549791523798986, guid: b8eb18cd460bff4478c011122a7931bc, type: 3}
+  - {fileID: 7684549791523798986, guid: b8eb18cd460bff4478c011122a7931bc, type: 3}
+  HexagoneList: []
+  SpawnablePlayerPositions:
+  - {x: 5.0463924e-23, y: 4.68e-43, z: 0}
+  - {x: 0, y: -1.7258746e+29, z: 4.65e-43}
+  - {x: 4.6e-44, y: 0, z: 5.0463924e-23}
+  - {x: 4.68e-43, y: 5.0464025e-23, z: 4.68e-43}
+--- !u!114 &153638974189926371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153638974189926372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f1fcf1b9ba58646951fc38e9c41457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPlatform: {x: 7, y: 22}
+--- !u!114 &153638974189926368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153638974189926372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf58d8d2c99e6546afa8a252ac5b3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PowerUP:
+  - {fileID: 2991494639146038997, guid: 6d84c5f4e373f7a4397edc8830b00439, type: 3}
+  - {fileID: 3255948776742736177, guid: aed9cde3d8cb62544abbf9c1d3c75ee5, type: 3}
+  - {fileID: 1498969261715667998, guid: 4ff92b88265603c4cb1e0bf5834f7234, type: 3}
+  maxAmmountOfPowerUPs: 5
