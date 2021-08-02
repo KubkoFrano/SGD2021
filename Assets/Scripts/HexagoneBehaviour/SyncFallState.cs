@@ -10,17 +10,6 @@ public class SyncFallState : MonoBehaviour
     HexagonGeneration HexGen;
     BehaviourHexagon behaviour;
 
-
-    void Start()
-    {
-        StartCoroutine(LateStart(5));
-    }
-
-    IEnumerator LateStart(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        ShakeCentralDown();
-    }
     public void ShakeCentralDown()
     {
         HexGen = GetComponent<HexagonGeneration>();
@@ -47,17 +36,21 @@ public class SyncFallState : MonoBehaviour
 
     public void ShakeThemDown()
     {
+        int randomAmmount = Random.Range(1, 5);
+        int n = 0;
         foreach (GameObject i in HexGen.HexagoneList)
         {
             if (Vector2.Distance(new Vector2(i.transform.position.x,                          i.transform.position.z), 
-                                 new Vector2(HexGen.HexagoneList[index].transform.position.x, HexGen.HexagoneList[index].transform.position.z)) < 10)
+                                 new Vector2(HexGen.HexagoneList[index].transform.position.x, HexGen.HexagoneList[index].transform.position.z)) < 12)
             {
-                //HexGen.HexagoneList.IndexOf(i);
+                if (n < randomAmmount && Random.value < .7f)
+                {
+                    behaviour = this.transform.GetChild(i.transform.GetSiblingIndex()).GetComponent<BehaviourHexagon>();
 
-                behaviour = this.transform.GetChild(i.transform.GetSiblingIndex()).GetComponent<BehaviourHexagon>();
-
-                behaviour.state.data.UpdateOnChange();
-                behaviour.state = new ShakeState(behaviour.state.data, false);
+                    behaviour.state.data.UpdateOnChange();
+                    behaviour.state = new ShakeState(behaviour.state.data, false);
+                    n++;
+                }
             }
         }
 

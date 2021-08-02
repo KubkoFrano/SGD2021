@@ -18,7 +18,6 @@ public class ShakeState : State
         {
             if(data.shakeMultiplePlatforms == true)
             {
-                Debug.Log("activateNeighbours");
                 data.activateNeighbours();
                 
                 //data.shakeMultiplePlatforms = false;
