@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GreenDiffuse
-  m_Shader: {fileID: 4800000, guid: 3e9ea98ab78846749b7f5c54ab28cf05, type: 3}
+  m_Name: Flame Green
+  m_Shader: {fileID: 4800000, guid: 7c0fcdbb1cf926b479d1743ba1cd17bd, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -73,7 +73,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _BackLight: {r: 0.15, g: 0.1, b: 0.075, a: 0.3}
-    - _Color: {r: 0.3739263, g: 0.754717, b: 0.26818556, a: 1}
+    - _BackLight: {r: 0.15, g: 0.1, b: 0.075, a: 1}
+    - _Color: {r: 0.2435365, g: 0.4433962, b: 0.15337601, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
