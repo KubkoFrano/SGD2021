@@ -147,4 +147,9 @@ private void Start()
     {
         spawnPositions = positions;
     }
+
+    public Vector3[] GetSpawnPositions()
+    {
+        return spawnPositions;
+    }
 }
