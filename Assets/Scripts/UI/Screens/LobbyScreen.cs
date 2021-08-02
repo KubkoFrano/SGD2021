@@ -38,6 +38,7 @@ public class LobbyScreen : ScreenBase
         Cursor.lockState = CursorLockMode.Locked;
         App.timer.StartTimer();
         App.inGameScreen.ResetScores();
+        App.inGameScreen.SetPlayerNumber(App.playerManager.GetPlayerCount());
         Hide();
     }
 }

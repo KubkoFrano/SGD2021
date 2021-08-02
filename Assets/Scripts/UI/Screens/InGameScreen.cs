@@ -24,4 +24,19 @@ public class InGameScreen : ScreenBase
             text.text = "0";
         }
     }
+
+    public void SetPlayerNumber(int num)
+    {
+        if (num == 2)
+        {
+            texts[2].gameObject.SetActive(false);
+            texts[3].gameObject.SetActive(false);
+
+        }
+        else
+        {
+            texts[2].gameObject.SetActive(true);
+            texts[3].gameObject.SetActive(true);
+        }
+    }
 }
