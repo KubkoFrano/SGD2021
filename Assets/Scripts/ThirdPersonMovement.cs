@@ -6,43 +6,47 @@ using UnityEngine.InputSystem;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] float acceleration;
+    [SerializeField] float maxSpeed;
     [SerializeField] float turnSmoothTime;
-    [SerializeField] float gravity;
-    [SerializeField] float jumpHeight;
+    [SerializeField] float jumpForce;
 
     Vector3 movement = Vector3.zero;
     float turnSmoothVelocity;
-    Vector3 velocity;
+    Vector3 moveDirection;
 
-    CharacterController controller;
     Transform cameraTransform;
+    GroundCheck groundCheck;
+    Rigidbody rb;
 
     private void Start()
     {
-        controller = GetComponent<CharacterController>();
         cameraTransform = GetComponentInChildren<Camera>().transform;
+        groundCheck = GetComponentInChildren<GroundCheck>();
+        rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
-        if (controller.isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
 
+    private void FixedUpdate()
+    {
         if (movement.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0, angle, 0);
 
-            Vector3 moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
-            controller.Move(moveDirection.normalized * speed * Time.deltaTime);
+            moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
+
+            rb.AddForce(moveDirection.normalized * acceleration);
         }
 
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        Vector3 tempMagnitude = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            Vector3 tempDir = new Vector3(moveDirection.normalized.x * maxSpeed, rb.velocity.y, moveDirection.normalized.z * maxSpeed);
+            rb.velocity = tempDir;
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -56,9 +60,9 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.canceled || context.performed || !controller.isGrounded)
+        if (context.canceled || context.performed || !groundCheck.IsGrounded())
             return;
 
-        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 }

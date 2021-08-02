@@ -23,7 +23,7 @@ public class BaseState : State
         else if (Random.value < 0.0002f)         //Change it later!!!
         {
             data.UpdateOnChange();
-            return new ShakeState(data);
+            return new ShakeState(data, false);
         }
         else if (Random.value < 0.0002f)
         {

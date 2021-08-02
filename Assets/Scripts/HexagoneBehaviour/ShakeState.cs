@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ShakeState : State
 {
-    public ShakeState(HexagonData data) : base(data)
+    public ShakeState(HexagonData data, bool shakeMultiplePlatforms) : base(data)
     {
-
+        data.shakeMultiplePlatforms = shakeMultiplePlatforms;
     }
     public override State Execute()
     {
@@ -16,7 +16,14 @@ public class ShakeState : State
 
         if (data.timeSinceLastChange > data.shakeDuration)
         {
-            data.UpdateOnChange();
+            if(data.shakeMultiplePlatforms == true)
+            {
+                data.activateNeighbours();
+                
+                //data.shakeMultiplePlatforms = false;
+            }
+
+            //data.UpdateOnChange();
             return new FallState(data);
         }
 
@@ -24,18 +31,6 @@ public class ShakeState : State
 
 
 
-        return new ShakeState(data);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return new ShakeState(data, data.shakeMultiplePlatforms);
     }
 }

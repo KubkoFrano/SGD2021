@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HexagonData : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
         spawnedPosition = this.transform.position;
@@ -30,7 +30,9 @@ public class HexagonData : MonoBehaviour
     public Vector3 spawnedPosition;
     public Vector3 lastPosition;
     //public Vector3 Position;
-    
+
+    public bool shakeMultiplePlatforms = false;
+
 
     public void UpdateOnChange()
     {
@@ -47,12 +49,15 @@ public class HexagonData : MonoBehaviour
         rotateItteration = Random.Range(0, 6);
 
         lastPosition = new Vector3(spawnedPosition.x, this.transform.position.y, spawnedPosition.z);
-        
+
+        shakeMultiplePlatforms = false;
     }
 
-    private void Update()
+    public void activateNeighbours()
     {
-        //this.transform.position = Position;
+        //this.transform.GetChild(HexGen.HexagoneList[index].transform.GetSiblingIndex())
+        //this.transform.GetComponentInParent<SyncFallState>().ShakeThemDown();
+        this.transform.parent.GetComponent<SyncFallState>().ShakeThemDown();
     }
 
 }
