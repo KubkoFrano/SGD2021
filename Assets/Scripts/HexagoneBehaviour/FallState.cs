@@ -9,7 +9,7 @@ public class FallState : State
     }
     public override State Execute()
     {
-        if (data.transform.position.y <= -10)
+        if (data.transform.position.y <= -15)
         {
 
             data.timeSinceLastChange += Time.deltaTime;
