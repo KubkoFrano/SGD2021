@@ -30,6 +30,14 @@ public class PlayerLobbyBehaviour : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    public void OnLeave(InputAction.CallbackContext context)
+    {
+        if (context.canceled || context.performed)
+            return;
+
+        Leave();
+    }
+
     public void InitPlayer()
     {
         playerMovement.enabled = true;

@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Leave",
+                    "type": "Button",
+                    "id": "a7267208-ee51-4494-8d85-fbbc7927d697",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -244,6 +252,28 @@
                     "action": "PunchPistol",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81da7fc4-b866-4a8a-bff9-83e81f514c0a",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Leave",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "34188ae1-a08c-472c-bb12-00865d31c0f6",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Leave",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -271,7 +301,7 @@
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
-                    "isOptional": true,
+                    "isOptional": false,
                     "isOR": false
                 }
             ]

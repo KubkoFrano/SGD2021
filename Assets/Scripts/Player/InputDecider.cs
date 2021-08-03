@@ -19,11 +19,7 @@ public class InputDecider : MonoBehaviour
         if (context.canceled || context.performed)
             return;
 
-        if (App.gameManager.CompareGameState(GameState.lobby))
-        {
-            lobbyBehaviour.Leave();
-        }
-        else if (App.gameManager.CompareGameState(GameState.game))
+        if (App.gameManager.CompareGameState(GameState.game))
         {
             playerMovement.Jump(context);
         }
