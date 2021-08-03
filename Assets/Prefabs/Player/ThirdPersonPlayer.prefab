@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Follow: {fileID: 3685033884851739437}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 61
+    FieldOfView: 100
     OrthographicSize: 10
     NearClipPlane: 0.01
     FarClipPlane: 5000
@@ -728,7 +728,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 42.04082
     m_SpeedMode: 0
-    m_MaxSpeed: 160.37
+    m_MaxSpeed: 120
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
