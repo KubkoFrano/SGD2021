@@ -9,12 +9,16 @@ public class BaseState : State
     }
 
     public override State Execute()
-    {
-        
+    { 
+
 
         data.timeSinceLastChange += Time.deltaTime;
 
-
+        if (data.replaceOffset == true)
+        {
+            data.UpdateOnChange();
+            return new ReplaceOffsetState(data);
+        }
         if (data.timeSinceLastChange > data.elevateStateTime)       //ChangeItLater!!!
         {
             data.UpdateOnChange();
@@ -30,6 +34,7 @@ public class BaseState : State
             data.UpdateOnChange();
             return new RotateState(data);
         }
+        
 
 
             return new BaseState(data);

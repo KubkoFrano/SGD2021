@@ -30,7 +30,6 @@ public class LobbyScreen : ScreenBase
 
         Time.timeScale = 1;
         App.gameManager.StartSceneLoading(App.gameManager.GetLevelScene());
-        App.gameManager.SetGameState(GameState.game);
         App.screenManager.Show<InGameScreen>();
         App.playerManager.InitPlayers();
         App.playerManager.SetupCameras();
@@ -40,6 +39,7 @@ public class LobbyScreen : ScreenBase
         App.inGameScreen.ResetScores();
         App.inGameScreen.SetPlayerNumber(App.playerManager.GetPlayerCount());
         App.playerManager.CreatePlayerTransforms();
+        App.gameManager.SetGameState(GameState.game);
         Hide();
     }
 }

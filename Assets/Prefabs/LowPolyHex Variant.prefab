@@ -296,10 +296,12 @@ MonoBehaviour:
   acc: 0
   lastRotationZ: 0
   direction: 0
+  offsetY: 0
   rotateItteration: 0
   spawnedPosition: {x: 0, y: 0, z: 0}
   lastPosition: {x: 0, y: 0, z: 0}
   shakeMultiplePlatforms: 0
+  neverFalls: 0
 --- !u!1001 &4935731782121232706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -369,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b281b0cd92b5f34469a1b8bd51cd5313, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f311c31dd3133447917f513c3db32ee, type: 3}
       propertyPath: m_Name
-      value: NEW LowPolyHex Variant
+      value: LowPolyHex Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8f311c31dd3133447917f513c3db32ee, type: 3}
       propertyPath: m_TagString

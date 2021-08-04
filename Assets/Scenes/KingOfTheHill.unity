@@ -123,6 +123,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &4273453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 153638974189926372, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+  m_PrefabInstance: {fileID: 368323454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4273458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4273453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09894886644c99f45be99d59116b94bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 0, y: 0}
+  MaxHeightOffset: 8
 --- !u!1001 &259159736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,6 +206,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 153638974189926368, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: maxAmmountOfPowerUPs
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 153638974189926370, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -235,6 +258,58 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayGround
       objectReference: {fileID: 0}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: scale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: scale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: maxWidth
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: SpacingLenght
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: middleHexagon.Array.data[0]
+      value: 
+      objectReference: {fileID: 1498969261715667998, guid: 4ff92b88265603c4cb1e0bf5834f7234, type: 3}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: randomSideHexagon.Array.data[0]
+      value: 
+      objectReference: {fileID: 1498969261715667998, guid: 4ff92b88265603c4cb1e0bf5834f7234, type: 3}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: randomSideHexagon.Array.data[1]
+      value: 
+      objectReference: {fileID: 3255948776742736177, guid: f632b4dc37ff0fd429bf63a7f2519570, type: 3}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: randomSideHexagon.Array.data[2]
+      value: 
+      objectReference: {fileID: 2991494639146038997, guid: 6d84c5f4e373f7a4397edc8830b00439, type: 3}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: randomSideHexagon.Array.data[3]
+      value: 
+      objectReference: {fileID: 3255948776742736177, guid: aed9cde3d8cb62544abbf9c1d3c75ee5, type: 3}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: randomSpawnableHexagon.Array.data[0]
+      value: 
+      objectReference: {fileID: 1498969261715667998, guid: 4ff92b88265603c4cb1e0bf5834f7234, type: 3}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: randomSpawnableHexagon.Array.data[1]
+      value: 
+      objectReference: {fileID: 2991494639146038997, guid: 6d84c5f4e373f7a4397edc8830b00439, type: 3}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: randomSpawnableHexagon.Array.data[2]
+      value: 
+      objectReference: {fileID: 3255948776742736177, guid: aed9cde3d8cb62544abbf9c1d3c75ee5, type: 3}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: randomSpawnableHexagon.Array.data[3]
+      value: 
+      objectReference: {fileID: 3255948776742736177, guid: f632b4dc37ff0fd429bf63a7f2519570, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
 --- !u!1 &1073683419

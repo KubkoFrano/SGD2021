@@ -5,7 +5,7 @@ using UnityEngine;
 public class BehaviourHexagon : MonoBehaviour
 {
     public State state;
-
+    
 
     private void Start()
     {
@@ -17,14 +17,7 @@ public class BehaviourHexagon : MonoBehaviour
 
     void Update()
     {
-        if (State.isInterupted)
-        {
-            State.SetInterupt(false);
-            state = new FallState(state.data);
-            
-        }
-
-
+        
         state = state.Execute();
         
     }
