@@ -6,9 +6,21 @@ public class PlayerScore : MonoBehaviour
 {
     [SerializeField] int scoreToAdd;
     [SerializeField] int secondsBetweenScores;
+    [SerializeField] Color32 baseColor;
+    [SerializeField] Color32 scoringColor;
+
+
+    [Header("Do not touch")]
+    [SerializeField] MeshRenderer meshRenderer;
 
     int score;
     int scoreIndex;
+    bool isScoring;
+
+    private void Start()
+    {
+        meshRenderer.material.color = baseColor;
+    }
 
     public int GetScore()
     {
@@ -22,12 +34,18 @@ public class PlayerScore : MonoBehaviour
 
     public void StartScoring()
     {
-        StartCoroutine(Scoring());
+        if (!isScoring)
+        {
+            StartCoroutine(Scoring());
+            isScoring = true;
+        }
     }
 
     public void StopScoring()
     {
-        StopCoroutine(Scoring()); Debug.Log(scoreIndex + " stopped");
+        isScoring = false;
+        meshRenderer.material.color = baseColor;
+        StopAllCoroutines();
     }
 
     public void SetScoreIndex(int index)
@@ -40,7 +58,8 @@ public class PlayerScore : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(secondsBetweenScores);
-            score += scoreToAdd; Debug.Log(scoreIndex + " score added");
+            meshRenderer.material.color = scoringColor;
+            score += scoreToAdd;
             App.kingOfTheHill.UpdateScore(scoreIndex, score);
         }
     }

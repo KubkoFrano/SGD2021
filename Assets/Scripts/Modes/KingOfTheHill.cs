@@ -63,16 +63,25 @@ public class KingOfTheHill : MonoBehaviour
 
         while (true)
         {
-            if (playerScores[index].transform.position.y > highestPlayer.transform.position.y && playerScores[index] != highestPlayer)
+            for (index = 0; index < playerScores.Length; index++)
             {
-                highestPlayer.StopAllCoroutines();
-                highestPlayer = playerScores[index];
-                highestPlayer.StartScoring();
+                if (Mathf.RoundToInt(playerScores[index].transform.position.y) > Mathf.RoundToInt(highestPlayer.transform.position.y) && playerScores[index] != highestPlayer)
+                {
+                    highestPlayer.StopScoring();
+                    highestPlayer = playerScores[index];
+                    highestPlayer.StartScoring();
+                }
+                else if (Mathf.RoundToInt(playerScores[index].transform.position.y) == Mathf.RoundToInt(highestPlayer.transform.position.y) && playerScores[index] != highestPlayer)
+                {
+                    highestPlayer.StopScoring();
+                }
             }
 
+            highestPlayer.StartScoring();
+            /*
             index++;
             if (index == playerScores.Length)
-                index = 0;
+                index = 0;*/
 
             yield return new WaitForSeconds(0.5f);
         }

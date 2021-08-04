@@ -1060,6 +1060,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToAdd: 1
   secondsBetweenScores: 2
+  baseColor:
+    serializedVersion: 2
+    rgba: 4286997087
+  scoringColor:
+    serializedVersion: 2
+    rgba: 4278255602
+  meshRenderer: {fileID: 3685033885495131022}
 --- !u!114 &2249794607867140311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1220,7 +1227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc8cb0ac59d35044abe718bc07e82278, type: 2}
+  - {fileID: 2100000, guid: 76f2ec73dd0a11e42a93e0774018afa5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
