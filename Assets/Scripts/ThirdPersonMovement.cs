@@ -10,10 +10,13 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] float maxSpeed;
     [SerializeField] float turnSmoothTime;
     [SerializeField] float jumpForce;
+    [SerializeField] float repellForce;
+    [SerializeField] float repellDuration;
 
     Vector3 movement = Vector3.zero;
     float turnSmoothVelocity;
     Vector3 moveDirection;
+    bool isRepelled = false;
 
     Transform cameraTransform;
     GroundCheck groundCheck;
@@ -43,7 +46,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         Vector3 tempMagnitude = new Vector3(rb.velocity.x, 0, rb.velocity.z);
 
-        if (rb.velocity.magnitude > maxSpeed)
+        if (rb.velocity.magnitude > maxSpeed && !isRepelled)
         {
             Vector3 tempDir = new Vector3(moveDirection.normalized.x * maxSpeed, rb.velocity.y, moveDirection.normalized.z * maxSpeed);
             rb.velocity = tempDir;
@@ -68,5 +71,20 @@ public class ThirdPersonMovement : MonoBehaviour
             return;
 
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    public void GetRepelled(Vector3 otherPos)
+    {
+        StartCoroutine(RepellCooldown());
+        Vector3 force = (transform.position - otherPos).normalized * repellForce;
+        rb.AddForce(force, ForceMode.Impulse);
+        Debug.Log(force);
+    }
+
+    IEnumerator RepellCooldown()
+    {
+        isRepelled = true;
+        yield return new WaitForSeconds(repellDuration);
+        isRepelled = false;
     }
 }
