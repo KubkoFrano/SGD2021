@@ -264,7 +264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
       propertyPath: scale.y
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
       propertyPath: maxWidth
@@ -275,41 +275,49 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: Hexagons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: Hexagons.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
       propertyPath: middleHexagon.Array.data[0]
       value: 
-      objectReference: {fileID: 1498969261715667998, guid: 4ff92b88265603c4cb1e0bf5834f7234, type: 3}
+      objectReference: {fileID: 3904427608595097105, guid: de2b34d375b77d84b8c035751cfa3e4a, type: 3}
     - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
       propertyPath: randomSideHexagon.Array.data[0]
       value: 
-      objectReference: {fileID: 1498969261715667998, guid: 4ff92b88265603c4cb1e0bf5834f7234, type: 3}
+      objectReference: {fileID: 1466998723333044676, guid: c16c4843ac5c5f34e8f849e6660b9a3c, type: 3}
     - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
       propertyPath: randomSideHexagon.Array.data[1]
       value: 
-      objectReference: {fileID: 3255948776742736177, guid: f632b4dc37ff0fd429bf63a7f2519570, type: 3}
+      objectReference: {fileID: 8111048323837857938, guid: 68a8a84851371bc4daf99637769f8dbb, type: 3}
     - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
       propertyPath: randomSideHexagon.Array.data[2]
       value: 
-      objectReference: {fileID: 2991494639146038997, guid: 6d84c5f4e373f7a4397edc8830b00439, type: 3}
+      objectReference: {fileID: 4603727260617938938, guid: 06de58a07ab7250468d9b94bde4ebd48, type: 3}
     - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
       propertyPath: randomSideHexagon.Array.data[3]
       value: 
-      objectReference: {fileID: 3255948776742736177, guid: aed9cde3d8cb62544abbf9c1d3c75ee5, type: 3}
+      objectReference: {fileID: 3904427608595097105, guid: de2b34d375b77d84b8c035751cfa3e4a, type: 3}
     - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
       propertyPath: randomSpawnableHexagon.Array.data[0]
       value: 
-      objectReference: {fileID: 1498969261715667998, guid: 4ff92b88265603c4cb1e0bf5834f7234, type: 3}
+      objectReference: {fileID: 1466998723333044676, guid: c16c4843ac5c5f34e8f849e6660b9a3c, type: 3}
     - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
       propertyPath: randomSpawnableHexagon.Array.data[1]
       value: 
-      objectReference: {fileID: 2991494639146038997, guid: 6d84c5f4e373f7a4397edc8830b00439, type: 3}
+      objectReference: {fileID: 8111048323837857938, guid: 68a8a84851371bc4daf99637769f8dbb, type: 3}
     - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
       propertyPath: randomSpawnableHexagon.Array.data[2]
       value: 
-      objectReference: {fileID: 3255948776742736177, guid: aed9cde3d8cb62544abbf9c1d3c75ee5, type: 3}
+      objectReference: {fileID: 4603727260617938938, guid: 06de58a07ab7250468d9b94bde4ebd48, type: 3}
     - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
       propertyPath: randomSpawnableHexagon.Array.data[3]
       value: 
-      objectReference: {fileID: 3255948776742736177, guid: f632b4dc37ff0fd429bf63a7f2519570, type: 3}
+      objectReference: {fileID: 3904427608595097105, guid: de2b34d375b77d84b8c035751cfa3e4a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
 --- !u!1 &1073683419

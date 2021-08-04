@@ -65,6 +65,9 @@ public class HexagonGeneration : MonoBehaviour
                 Vector3 nextPosition = new Vector3(CalculatePos.x, offsetY, CalculatePos.y);
 
                 Hexagons[HexType].transform.position = nextPosition;
+                HexagoneList.Add(Instantiate(Hexagons[HexType]));
+                HexagoneList[i].transform.SetParent(this.transform);
+
 
                 if (isSpawnableCorner(i))
                 {
@@ -75,15 +78,19 @@ public class HexagonGeneration : MonoBehaviour
                         again = false;
                         randomI = Random.Range(0, (int)(randomSpawnableHexagon.Length));
 
-                        for(int t = 0; t < randomSpawnableHexagon.Length; t++)
+                        for (int t = 0; t < randomSpawnableHexagon.Length; t++)
                         {
                             if (randomI == testSpawn[t]) again = true;
                         }
 
                     }
                     testSpawn[p] = randomI;
-                    randomSpawnableHexagon[randomI].transform.position = nextPosition;
-                    HexagoneList.Add(Instantiate(randomSpawnableHexagon[randomI]));
+
+                    HexagoneList[i].GetComponent<MeshRenderer>().material = randomSpawnableHexagon[randomI].GetComponent<MeshRenderer>().sharedMaterial;
+
+                    /*randomSpawnableHexagon[randomI].transform.position = nextPosition;
+                    HexagoneList.Add(Instantiate(randomSpawnableHexagon[randomI]));*/
+
                     p++;
                 }
                 else if (isSide(i))
@@ -101,18 +108,24 @@ public class HexagonGeneration : MonoBehaviour
                         }
                     }
                     testSide[o] = randomI;
-                    randomSideHexagon[randomI].transform.position = nextPosition;
-                    HexagoneList.Add(Instantiate(randomSideHexagon[randomI]));
+
+                    HexagoneList[i].GetComponent<MeshRenderer>().material = randomSideHexagon[randomI].GetComponent<MeshRenderer>().sharedMaterial;
+
+                    /*randomSideHexagon[randomI].transform.position = nextPosition;
+                    HexagoneList.Add(Instantiate(randomSideHexagon[randomI]));*/
+
                     o++;
                 }
                 else if (isMiddle(i))
                 {
                     int randomI = Random.Range(0, middleHexagon.Length);
-                    middleHexagon[randomI].transform.position = nextPosition;
-                    HexagoneList.Add(Instantiate(middleHexagon[randomI]));
+
+                    HexagoneList[i].GetComponent<MeshRenderer>().material = middleHexagon[randomI].GetComponent<MeshRenderer>().sharedMaterial;
+
+                    /*middleHexagon[randomI].transform.position = nextPosition;
+                    HexagoneList.Add(Instantiate(middleHexagon[randomI]));*/
                 }
-                else HexagoneList.Add(Instantiate(Hexagons[HexType]));
-                HexagoneList[i].transform.SetParent(this.transform);
+                
             }
 
         }
