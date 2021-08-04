@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4896965970105237161, guid: ad18433421ec85643a24b994af6711eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.5
+      value: 45.5
       objectReference: {fileID: 0}
     - target: {fileID: 4896965970105237161, guid: ad18433421ec85643a24b994af6711eb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4896965970105237161, guid: ad18433421ec85643a24b994af6711eb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 4896965970105237161, guid: ad18433421ec85643a24b994af6711eb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -71,5 +71,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: NEW LowPolyHex Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8384118176534982924, guid: ad18433421ec85643a24b994af6711eb, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2534964839176971238, guid: 8f311c31dd3133447917f513c3db32ee, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad18433421ec85643a24b994af6711eb, type: 3}
