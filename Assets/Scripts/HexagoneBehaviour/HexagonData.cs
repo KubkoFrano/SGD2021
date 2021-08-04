@@ -24,6 +24,7 @@ public class HexagonData : MonoBehaviour
 
     public float lastRotationZ = 0;
     public float direction = 0;
+    public float offsetY = 0;
 
     public int rotateItteration = 0;
 
@@ -32,7 +33,10 @@ public class HexagonData : MonoBehaviour
     //public Vector3 Position;
 
     public bool shakeMultiplePlatforms = false;
+    public bool neverFalls = false;
+    public bool replaceOffset = false;
 
+    public float revivedHeight;
 
     public void UpdateOnChange()
     {
@@ -51,6 +55,9 @@ public class HexagonData : MonoBehaviour
         lastPosition = new Vector3(spawnedPosition.x, this.transform.position.y, spawnedPosition.z);
 
         shakeMultiplePlatforms = false;
+        replaceOffset = false;
+
+        revivedHeight = Random.Range(offsetY - magnitude, offsetY + magnitude);
     }
 
     public void activateNeighbours()

@@ -10,7 +10,10 @@ public class ShakeState : State
     }
     public override State Execute()
     {
-
+        if (data.neverFalls == true)
+        {
+            return new BaseState(data);
+        }
         data.timeSinceLastChange += Time.deltaTime;
         data.transform.position =  data.lastPosition + new Vector3(Random.value * .5f, 0, Random.value * .5f);
 

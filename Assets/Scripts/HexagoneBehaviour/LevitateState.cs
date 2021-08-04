@@ -14,7 +14,7 @@ public class LevitateState : State
         else data.smoothStart = 1;
 
         float y = PerlinNoiseMove(data.spawnedPosition.x, data.spawnedPosition.z) * data.smoothStart;
-        data.rb.MovePosition(new Vector3(data.lastPosition.x, (data.spawnedPosition.y * (data.smoothStart) + data.lastPosition.y * (1 - data.smoothStart) + y * data.magnitude), data.lastPosition.z));
+        data.rb.MovePosition(new Vector3(data.lastPosition.x, (data.offsetY * (data.smoothStart) + data.lastPosition.y * (1 - data.smoothStart) + y * data.magnitude), data.lastPosition.z));
 
         data.timeSinceLastChange += Time.deltaTime;
         if (data.timeSinceLastChange > 8f)
@@ -22,8 +22,13 @@ public class LevitateState : State
             data.UpdateOnChange();
             return new BaseState(data);
         }
+        else if (data.replaceOffset == true)
+        {
+            data.UpdateOnChange();
+            return new ReplaceOffsetState(data);
+        }
 
-        
+
         return new LevitateState(data);
     }
 

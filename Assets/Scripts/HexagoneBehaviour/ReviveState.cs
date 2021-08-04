@@ -11,7 +11,7 @@ public class ReviveState : State
     public override State Execute()
     {
 
-        if (data.transform.position.y >= Random.Range(-data.magnitude, +data.magnitude))
+        if (data.transform.position.y >= data.revivedHeight)
         {
             data.UpdateOnChange();
             return new BaseState(data);

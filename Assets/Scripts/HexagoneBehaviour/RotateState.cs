@@ -15,7 +15,8 @@ public class RotateState : State
 
         if (data.transform.localEulerAngles.y >= data.lastRotationZ + data.rotateItteration * 60 || data.transform.localEulerAngles.y <= data.lastRotationZ - data.rotateItteration * 60)  // fakt dlha podmienka XD sry
         {
-            return new BaseState(data);
+            if (data.replaceOffset == true) return new ReplaceOffsetState(data);
+            else return new BaseState(data);
         }
 
 
