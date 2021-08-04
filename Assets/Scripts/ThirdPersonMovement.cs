@@ -12,6 +12,9 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float repellForce;
     [SerializeField] float repellDuration;
+    [SerializeField] float repellAcceleration;
+    [SerializeField] [Range(0, 1)] float slowDownAcc;
+    [SerializeField] float repellMaxSpeed;
 
     Vector3 movement = Vector3.zero;
     float turnSmoothVelocity;
@@ -41,16 +44,21 @@ public class ThirdPersonMovement : MonoBehaviour
 
             moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
 
-            rb.AddForce(moveDirection.normalized * acceleration);
+            rb.AddForce(moveDirection.normalized * (isRepelled ? repellAcceleration : acceleration));
         }
-
-        Vector3 tempMagnitude = new Vector3(rb.velocity.x, 0, rb.velocity.z);
 
         if (rb.velocity.magnitude > maxSpeed && !isRepelled)
         {
             Vector3 tempDir = new Vector3(moveDirection.normalized.x * maxSpeed, rb.velocity.y, moveDirection.normalized.z * maxSpeed);
             rb.velocity = tempDir;
         }
+
+        /*else if (isRepelled && rb.velocity.magnitude > repellMaxSpeed)
+        {
+            Vector3 temp = new Vector3((rb.velocity.normalized.x * repellMaxSpeed) + moveDirection.normalized.x * repellAcceleration, rb.velocity.y, (rb.velocity.normalized.z * repellMaxSpeed) + moveDirection.normalized.z * repellAcceleration);
+
+            rb.velocity = temp;
+        }*/
     }
 
     public void Move(InputAction.CallbackContext context)

@@ -872,7 +872,10 @@ MonoBehaviour:
   turnSmoothTime: 0.1
   jumpForce: 5
   repellForce: 10
-  repellDuration: 3
+  repellDuration: 1
+  repellAcceleration: 5
+  slowDownAcc: 0
+  repellMaxSpeed: 0
 --- !u!114 &7256028431645177314
 MonoBehaviour:
   m_ObjectHideFlags: 0
