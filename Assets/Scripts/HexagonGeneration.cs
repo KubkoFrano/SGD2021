@@ -158,7 +158,7 @@ public class HexagonGeneration : MonoBehaviour
 
         for (int i = 0; i < spawnablePlayerPositions.Length; i++)
         {
-            spawnablePlayerPositions[i] += Vector3.up * 10;
+            spawnablePlayerPositions[i] += Vector3.up * 15;
         }
     }
 
