@@ -10,6 +10,7 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField] float punchCooldown;
     [SerializeField] float punchSeconds;
     [SerializeField] float checkRadius;
+    [SerializeField] float zOffset;
 
    [Header("Do not touch")]
     [SerializeField] Animator anim;
@@ -48,6 +49,6 @@ public class PlayerAbilities : MonoBehaviour
     IEnumerator ManagePunch()
     {
         yield return new WaitForSeconds(punchSeconds);
-        pistol.Punch(checkRadius);
+        pistol.Punch(checkRadius, zOffset);
     }
 }

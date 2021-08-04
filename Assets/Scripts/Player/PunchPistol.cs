@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PunchPistol : MonoBehaviour
 {
-    public void Punch(float radius)
+    public void Punch(float radius, float zOffset)
     {
-        Collider[] colls = Physics.OverlapSphere(transform.position, radius, LayerMask.GetMask("Player"));
+        Collider[] colls = Physics.OverlapSphere(transform.position  + new Vector3(0, 0, zOffset), radius, LayerMask.GetMask("Player"));
 
         foreach (Collider coll in colls)
         {

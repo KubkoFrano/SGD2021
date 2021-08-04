@@ -984,10 +984,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 338d4c8f-27f1-4ae0-a0dd-e192af51d938
     m_ActionName: Player/PunchPistol[/Mouse/leftButton,/DualShock4GamepadHID/rightTrigger]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a7267208-ee51-4494-8d85-fbbc7927d697
-    m_ActionName: Player/Leave[/Keyboard/backspace,/DualShock4GamepadHID/buttonEast,/DualShock4GamepadHID/buttonEast,/DualShock4GamepadHID/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1079,7 +1075,8 @@ MonoBehaviour:
   punchForce: 1000
   punchCooldown: 2
   punchSeconds: 0.14
-  checkRadius: 1.5
+  checkRadius: 1.8
+  zOffset: -0.5
   anim: {fileID: 5965366565298665896}
 --- !u!1 &3685033885440908007
 GameObject:
