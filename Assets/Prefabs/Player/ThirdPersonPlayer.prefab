@@ -880,6 +880,10 @@ MonoBehaviour:
   buttonHoldTime: 0.5
   baloonForce: 5
   riseSpeed: 5
+  maxBaloonFloatTime: 3
+  baloonRechargeSpeed: 0.8
+  baloonAcceleration: 10
+  maxBaloonSpeed: 3
 --- !u!114 &7256028431645177314
 MonoBehaviour:
   m_ObjectHideFlags: 0

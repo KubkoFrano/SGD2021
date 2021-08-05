@@ -20,12 +20,18 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] float buttonHoldTime;
     [SerializeField] float baloonForce;
     [SerializeField] float riseSpeed;
+    [SerializeField] float maxBaloonFloatTime;
+    [SerializeField] float baloonRechargeSpeed;
+    [SerializeField] float baloonAcceleration;
+    [SerializeField] float maxBaloonSpeed;
 
     Vector3 movement = Vector3.zero;
     float turnSmoothVelocity;
     Vector3 moveDirection;
     bool isRepelled = false;
     bool isBalooning = false;
+    float baloonFloatTime;
+    int baloonIndex = -1;
 
     Transform cameraTransform;
     GroundCheck groundCheck;
@@ -37,6 +43,8 @@ public class ThirdPersonMovement : MonoBehaviour
         groundCheck = GetComponentInChildren<GroundCheck>();
         rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
+        baloonFloatTime = maxBaloonFloatTime;
+        StartCoroutine(BaloonRecharge());
     }
 
 
@@ -50,13 +58,28 @@ public class ThirdPersonMovement : MonoBehaviour
 
             moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
 
-            rb.AddForce(moveDirection.normalized * (isRepelled ? repellAcceleration : acceleration));
+            if (isBalooning)
+                rb.AddForce(moveDirection.normalized * baloonAcceleration);
+            else
+                rb.AddForce(moveDirection.normalized * (isRepelled ? repellAcceleration : acceleration));
         }
 
-        if (rb.velocity.magnitude > maxSpeed && !isRepelled)
+
+        if (isBalooning)
         {
-            Vector3 tempDir = new Vector3(moveDirection.normalized.x * maxSpeed, rb.velocity.y, moveDirection.normalized.z * maxSpeed);
-            rb.velocity = tempDir;
+            if (rb.velocity.magnitude > maxBaloonSpeed && !isRepelled)
+            {
+                Vector3 tempDir = new Vector3(moveDirection.normalized.x * maxBaloonSpeed, rb.velocity.y, moveDirection.normalized.z * maxBaloonSpeed);
+                rb.velocity = tempDir;
+            }
+        }
+        else
+        {
+            if (rb.velocity.magnitude > maxSpeed && !isRepelled)
+            {
+                Vector3 tempDir = new Vector3(moveDirection.normalized.x * maxSpeed, rb.velocity.y, moveDirection.normalized.z * maxSpeed);
+                rb.velocity = tempDir;
+            }
         }
 
         /*else if (isRepelled && rb.velocity.magnitude > repellMaxSpeed)
@@ -86,6 +109,9 @@ public class ThirdPersonMovement : MonoBehaviour
             isBalooning = false;
             return;
         }
+        else
+            isBalooning = true;
+
 
         if (context.performed)
             return;
@@ -117,16 +143,8 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(buttonHoldTime);
 
-        isBalooning = true;
-        while (true)
+        while (baloonFloatTime > 0 && isBalooning)
         {
-            if (!isBalooning)
-            {
-                Debug.Log("cancelled");
-                break;
-            }
-                
-
             rb.AddForce(Vector3.up * baloonForce, ForceMode.Force);
 
             if (rb.velocity.y > riseSpeed)
@@ -134,7 +152,38 @@ public class ThirdPersonMovement : MonoBehaviour
                 rb.velocity = new Vector3(rb.velocity.x, riseSpeed, rb.velocity.z);
             }
 
+            baloonFloatTime -= Time.deltaTime;
+
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    IEnumerator BaloonRecharge()
+    {
+        while (true)
+        {
+            if (!isBalooning)
+            {
+                baloonFloatTime += baloonRechargeSpeed * Time.deltaTime;
+
+                if (baloonFloatTime > maxBaloonFloatTime)
+                    baloonFloatTime = maxBaloonFloatTime;
+            }
+
+            //Refresh UI
+            if (baloonIndex != -1)
+                App.inGameScreen.UpdateBaloon(baloonIndex, GetTimeNormalized());
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    public void SetBaloonIndex(int index)
+    {
+        baloonIndex = index;
+    }
+
+    float GetTimeNormalized()
+    {
+        return baloonFloatTime / maxBaloonFloatTime;
     }
 }
