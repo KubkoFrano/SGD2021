@@ -868,7 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ad5af96fefb7d4492124da88ca2840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 20
+  acceleration: 25
   maxSpeed: 5
   turnSmoothTime: 0.1
   jumpForce: 5
@@ -879,7 +879,7 @@ MonoBehaviour:
   repellMaxSpeed: 0
   buttonHoldTime: 0.5
   baloonForce: 5
-  riseSpeed: 5
+  riseSpeed: 2
   maxBaloonFloatTime: 3
   baloonRechargeSpeed: 0.8
   baloonAcceleration: 10
