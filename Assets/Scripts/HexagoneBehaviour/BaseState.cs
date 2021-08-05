@@ -14,7 +14,12 @@ public class BaseState : State
 
         data.timeSinceLastChange += Time.deltaTime;
 
-        if (data.replaceOffset == true)
+        if (Random.value < 0.0005f)
+        {
+            data.UpdateOnChange();
+            return new MoveState(data);
+        }
+        else if (data.replaceOffset == true)
         {
             data.UpdateOnChange();
             return new ReplaceOffsetState(data);

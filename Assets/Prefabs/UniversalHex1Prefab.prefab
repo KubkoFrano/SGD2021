@@ -142,7 +142,7 @@ MonoBehaviour:
   smoothStart: 0
   elevateSpeed: 0.75
   fallSpeed: 1
-  magnitude: 5
+  magnitude: 3
   acc: 0
   lastRotationZ: 0
   direction: 0

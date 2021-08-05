@@ -29,7 +29,7 @@ public class HexagonGeneration : MonoBehaviour
     int p = 0;
     int o = 0;
 
-    void Start()
+    void Awake()
     {
         GeneratePossitions();
         App.playerManager.SetSpawnPositions(spawnablePlayerPositions);
