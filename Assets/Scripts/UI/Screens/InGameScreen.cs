@@ -8,10 +8,21 @@ public class InGameScreen : ScreenBase
 {
     [SerializeField] TextMeshProUGUI[] texts;
     [SerializeField] Slider[] sliders;
+    [SerializeField] Slider[] birdSliders;
 
     private void Awake()
     {
         App.inGameScreen = this;
+    }
+
+    public void ToggleBirdSlider(int index, bool value)
+    {
+        birdSliders[index].gameObject.SetActive(value);
+    }
+
+    public void UpdateBird(int index, float value)
+    {
+        birdSliders[index].value = value;
     }
 
     public void UpdateBaloon(int index, float value)

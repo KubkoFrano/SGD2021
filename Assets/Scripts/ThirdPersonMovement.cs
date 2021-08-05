@@ -244,9 +244,20 @@ public class ThirdPersonMovement : MonoBehaviour
     IEnumerator BirdHat()
     {
         hasBird = true;
+        App.inGameScreen.ToggleBirdSlider(baloonIndex, true);
+        float timer = birdHatDuration;
 
-        yield return new WaitForSeconds(birdHatDuration);
+
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            App.inGameScreen.UpdateBird(baloonIndex, timer / birdHatDuration);
+            yield return new WaitForEndOfFrame();
+        }
+
+        App.inGameScreen.UpdateBird(baloonIndex, 0);
 
         hasBird = false;
+        App.inGameScreen.ToggleBirdSlider(baloonIndex, false);
     }
 }
