@@ -35,6 +35,7 @@ public class HexagonData : MonoBehaviour
     public bool shakeMultiplePlatforms = false;
     public bool neverFalls = false;
     public bool replaceOffset = false;
+    public bool SpawnProps = true;
 
     public float revivedHeight;
 

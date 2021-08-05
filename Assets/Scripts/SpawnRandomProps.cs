@@ -13,6 +13,7 @@ public class SpawnRandomProps : MonoBehaviour
         int []assignedPositions = new int[ammountOfProps];
         int[] usedIndexes = new int[6];
 
+        if(this.GetComponent<HexagonData>().SpawnProps == true)
         for (int i = 0; i < ammountOfProps; i++) 
         {
             int TransformIndex = 0;
