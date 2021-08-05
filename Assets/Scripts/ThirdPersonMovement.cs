@@ -25,13 +25,24 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] float baloonAcceleration;
     [SerializeField] float maxBaloonSpeed;
 
+    bool isBalooning = false;
+    float baloonFloatTime;
+    int baloonIndex = -1;
+
+    [Header("Bird Hat")]
+    [SerializeField] float birdHatForce;
+    [SerializeField] float birdRiseSpeed;
+    [SerializeField] float birdHatDuration;
+    [SerializeField] float birdAcceleration;
+    [SerializeField] float maxBirdSpeed;
+
+    bool hasBird = false;
+    bool isBirding = false;
+
     Vector3 movement = Vector3.zero;
     float turnSmoothVelocity;
     Vector3 moveDirection;
     bool isRepelled = false;
-    bool isBalooning = false;
-    float baloonFloatTime;
-    int baloonIndex = -1;
 
     Transform cameraTransform;
     GroundCheck groundCheck;
@@ -58,14 +69,23 @@ public class ThirdPersonMovement : MonoBehaviour
 
             moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
 
-            if (isBalooning)
+            if (isBirding)
+                rb.AddForce(moveDirection.normalized * birdAcceleration);
+            else if (isBalooning)
                 rb.AddForce(moveDirection.normalized * baloonAcceleration);
             else
                 rb.AddForce(moveDirection.normalized * (isRepelled ? repellAcceleration : acceleration));
         }
 
-
-        if (isBalooning)
+        if (isBirding)
+        {
+            if (rb.velocity.magnitude > maxBirdSpeed && !isRepelled)
+            {
+                Vector3 tempDir = new Vector3(moveDirection.normalized.x * maxBirdSpeed, rb.velocity.y, moveDirection.normalized.z * maxBirdSpeed);
+                rb.velocity = tempDir;
+            }
+        }
+        else if (isBalooning)
         {
             if (rb.velocity.magnitude > maxBaloonSpeed && !isRepelled)
             {
@@ -107,16 +127,26 @@ public class ThirdPersonMovement : MonoBehaviour
         if (context.canceled)
         {
             isBalooning = false;
+            isBirding = false;
             return;
         }
         else
-            isBalooning = true;
+        {
+            if (hasBird)
+            {
+                isBirding = true;
+                isBalooning = false;
+            } 
+            else
+                isBalooning = true;
+        }
 
 
         if (context.performed)
             return;
 
         StartCoroutine(Baloon());
+        StartCoroutine(Bird());
 
         if (!groundCheck.IsGrounded())
             return;
@@ -158,6 +188,25 @@ public class ThirdPersonMovement : MonoBehaviour
         }
     }
 
+    IEnumerator Bird()
+    {
+        yield return new WaitForSeconds(buttonHoldTime);
+
+        while (isBirding && hasBird)
+        {
+            rb.AddForce(Vector3.up * birdHatForce, ForceMode.Force);
+
+            if (rb.velocity.y > birdRiseSpeed)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, birdRiseSpeed, rb.velocity.z);
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        isBirding = false;
+    }
+
     IEnumerator BaloonRecharge()
     {
         while (true)
@@ -185,5 +234,30 @@ public class ThirdPersonMovement : MonoBehaviour
     float GetTimeNormalized()
     {
         return baloonFloatTime / maxBaloonFloatTime;
+    }
+
+    public void StartBirdHat()
+    {
+        StartCoroutine(BirdHat());
+    }
+
+    IEnumerator BirdHat()
+    {
+        hasBird = true;
+        App.inGameScreen.ToggleBirdSlider(baloonIndex, true);
+        float timer = birdHatDuration;
+
+
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            App.inGameScreen.UpdateBird(baloonIndex, timer / birdHatDuration);
+            yield return new WaitForEndOfFrame();
+        }
+
+        App.inGameScreen.UpdateBird(baloonIndex, 0);
+
+        hasBird = false;
+        App.inGameScreen.ToggleBirdSlider(baloonIndex, false);
     }
 }

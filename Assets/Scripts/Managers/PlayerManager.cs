@@ -145,8 +145,8 @@ private void Start()
 
     public void SetSpawnPositions(Vector3[] positions)
     {
-        spawnPositions = positions;
-        //spawnPositions = new Vector3[] { new Vector3(2, 20, 0), new Vector3(-2, 20, 0), new Vector3(0, 20, 2), new Vector3(0, 20, -2) };
+        //spawnPositions = positions;
+        spawnPositions = new Vector3[] { new Vector3(2, 20, 0), new Vector3(-2, 20, 0), new Vector3(0, 20, 2), new Vector3(0, 20, -2) };
     }
 
     public Vector3[] GetSpawnPositions()

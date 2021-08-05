@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 7853761216204639361}
   m_Layer: 0
   m_Name: GroundCheck
-  m_TagString: Player
+  m_TagString: PlayerOther
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 4784912187075541899}
   m_Layer: 0
   m_Name: Bone.002_end
-  m_TagString: Player
+  m_TagString: PlayerOther
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -884,6 +884,11 @@ MonoBehaviour:
   baloonRechargeSpeed: 0.8
   baloonAcceleration: 10
   maxBaloonSpeed: 3
+  birdHatForce: 10
+  birdRiseSpeed: 6
+  birdHatDuration: 10
+  birdAcceleration: 25
+  maxBirdSpeed: 6
 --- !u!114 &7256028431645177314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1117,7 +1122,7 @@ GameObject:
   - component: {fileID: 3685033885440908010}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Player
+  m_TagString: PlayerOther
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1198,7 +1203,7 @@ GameObject:
   - component: {fileID: 3685033885495131022}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: PlayerOther
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
