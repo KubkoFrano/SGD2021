@@ -64,10 +64,11 @@ public class HexagonGeneration : MonoBehaviour
                 Vector2 CalculatePos = new Vector2(x * positionOffset + offsetX, y * (positionOffset - 1));
                 Vector3 nextPosition = new Vector3(CalculatePos.x, offsetY, CalculatePos.y);
 
-                Hexagons[HexType].transform.position = nextPosition;
-                HexagoneList.Add(Instantiate(Hexagons[HexType]));
+                Hexagons[0].transform.position = nextPosition;
+                HexagoneList.Add(Instantiate(Hexagons[0]));
                 HexagoneList[i].transform.SetParent(this.transform);
 
+                HexagoneList[i].GetComponent<MeshFilter>().mesh = Hexagons[HexType].GetComponent<MeshFilter>().sharedMesh;
 
                 if (isSpawnableCorner(i))
                 {
@@ -86,6 +87,8 @@ public class HexagonGeneration : MonoBehaviour
                     }
                     testSpawn[p] = randomI;
 
+                    HexagoneList[i].GetComponent<HexagonData>().SpawnProps = false;
+                    HexagoneList[i].GetComponent<MeshFilter>().mesh = randomSpawnableHexagon[randomI].GetComponent<MeshFilter>().sharedMesh;
                     HexagoneList[i].GetComponent<MeshRenderer>().material = randomSpawnableHexagon[randomI].GetComponent<MeshRenderer>().sharedMaterial;
 
                     /*randomSpawnableHexagon[randomI].transform.position = nextPosition;
@@ -109,6 +112,8 @@ public class HexagonGeneration : MonoBehaviour
                     }
                     testSide[o] = randomI;
 
+                    HexagoneList[i].GetComponent<HexagonData>().SpawnProps = false;
+                    HexagoneList[i].GetComponent<MeshFilter>().mesh = randomSideHexagon[randomI].GetComponent<MeshFilter>().sharedMesh;
                     HexagoneList[i].GetComponent<MeshRenderer>().material = randomSideHexagon[randomI].GetComponent<MeshRenderer>().sharedMaterial;
 
                     /*randomSideHexagon[randomI].transform.position = nextPosition;
@@ -120,6 +125,8 @@ public class HexagonGeneration : MonoBehaviour
                 {
                     int randomI = Random.Range(0, middleHexagon.Length);
 
+                    HexagoneList[i].GetComponent<HexagonData>().SpawnProps = false;
+                    HexagoneList[i].GetComponent<MeshFilter>().mesh = middleHexagon[randomI].GetComponent<MeshFilter>().sharedMesh;
                     HexagoneList[i].GetComponent<MeshRenderer>().material = middleHexagon[randomI].GetComponent<MeshRenderer>().sharedMaterial;
 
                     /*middleHexagon[randomI].transform.position = nextPosition;
