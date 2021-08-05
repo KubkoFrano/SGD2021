@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 153638974189926373}
   - component: {fileID: 153638974189926371}
   - component: {fileID: 153638974189926368}
+  - component: {fileID: 6842322580120404975}
   m_Layer: 0
   m_Name: PlayGround
   m_TagString: Untagged
@@ -45,21 +46,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7562cd75ccac3ab478c6f9bc33325c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxWidth: 9
-  maxHeight: 6
-  index: 0
-  position: []
-  SpacingLenght: 0.5
+  scale: {x: 5, y: 9}
+  SpacingLenght: 3
   Hexagons:
-  - {fileID: 7684549791523798986, guid: b8eb18cd460bff4478c011122a7931bc, type: 3}
-  - {fileID: 7684549791523798986, guid: b8eb18cd460bff4478c011122a7931bc, type: 3}
-  - {fileID: 7684549791523798986, guid: b8eb18cd460bff4478c011122a7931bc, type: 3}
+  - {fileID: 2438704028009901404, guid: 59f07aa8955795642a5033bc56806cfa, type: 3}
+  - {fileID: 8183156947597043405, guid: fd26a6c49692ffc488b765cc33c76a75, type: 3}
+  - {fileID: 1791330647720451434, guid: b85939ae88fe4414b843f94543c8ed79, type: 3}
+  - {fileID: 860332679560726025, guid: 3dc1b2fed26cb714c981f4e7b07e76cf, type: 3}
+  randomSpawnableHexagon:
+  - {fileID: 2438704028009901404, guid: 5df3d0e50aa684d47bc3e2122fffa628, type: 3}
+  - {fileID: 8183156947597043405, guid: fd26a6c49692ffc488b765cc33c76a75, type: 3}
+  - {fileID: 1791330647720451434, guid: b85939ae88fe4414b843f94543c8ed79, type: 3}
+  - {fileID: 860332679560726025, guid: 3dc1b2fed26cb714c981f4e7b07e76cf, type: 3}
+  randomSideHexagon:
+  - {fileID: 2438704028009901404, guid: 5df3d0e50aa684d47bc3e2122fffa628, type: 3}
+  - {fileID: 8183156947597043405, guid: fd26a6c49692ffc488b765cc33c76a75, type: 3}
+  - {fileID: 1791330647720451434, guid: b85939ae88fe4414b843f94543c8ed79, type: 3}
+  - {fileID: 860332679560726025, guid: 3dc1b2fed26cb714c981f4e7b07e76cf, type: 3}
+  middleHexagon:
+  - {fileID: 2438704028009901404, guid: 5df3d0e50aa684d47bc3e2122fffa628, type: 3}
   HexagoneList: []
-  SpawnablePlayerPositions:
-  - {x: 5.0463924e-23, y: 4.68e-43, z: 0}
-  - {x: 0, y: -1.7258746e+29, z: 4.65e-43}
-  - {x: 4.6e-44, y: 0, z: 5.0463924e-23}
-  - {x: 4.68e-43, y: 5.0464025e-23, z: 4.68e-43}
+  spawnablePlayerPositions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  offsetY: 0
 --- !u!114 &153638974189926371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,4 +101,18 @@ MonoBehaviour:
   - {fileID: 2991494639146038997, guid: 6d84c5f4e373f7a4397edc8830b00439, type: 3}
   - {fileID: 3255948776742736177, guid: aed9cde3d8cb62544abbf9c1d3c75ee5, type: 3}
   - {fileID: 1498969261715667998, guid: 4ff92b88265603c4cb1e0bf5834f7234, type: 3}
-  maxAmmountOfPowerUPs: 5
+  maxAmmountOfPowerUPs: 9
+--- !u!114 &6842322580120404975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153638974189926372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09894886644c99f45be99d59116b94bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 0, y: 0}
+  MaxHeightOffset: 10

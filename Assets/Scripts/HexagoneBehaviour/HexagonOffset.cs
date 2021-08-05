@@ -12,12 +12,12 @@ public class HexagonOffset : MonoBehaviour
     [SerializeField]
     float MaxHeightOffset = 20;
 
-    void Start()
     
+    private void Start()
     {
         
-        
         HexGenData = this.GetComponent<HexagonGeneration>();
+        
         pos = new Vector3[HexGenData.HexagoneList.Count];
         
         for (int i = 0; i < 4; i++)
@@ -32,6 +32,7 @@ public class HexagonOffset : MonoBehaviour
 
         for(int i = 0; i < pos.Length; i++)
         {
+
             HexGenData.HexagoneList[i].transform.position = pos[i];
         }
         
