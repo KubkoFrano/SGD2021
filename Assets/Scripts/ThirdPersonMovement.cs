@@ -16,10 +16,16 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] [Range(0, 1)] float slowDownAcc;
     [SerializeField] float repellMaxSpeed;
 
+    [Header("Baloon")]
+    [SerializeField] float buttonHoldTime;
+    [SerializeField] float baloonForce;
+    [SerializeField] float riseSpeed;
+
     Vector3 movement = Vector3.zero;
     float turnSmoothVelocity;
     Vector3 moveDirection;
     bool isRepelled = false;
+    bool isBalooning = false;
 
     Transform cameraTransform;
     GroundCheck groundCheck;
@@ -75,6 +81,17 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
+        if (context.canceled)
+        {
+            isBalooning = false;
+            return;
+        }
+
+        if (context.performed)
+            return;
+
+        StartCoroutine(Baloon());
+
         if (!groundCheck.IsGrounded())
             return;
 
@@ -94,5 +111,30 @@ public class ThirdPersonMovement : MonoBehaviour
         isRepelled = true;
         yield return new WaitForSeconds(repellDuration);
         isRepelled = false;
+    }
+
+    IEnumerator Baloon()
+    {
+        yield return new WaitForSeconds(buttonHoldTime);
+
+        isBalooning = true;
+        while (true)
+        {
+            if (!isBalooning)
+            {
+                Debug.Log("cancelled");
+                break;
+            }
+                
+
+            rb.AddForce(Vector3.up * baloonForce, ForceMode.Force);
+
+            if (rb.velocity.y > riseSpeed)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, riseSpeed, rb.velocity.z);
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

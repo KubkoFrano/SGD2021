@@ -877,6 +877,9 @@ MonoBehaviour:
   repellAcceleration: 5
   slowDownAcc: 0
   repellMaxSpeed: 0
+  buttonHoldTime: 0.5
+  baloonForce: 5
+  riseSpeed: 5
 --- !u!114 &7256028431645177314
 MonoBehaviour:
   m_ObjectHideFlags: 0

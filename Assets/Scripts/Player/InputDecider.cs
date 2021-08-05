@@ -16,9 +16,6 @@ public class InputDecider : MonoBehaviour
 
     public void JumpButton(InputAction.CallbackContext context)
     {
-        if (context.canceled || context.performed)
-            return;
-
         if (App.gameManager.CompareGameState(GameState.game))
         {
             playerMovement.Jump(context);

@@ -27,7 +27,7 @@
                     "id": "082de758-4e78-4241-b71e-69babfb35c55",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "Pause",
