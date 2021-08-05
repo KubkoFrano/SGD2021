@@ -59,7 +59,7 @@ public class HexagonData : MonoBehaviour
         shakeMultiplePlatforms = false;
         replaceOffset = false;
 
-        revivedHeight = Random.Range(offsetY - magnitude, offsetY + magnitude);
+        revivedHeight = Random.Range(offsetY - magnitude/2, offsetY + magnitude/2);
         randomOff = Random.value;
     }
 

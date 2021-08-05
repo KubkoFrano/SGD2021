@@ -67,7 +67,7 @@ public class HexagonGeneration : MonoBehaviour
                 Hexagons[0].transform.position = nextPosition;
                 HexagoneList.Add(Instantiate(Hexagons[0]));
                 HexagoneList[i].transform.SetParent(this.transform);
-
+                
                 HexagoneList[i].GetComponent<MeshFilter>().mesh = Hexagons[HexType].GetComponent<MeshFilter>().sharedMesh;
 
                 if (isSpawnableCorner(i))

@@ -32,7 +32,6 @@ public class HexagonOffset : MonoBehaviour
 
         for(int i = 0; i < pos.Length; i++)
         {
-
             HexGenData.HexagoneList[i].transform.position = pos[i];
         }
         

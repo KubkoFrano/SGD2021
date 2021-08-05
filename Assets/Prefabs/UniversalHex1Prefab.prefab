@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2438704028009901407}
   m_Layer: 0
   m_Name: UniversalHex1Prefab
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,7 +122,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 2959f797fec0bf8469a441d3ee8a415e, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: 7d71459a982bd76499355eba5199605c, type: 3}
 --- !u!114 &2438704028009901401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   neverFalls: 0
   replaceOffset: 0
   SpawnProps: 1
+  randomOff: 0
   revivedHeight: 0
 --- !u!114 &2438704028009901406
 MonoBehaviour:
