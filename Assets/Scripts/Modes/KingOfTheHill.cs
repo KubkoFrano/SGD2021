@@ -7,6 +7,7 @@ public class KingOfTheHill : MonoBehaviour
     [SerializeField] float timeSlowPercentage;
 
     PlayerScore[] playerScores;
+    ThirdPersonMovement[] movements;
 
     private void Awake()
     {
@@ -47,11 +48,15 @@ public class KingOfTheHill : MonoBehaviour
         List<GameObject> tempList = App.playerManager.GetPlayerList();
 
         playerScores = new PlayerScore[tempList.Count];
+        movements = new ThirdPersonMovement[tempList.Count];
 
         for (int i = 0; i < tempList.Count; i++)
         {
             playerScores[i] = tempList[i].GetComponent<PlayerScore>();
             playerScores[i].SetScoreIndex(i);
+
+            movements[i] = tempList[i].GetComponent<ThirdPersonMovement>();
+            movements[i].SetBaloonIndex(i);
         }
     }
 
