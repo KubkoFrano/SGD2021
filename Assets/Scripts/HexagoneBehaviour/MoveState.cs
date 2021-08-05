@@ -12,10 +12,10 @@ public class MoveState : State
     {
 
         if (data.smoothStart < 1.5f) data.smoothStart += 0.01f;
-        else data.smoothStart = 1.5f;
+        //else data.smoothStart = 1.5f;
 
 
-        if (data.transform.position.y >= data.lastPosition.y + data.randomOff * data.magnitude / 2 || data.transform.position.y <= data.lastPosition.y - data.randomOff * data.magnitude / 2)
+        if (data.transform.position.y >= data.offsetY + data.magnitude / 2 || data.transform.position.y <= data.offsetY - data.magnitude / 2)
         {
             data.UpdateOnChange();
             new BaseState(data);
