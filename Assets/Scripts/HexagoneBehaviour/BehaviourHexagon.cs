@@ -21,4 +21,9 @@ public class BehaviourHexagon : MonoBehaviour
         state = state.Execute();
         
     }
+
+    public void Fall()
+    {
+        state = new FallState(state.data);
+    }
 }
