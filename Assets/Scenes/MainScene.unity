@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9806b93fa59f14ca018fe93d39ddf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelScene: TestLevel
+  levelScene: KingOfTheHill
 --- !u!4 &68680512
 Transform:
   m_ObjectHideFlags: 0
