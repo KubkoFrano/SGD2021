@@ -5,14 +5,13 @@ using UnityEngine;
 public class RedEffect : MonoBehaviour
 {
     SyncFallState syncFall;
-
+    //int PowerUpIndex;
     Transform[] playerTransforms;
 
 
     private void Start()
     {
-        
-        syncFall = this.transform.parent.parent.parent.GetComponent<SyncFallState>();
+        syncFall = GetComponentInParent<SyncFallState>();
 
         playerTransforms = App.playerManager.GetPlayerTransforms();
     }
@@ -22,7 +21,7 @@ public class RedEffect : MonoBehaviour
         
         ifPlayerCollide(collision.gameObject.transform);
 
-
+        GetComponentInParent<PowerUpSpawner>().RemovePowerUp(this.gameObject);
         Destroy(this.gameObject);
     }
 

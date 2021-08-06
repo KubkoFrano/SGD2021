@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9806b93fa59f14ca018fe93d39ddf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelScene: TestLevel
+  levelScene: KingOfTheHill
 --- !u!4 &68680512
 Transform:
   m_ObjectHideFlags: 0
