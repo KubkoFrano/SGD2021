@@ -9,6 +9,7 @@ public class HammerPickup : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<Hammer>()?.InitiateHammer();
+            Destroy(this.gameObject);
         }
     }
 }
