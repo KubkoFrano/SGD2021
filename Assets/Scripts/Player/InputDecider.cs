@@ -7,11 +7,17 @@ public class InputDecider : MonoBehaviour
 {
     ThirdPersonMovement playerMovement;
     PlayerLobbyBehaviour lobbyBehaviour;
+    PlayerAbilities playerAbilities;
+    Hammer hammer;
+
+    bool hasHammer = false;
 
     private void Start()
     {
         playerMovement = GetComponent<ThirdPersonMovement>();
         lobbyBehaviour = GetComponent<PlayerLobbyBehaviour>();
+        playerAbilities = GetComponent<PlayerAbilities>();
+        hammer = GetComponent<Hammer>();
     }
 
     public void JumpButton(InputAction.CallbackContext context)
@@ -40,5 +46,21 @@ public class InputDecider : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
+    }
+
+    public void ShootButton(InputAction.CallbackContext context)
+    {
+        if (context.canceled || context.performed)
+            return;
+
+        if (hasHammer)
+            hammer.Activate(context);
+        else
+            playerAbilities.Punch(context);
+    }
+
+    public void SetHammer(bool value)
+    {
+        hasHammer = value;
     }
 }

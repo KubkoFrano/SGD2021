@@ -38,7 +38,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "PunchPistol",
+                    "name": "Punch",
                     "type": "Button",
                     "id": "338d4c8f-27f1-4ae0-a0dd-e192af51d938",
                     "expectedControlType": "Button",
@@ -230,7 +230,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "PunchPistol",
+                    "action": "Punch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -241,7 +241,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "PunchPistol",
+                    "action": "Punch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
