@@ -12,7 +12,7 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField] float checkRadius;
     [SerializeField] float zOffset;
 
-   [Header("Do not touch")]
+    [Header("Do not touch")]
     [SerializeField] Animator anim;
 
     bool canPunch = true;
@@ -50,5 +50,10 @@ public class PlayerAbilities : MonoBehaviour
     {
         yield return new WaitForSeconds(punchSeconds);
         pistol.Punch(checkRadius, zOffset);
+    }
+
+    public void SetHammer(bool value)
+    {
+        anim.gameObject.SetActive(!value);
     }
 }

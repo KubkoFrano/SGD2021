@@ -39,6 +39,10 @@ public class ThirdPersonMovement : MonoBehaviour
     bool hasBird = false;
     bool isBirding = false;
 
+    [Header("Hammer")]
+    [SerializeField] float hammerDownForce;
+    [SerializeField] float hammerUpForce;
+
     Vector3 movement = Vector3.zero;
     float turnSmoothVelocity;
     Vector3 moveDirection;
@@ -259,5 +263,16 @@ public class ThirdPersonMovement : MonoBehaviour
 
         hasBird = false;
         App.inGameScreen.ToggleBirdSlider(baloonIndex, false);
+    }
+
+    public void ActivateHammer()
+    {
+        if (!groundCheck.IsGrounded())
+            rb.AddForce(Vector3.down * hammerDownForce, ForceMode.Impulse);
+    }
+
+    public void HammerPunch()
+    {
+        rb.AddForce(Vector3.up * hammerUpForce, ForceMode.Impulse);
     }
 }
