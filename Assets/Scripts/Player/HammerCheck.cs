@@ -7,6 +7,7 @@ public class HammerCheck : MonoBehaviour
     Hammer hammer;
 
     bool hasHammer = false;
+    bool isGrounded = false;
 
     private void Awake()
     {
@@ -22,11 +23,22 @@ public class HammerCheck : MonoBehaviour
                 hammer.Punch();
                 other.gameObject.GetComponent<BehaviourHexagon>()?.Fall();
             }
+
+            isGrounded = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
         }
     }
 
     public void SetHammer(bool value)
     {
-        hasHammer = value;
+        if (!isGrounded)
+            hasHammer = value;
     }
 }
