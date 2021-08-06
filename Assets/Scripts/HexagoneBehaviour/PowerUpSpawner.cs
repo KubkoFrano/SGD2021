@@ -5,27 +5,61 @@ using UnityEngine;
 public class PowerUpSpawner : MonoBehaviour
 {
     public GameObject[] PowerUP = new GameObject[3];
-    List<GameObject> ListOfPowerUPs = new List<GameObject>();
+    public List<GameObject> listOfPowerUPs = new List<GameObject>();
     HexagonGeneration hexGen;
     public int maxAmmountOfPowerUPs = 15;
+
+    Transform[] playerTransform;
+
 
     private void Start()
     {
         hexGen = GetComponent<HexagonGeneration>();
+        playerTransform = App.playerManager.GetPlayerTransforms();
 
     }
     void Update()
     {
-        if(Random.value < 0.5f)
+
+        if (listOfPowerUPs.Count < maxAmmountOfPowerUPs)
         {
-            if(ListOfPowerUPs.Count < maxAmmountOfPowerUPs)
+            if (Random.value < 1f)
             {
-                ListOfPowerUPs.Add(Instantiate(PowerUP[Random.Range(0, PowerUP.Length)]));
-                int randomIndex = Random.Range(0, hexGen.HexagoneList.Count);
-                ListOfPowerUPs[ListOfPowerUPs.Count - 1].transform.parent = hexGen.HexagoneList[randomIndex].transform.GetChild(6).transform;
-                ListOfPowerUPs[ListOfPowerUPs.Count - 1].transform.position = hexGen.HexagoneList[randomIndex].transform.GetChild(6).transform.position;
-                
+                SpawnPowerUpNearPlayer(LowestPlayer());
             }
         }
+    }
+
+    Vector3 LowestPlayer()
+    {
+        Vector3 LowestPlayerPos = new Vector3(0, 1000, 0);
+
+        for (int i = 0; i < playerTransform.Length; i++)
+        {
+            if (LowestPlayerPos.y > playerTransform[i].position.y) LowestPlayerPos = playerTransform[i].position;
+        }
+
+        return LowestPlayerPos;
+    }
+
+    void SpawnPowerUpNearPlayer(Vector3 lowestPlayer)
+    {
+        Collider[] closeHexagons = Physics.OverlapSphere(lowestPlayer, 16, LayerMask.GetMask("Hexagon"));
+
+        int randomIndex = Random.Range(0, closeHexagons.Length);
+        if (closeHexagons[randomIndex].gameObject.transform.GetChild(6).childCount == 0)
+        {
+            listOfPowerUPs.Add(Instantiate(PowerUP[Random.Range(0, PowerUP.Length)]));
+
+            listOfPowerUPs[listOfPowerUPs.Count - 1].transform.parent = closeHexagons[randomIndex].gameObject.transform;
+            listOfPowerUPs[listOfPowerUPs.Count - 1].transform.position = closeHexagons[randomIndex].gameObject.transform.GetChild(6).transform.position;
+        }
+
+    }
+
+
+    public void RemovePowerUp(GameObject powerUp)
+    {
+        listOfPowerUPs.Remove(powerUp);
     }
 }
