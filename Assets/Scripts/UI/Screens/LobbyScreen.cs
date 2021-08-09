@@ -41,6 +41,7 @@ public class LobbyScreen : ScreenBase
         App.inGameScreen.SetPlayerNumber(App.playerManager.GetPlayerCount());
         App.playerManager.CreatePlayerTransforms();
         App.gameManager.SetGameState(GameState.game);
+        App.inGameScreen.ResetBirds();
         Hide();
     }
 }

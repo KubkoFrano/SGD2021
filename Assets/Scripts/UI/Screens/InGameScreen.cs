@@ -25,6 +25,15 @@ public class InGameScreen : ScreenBase
         birdSliders[index].value = value;
     }
 
+    public void ResetBirds()
+    {
+        foreach (Slider slider in birdSliders)
+        {
+            slider.value = 0;
+            slider.gameObject.SetActive(false);
+        }
+    }
+
     public void UpdateBaloon(int index, float value)
     {
         sliders[index].value = value;
