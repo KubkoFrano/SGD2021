@@ -21,9 +21,9 @@ public class PowerUpSpawner : MonoBehaviour
     void Update()
     {
 
-        if (listOfPowerUPs.Count < maxAmmountOfPowerUPs)
+        if (listOfPowerUPs.Count < maxAmmountOfPowerUPs && Time.timeSinceLevelLoad > 2)
         {
-            if (Random.value < 1f)
+            if (Random.value < 0.01f)
             {
                 SpawnPowerUpNearPlayer(LowestPlayer());
             }
@@ -51,7 +51,7 @@ public class PowerUpSpawner : MonoBehaviour
         {
             listOfPowerUPs.Add(Instantiate(PowerUP[Random.Range(0, PowerUP.Length)]));
 
-            listOfPowerUPs[listOfPowerUPs.Count - 1].transform.parent = closeHexagons[randomIndex].gameObject.transform;
+            listOfPowerUPs[listOfPowerUPs.Count - 1].transform.parent = closeHexagons[randomIndex].gameObject.transform.GetChild(6).transform;
             listOfPowerUPs[listOfPowerUPs.Count - 1].transform.position = closeHexagons[randomIndex].gameObject.transform.GetChild(6).transform.position;
         }
 

@@ -176,6 +176,7 @@ public class ThirdPersonMovement : MonoBehaviour
     IEnumerator Baloon()
     {
         yield return new WaitForSeconds(buttonHoldTime);
+        //rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
 
         while (baloonFloatTime > 0 && isBalooning)
         {
