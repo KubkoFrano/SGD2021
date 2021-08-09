@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedEffect : MonoBehaviour
+public class FallChain : MonoBehaviour
 {
     SyncFallState syncFall;
     //int PowerUpIndex;
@@ -21,8 +21,7 @@ public class RedEffect : MonoBehaviour
         
         ifPlayerCollide(collision.gameObject.transform);
 
-        GetComponentInParent<PowerUpSpawner>().RemovePowerUp(this.gameObject);
-        Destroy(this.gameObject);
+        ClearPowerUp();
     }
 
     void ifPlayerCollide(Transform activePlayer)
@@ -45,5 +44,11 @@ public class RedEffect : MonoBehaviour
             syncFall.targetPlatform = new Vector2(enemies[i].position.x, enemies[i].position.z);     //give hire xz pozition of target enemi player
             syncFall.ShakeCentralDown();
         }
+    }
+
+    void ClearPowerUp()
+    {
+        GetComponentInParent<PowerUpSpawner>().RemovePowerUp(this.gameObject);
+        Destroy(this.gameObject);
     }
 }

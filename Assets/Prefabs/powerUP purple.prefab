@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2991494639146038999}
   - component: {fileID: 2991494639146038996}
   - component: {fileID: 613754166524930641}
+  - component: {fileID: 4001692002694241465}
   m_Layer: 0
   m_Name: powerUP purple
   m_TagString: Untagged
@@ -108,3 +109,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2541b04511e1c8e42a082f5d2bc7474e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4001692002694241465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2991494639146038997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163866dcfb4e58246a838f6d8b37780d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 7
