@@ -105,13 +105,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraMasks:
   - serializedVersion: 2
-    m_Bits: 87
+    m_Bits: 3159
   - serializedVersion: 2
-    m_Bits: 151
+    m_Bits: 3223
   - serializedVersion: 2
-    m_Bits: 279
+    m_Bits: 3351
   - serializedVersion: 2
-    m_Bits: 535
+    m_Bits: 3607
   cameraLayers: 06000000070000000800000009000000
   viewports2:
   - X: 0
