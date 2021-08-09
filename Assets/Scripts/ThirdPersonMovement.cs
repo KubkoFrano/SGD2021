@@ -88,8 +88,7 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         else
             movementAnim.SetBool("isRunning", false);
-
-
+            
         float tempMag = Mathf.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.z * rb.velocity.z);
         float tempSpeed;
 
@@ -102,7 +101,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if (tempMag > tempSpeed && !isRepelled)
         {
-            Vector3 tempDir = new Vector3(moveDirection.normalized.x * maxBaloonSpeed, rb.velocity.y, moveDirection.normalized.z * maxBaloonSpeed);
+            Vector3 tempDir = new Vector3(moveDirection.normalized.x * tempSpeed, rb.velocity.y, moveDirection.normalized.z * tempSpeed);
             rb.velocity = tempDir;
         }
     }
