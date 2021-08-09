@@ -38,6 +38,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     bool hasBird = false;
     bool isBirding = false;
+    float birdTimer = 0;
 
     [Header("Hammer")]
     [SerializeField] float hammerDownForce;
@@ -51,6 +52,9 @@ public class ThirdPersonMovement : MonoBehaviour
     Transform cameraTransform;
     GroundCheck groundCheck;
     Rigidbody rb;
+
+    [Header("Do not touch")]
+    [SerializeField] Animator movementAnim;
 
     private void Start()
     {
@@ -79,39 +83,28 @@ public class ThirdPersonMovement : MonoBehaviour
                 rb.AddForce(moveDirection.normalized * baloonAcceleration);
             else
                 rb.AddForce(moveDirection.normalized * (isRepelled ? repellAcceleration : acceleration));
-        }
 
-        if (isBirding)
-        {
-            if (rb.velocity.magnitude > maxBirdSpeed && !isRepelled)
-            {
-                Vector3 tempDir = new Vector3(moveDirection.normalized.x * maxBirdSpeed, rb.velocity.y, moveDirection.normalized.z * maxBirdSpeed);
-                rb.velocity = tempDir;
-            }
-        }
-        else if (isBalooning)
-        {
-            if (rb.velocity.magnitude > maxBaloonSpeed && !isRepelled)
-            {
-                Vector3 tempDir = new Vector3(moveDirection.normalized.x * maxBaloonSpeed, rb.velocity.y, moveDirection.normalized.z * maxBaloonSpeed);
-                rb.velocity = tempDir;
-            }
+            movementAnim.SetBool("isRunning", true);
         }
         else
+            movementAnim.SetBool("isRunning", false);
+
+
+        float tempMag = Mathf.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.z * rb.velocity.z);
+        float tempSpeed;
+
+        if (isBirding)
+            tempSpeed = maxBirdSpeed;
+        if (isBalooning)
+            tempSpeed = maxBaloonSpeed;
+        else
+            tempSpeed = maxSpeed;
+
+        if (tempMag > tempSpeed && !isRepelled)
         {
-            if (rb.velocity.magnitude > maxSpeed && !isRepelled)
-            {
-                Vector3 tempDir = new Vector3(moveDirection.normalized.x * maxSpeed, rb.velocity.y, moveDirection.normalized.z * maxSpeed);
-                rb.velocity = tempDir;
-            }
+            Vector3 tempDir = new Vector3(moveDirection.normalized.x * maxBaloonSpeed, rb.velocity.y, moveDirection.normalized.z * maxBaloonSpeed);
+            rb.velocity = tempDir;
         }
-
-        /*else if (isRepelled && rb.velocity.magnitude > repellMaxSpeed)
-        {
-            Vector3 temp = new Vector3((rb.velocity.normalized.x * repellMaxSpeed) + moveDirection.normalized.x * repellAcceleration, rb.velocity.y, (rb.velocity.normalized.z * repellMaxSpeed) + moveDirection.normalized.z * repellAcceleration);
-
-            rb.velocity = temp;
-        }*/
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -176,6 +169,7 @@ public class ThirdPersonMovement : MonoBehaviour
     IEnumerator Baloon()
     {
         yield return new WaitForSeconds(buttonHoldTime);
+        //rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
 
         while (baloonFloatTime > 0 && isBalooning)
         {
@@ -242,20 +236,23 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public void StartBirdHat()
     {
-        StartCoroutine(BirdHat());
+        if (hasBird)
+            birdTimer = birdHatDuration;
+        else
+            StartCoroutine(BirdHat());
     }
 
     IEnumerator BirdHat()
     {
         hasBird = true;
         App.inGameScreen.ToggleBirdSlider(baloonIndex, true);
-        float timer = birdHatDuration;
+        birdTimer = birdHatDuration;
 
 
-        while (timer > 0)
+        while (birdTimer > 0)
         {
-            timer -= Time.deltaTime;
-            App.inGameScreen.UpdateBird(baloonIndex, timer / birdHatDuration);
+            birdTimer -= Time.deltaTime;
+            App.inGameScreen.UpdateBird(baloonIndex, birdTimer / birdHatDuration);
             yield return new WaitForEndOfFrame();
         }
 
