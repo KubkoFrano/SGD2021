@@ -38,6 +38,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     bool hasBird = false;
     bool isBirding = false;
+    float birdTimer = 0;
 
     [Header("Hammer")]
     [SerializeField] float hammerDownForce;
@@ -243,20 +244,23 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public void StartBirdHat()
     {
-        StartCoroutine(BirdHat());
+        if (hasBird)
+            birdTimer = birdHatDuration;
+        else
+            StartCoroutine(BirdHat());
     }
 
     IEnumerator BirdHat()
     {
         hasBird = true;
         App.inGameScreen.ToggleBirdSlider(baloonIndex, true);
-        float timer = birdHatDuration;
+        birdTimer = birdHatDuration;
 
 
-        while (timer > 0)
+        while (birdTimer > 0)
         {
-            timer -= Time.deltaTime;
-            App.inGameScreen.UpdateBird(baloonIndex, timer / birdHatDuration);
+            birdTimer -= Time.deltaTime;
+            App.inGameScreen.UpdateBird(baloonIndex, birdTimer / birdHatDuration);
             yield return new WaitForEndOfFrame();
         }
 
