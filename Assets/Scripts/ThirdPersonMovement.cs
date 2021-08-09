@@ -53,6 +53,9 @@ public class ThirdPersonMovement : MonoBehaviour
     GroundCheck groundCheck;
     Rigidbody rb;
 
+    [Header("Do not touch")]
+    [SerializeField] Animator movementAnim;
+
     private void Start()
     {
         cameraTransform = GetComponentInChildren<Camera>().transform;
@@ -80,7 +83,11 @@ public class ThirdPersonMovement : MonoBehaviour
                 rb.AddForce(moveDirection.normalized * baloonAcceleration);
             else
                 rb.AddForce(moveDirection.normalized * (isRepelled ? repellAcceleration : acceleration));
+
+            movementAnim.SetBool("isRunning", true);
         }
+        else
+            movementAnim.SetBool("isRunning", false);
 
         if (isBirding)
         {
