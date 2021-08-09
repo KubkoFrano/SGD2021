@@ -1093,23 +1093,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ad5af96fefb7d4492124da88ca2840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 25
-  maxSpeed: 5
+  acceleration: 40
+  maxSpeed: 8
   turnSmoothTime: 0.1
-  jumpForce: 5
+  jumpForce: 10
   repellForce: 10
   repellDuration: 1
   repellAcceleration: 5
   slowDownAcc: 0
   repellMaxSpeed: 0
   buttonHoldTime: 0.5
-  baloonForce: 10
+  baloonForce: 20
   riseSpeed: 2
   maxBaloonFloatTime: 3
   baloonRechargeSpeed: 0.8
   baloonAcceleration: 10
   maxBaloonSpeed: 3
-  birdHatForce: 10
+  birdHatForce: 20
   birdRiseSpeed: 6
   birdHatDuration: 10
   birdAcceleration: 25
