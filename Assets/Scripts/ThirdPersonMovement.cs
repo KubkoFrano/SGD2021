@@ -290,4 +290,9 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         return hasJumped;
     }
+
+    public void ResetBird()
+    {
+
+    }
 }

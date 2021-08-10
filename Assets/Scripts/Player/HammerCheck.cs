@@ -36,6 +36,11 @@ public class HammerCheck : MonoBehaviour
         }
     }
 
+    public void DeleteHammer()
+    {
+        hasHammer = false;
+    }
+
     public void SetHammer(bool value)
     {
         if (!isGrounded)
