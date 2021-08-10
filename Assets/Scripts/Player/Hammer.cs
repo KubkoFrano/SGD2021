@@ -48,4 +48,10 @@ public class Hammer : MonoBehaviour
         pa.SetHammer(false);
         id.SetHammer(false);
     }
+
+    public void ResetHammer()
+    {
+        DeleteHammer();
+        hc.DeleteHammer();
+    }
 }

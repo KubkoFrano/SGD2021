@@ -290,4 +290,13 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         return hasJumped;
     }
+
+    public void ResetBird()
+    {
+        hasBird = false;
+        isBirding = false;
+        StopCoroutine(Bird());
+        StopCoroutine(BirdHat());
+        App.inGameScreen.ToggleBirdSlider(baloonIndex, false);
+    }
 }
