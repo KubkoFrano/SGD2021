@@ -6,6 +6,7 @@ Shader "m1r0/CartoonWater"
         _Color1("Color1", Color) = (.25, .5, .5, 1)
         _Color2("Color2", Color) = (.25, .5, .5, 1)
         _Color3("Color3", Color) = (.25, .5, .5, 1)
+        _Scale("Scale", float) = 1.
     }
     SubShader
     {
@@ -37,6 +38,7 @@ Shader "m1r0/CartoonWater"
             float4 _Color1;
             float4 _Color2;
             float4 _Color3;
+            float _Scale;
 
             VertexOutput vert (VertexInput v)
             {
@@ -80,8 +82,8 @@ Shader "m1r0/CartoonWater"
              
             fixed4 frag(VertexOutput i) : SV_Target
             {
-                float f = worley(i.uv * 20.);
-                float w = worley(i.uv * 30.);
+                float f = worley(i.uv * _Scale);
+                float w = worley(i.uv * _Scale * 3./2.);
 
                 f = pow(f, 5.);
                 w = pow(w, 7.);

@@ -16,8 +16,7 @@ public class PowerUpBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        behaviour.state.data.UpdateOnChange();
-        behaviour.state = new MoveState(behaviour.state.data);
+        behaviour.MoveStateChange();
     }
 
     private void Update()

@@ -36,6 +36,8 @@ public class HexagonData : MonoBehaviour
     public bool neverFalls = false;
     public bool replaceOffset = false;
     public bool SpawnProps = true;
+    public bool baseState = false;
+
     public float randomOff = 0;
     public float revivedHeight;
 
@@ -60,7 +62,9 @@ public class HexagonData : MonoBehaviour
         replaceOffset = false;
 
         revivedHeight = Random.Range(offsetY - magnitude/2, offsetY + magnitude/2);
-        randomOff = Random.value;
+        randomOff = Random.Range(.5f, 1f);
+
+        baseState = false;
     }
 
     public void activateNeighbours()

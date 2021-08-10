@@ -9,9 +9,9 @@ public class BaseState : State
     }
 
     public override State Execute()
-    { 
+    {
 
-
+        data.baseState = true;
         data.timeSinceLastChange += Time.deltaTime;
 
         if (Random.value < 0.0005f)
