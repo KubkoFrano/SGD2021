@@ -251,6 +251,14 @@ public class ThirdPersonMovement : MonoBehaviour
 
     IEnumerator BirdHat()
     {
+        if (isBalooning)
+        {
+            StopCoroutine(Baloon());
+            isBalooning = false;
+            isBirding = true;
+            StartCoroutine(Bird());
+        }
+
         hasBird = true;
         App.inGameScreen.ToggleBirdSlider(baloonIndex, true);
         birdTimer = birdHatDuration;
