@@ -251,6 +251,14 @@ public class ThirdPersonMovement : MonoBehaviour
 
     IEnumerator BirdHat()
     {
+        if (isBalooning)
+        {
+            StopCoroutine(Baloon());
+            isBalooning = false;
+            isBirding = true;
+            StartCoroutine(Bird());
+        }
+
         hasBird = true;
         App.inGameScreen.ToggleBirdSlider(baloonIndex, true);
         birdTimer = birdHatDuration;
@@ -272,11 +280,15 @@ public class ThirdPersonMovement : MonoBehaviour
     public void ActivateHammer()
     {
         if (!groundCheck.IsGrounded())
+        {
             rb.AddForce(Vector3.down * hammerDownForce, ForceMode.Impulse);
+            ResetBird();
+        }    
     }
 
     public void HammerPunch()
     {
+        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce(Vector3.up * hammerUpForce, ForceMode.Impulse);
     }
 
@@ -289,5 +301,14 @@ public class ThirdPersonMovement : MonoBehaviour
     public bool HasJumped()
     {
         return hasJumped;
+    }
+
+    public void ResetBird()
+    {
+        hasBird = false;
+        isBirding = false;
+        StopCoroutine(Bird());
+        StopCoroutine(BirdHat());
+        App.inGameScreen.ToggleBirdSlider(baloonIndex, false);
     }
 }
