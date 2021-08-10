@@ -48,6 +48,7 @@ public class ThirdPersonMovement : MonoBehaviour
     float turnSmoothVelocity;
     Vector3 moveDirection;
     bool isRepelled = false;
+    bool hasJumped = false;
 
     Transform cameraTransform;
     GroundCheck groundCheck;
@@ -59,7 +60,7 @@ public class ThirdPersonMovement : MonoBehaviour
     private void Start()
     {
         cameraTransform = GetComponentInChildren<Camera>().transform;
-        groundCheck = GetComponentInChildren<GroundCheck>();
+        groundCheck = GetComponentInChildren<GroundCheck>().Assign(this);
         rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
         baloonFloatTime = maxBaloonFloatTime;
@@ -148,6 +149,13 @@ public class ThirdPersonMovement : MonoBehaviour
             return;
 
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+        if (!hasJumped)
+        {
+            movementAnim.SetTrigger("jump");
+            hasJumped = true;
+        }
+        
     }
 
     public void GetRepelled(Vector3 otherPos)
@@ -270,5 +278,16 @@ public class ThirdPersonMovement : MonoBehaviour
     public void HammerPunch()
     {
         rb.AddForce(Vector3.up * hammerUpForce, ForceMode.Impulse);
+    }
+
+    public void Land()
+    {
+        movementAnim.SetTrigger("land");
+        hasJumped = false;
+    }
+
+    public bool HasJumped()
+    {
+        return hasJumped;
     }
 }
