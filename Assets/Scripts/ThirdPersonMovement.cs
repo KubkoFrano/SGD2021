@@ -272,7 +272,10 @@ public class ThirdPersonMovement : MonoBehaviour
     public void ActivateHammer()
     {
         if (!groundCheck.IsGrounded())
+        {
             rb.AddForce(Vector3.down * hammerDownForce, ForceMode.Impulse);
+            ResetBird();
+        }    
     }
 
     public void HammerPunch()
