@@ -87,6 +87,7 @@ public class HexagonGeneration : MonoBehaviour
                     }
                     testSpawn[p] = randomI;
 
+                    
                     HexagoneList[i].GetComponent<HexagonData>().SpawnProps = false;
                     HexagoneList[i].GetComponent<MeshFilter>().mesh = randomSpawnableHexagon[randomI].GetComponent<MeshFilter>().sharedMesh;
                     HexagoneList[i].GetComponent<MeshRenderer>().material = randomSpawnableHexagon[randomI].GetComponent<MeshRenderer>().sharedMaterial;

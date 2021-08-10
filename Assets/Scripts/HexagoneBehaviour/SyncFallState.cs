@@ -58,8 +58,19 @@ public class SyncFallState : MonoBehaviour
         
     }
 
+    public void MoveStateChange()
+    {
+        foreach (GameObject i in HexGen.HexagoneList)
+        {
+            behaviour = this.transform.GetChild(i.transform.GetSiblingIndex()).GetComponent<BehaviourHexagon>();
+
+            behaviour.state.data.UpdateOnChange();
+            behaviour.state = new ShakeState(behaviour.state.data, false);
+        }
+    }
 
 
-    
+
+
 
 }

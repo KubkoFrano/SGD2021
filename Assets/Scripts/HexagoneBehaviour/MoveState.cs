@@ -14,14 +14,18 @@ public class MoveState : State
         if (data.smoothStart < 1.5f) data.smoothStart += 0.01f;
         //else data.smoothStart = 1.5f;
 
+        if      (data.transform.position.y > data.offsetY + data.magnitude * .6f) data.direction = -1;
+        else if (data.transform.position.y < data.offsetY - data.magnitude * .6f) data.direction = 1;
 
-        if (data.transform.position.y >= data.offsetY + data.magnitude / 2 || data.transform.position.y <= data.offsetY - data.magnitude / 2)
+        if (data.smoothStart >= Random.Range(1f, 2.5f))
         {
             data.UpdateOnChange();
-            new BaseState(data);
+            return new BaseState(data);
         }
-        Vector3 move = new Vector3(data.spawnedPosition.x, data.lastPosition.y + data.direction * data.randomOff * data.magnitude/2 * data.smoothStart, data.spawnedPosition.z);
+
+        Vector3 move = new Vector3(data.spawnedPosition.x, data.lastPosition.y + data.direction * data.randomOff * Time.deltaTime * 4.0f, data.spawnedPosition.z);
         data.rb.MovePosition(move);
+        data.lastPosition = data.transform.position;
 
         return new MoveState(data);
     }

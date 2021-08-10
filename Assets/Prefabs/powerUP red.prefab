@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3255948776742736140}
   - component: {fileID: 3255948776742736179}
   - component: {fileID: 3255948776742736178}
+  - component: {fileID: 778147398022179401}
   m_Layer: 0
   m_Name: powerUP red
   m_TagString: Untagged
@@ -108,3 +109,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fa0f5d78121b4439c2ef39b70a159f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &778147398022179401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3255948776742736177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163866dcfb4e58246a838f6d8b37780d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpEffect: {fileID: 0}
+  lifeTime: 7

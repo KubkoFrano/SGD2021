@@ -26,4 +26,13 @@ public class BehaviourHexagon : MonoBehaviour
     {
         state = new FallState(state.data);
     }
+
+    public void MoveStateChange()
+    {
+        if (state.data.baseState)
+        {
+            state.data.UpdateOnChange();
+            state = new MoveState(state.data);
+        }
+    }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -235,6 +235,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayGround
       objectReference: {fileID: 0}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: randomSpawnableHexagon.Array.data[0]
+      value: 
+      objectReference: {fileID: 2438704028009901404, guid: 5df3d0e50aa684d47bc3e2122fffa628, type: 3}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: randomSpawnableHexagon.Array.data[1]
+      value: 
+      objectReference: {fileID: 8183156947597043405, guid: fd26a6c49692ffc488b765cc33c76a75, type: 3}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: randomSpawnableHexagon.Array.data[2]
+      value: 
+      objectReference: {fileID: 1791330647720451434, guid: b85939ae88fe4414b843f94543c8ed79, type: 3}
+    - target: {fileID: 153638974189926373, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
+      propertyPath: randomSpawnableHexagon.Array.data[3]
+      value: 
+      objectReference: {fileID: 860332679560726025, guid: 3dc1b2fed26cb714c981f4e7b07e76cf, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b435ac6bdd70f3f4c839e572d9476cc5, type: 3}
 --- !u!1 &1073683419
