@@ -293,6 +293,10 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public void ResetBird()
     {
-
+        hasBird = false;
+        isBirding = false;
+        StopCoroutine(Bird());
+        StopCoroutine(BirdHat());
+        App.inGameScreen.ToggleBirdSlider(baloonIndex, false);
     }
 }
