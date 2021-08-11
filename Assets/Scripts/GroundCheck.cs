@@ -5,6 +5,7 @@ using UnityEngine;
 public class GroundCheck : MonoBehaviour
 {
     [SerializeField] ParticleSystem walkParticles;
+    [SerializeField] ParticleSystem landParticles;
 
     bool isGrounded = false;
     ThirdPersonMovement movement;
@@ -21,6 +22,7 @@ public class GroundCheck : MonoBehaviour
             isGrounded = true;
 
             walkParticles.Play();
+            landParticles.Play();
 
             if (movement.HasJumped())
                 movement.Land();
