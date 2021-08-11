@@ -5,12 +5,12 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     MeshRenderer mesh;
-    ParticleSystem particles;
+    ParticleSystem[] particles;
 
     private void Awake()
     {
         mesh = GetComponent<MeshRenderer>();
-        particles = GetComponentInChildren<ParticleSystem>();
+        particles = GetComponentsInChildren<ParticleSystem>();
 
         SetRocket(false);
         StopParticles();
@@ -23,11 +23,17 @@ public class Rocket : MonoBehaviour
 
     public void StartParticles()
     {
-        particles.Play();
+        foreach (ParticleSystem p in particles)
+        {
+            p.Play();
+        }
     }
 
     public void StopParticles()
     {
-        particles.Stop();
+        foreach(ParticleSystem p in particles)
+        {
+            p.Stop();
+        }
     }
 }
