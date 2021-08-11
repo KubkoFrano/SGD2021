@@ -166,7 +166,7 @@ public class ThirdPersonMovement : MonoBehaviour
         StartCoroutine(RepellCooldown());
         Vector3 force = (transform.position - otherPos).normalized * repellForce;
         rb.AddForce(force, ForceMode.Impulse);
-        Debug.Log(force);
+        ResetBird();
     }
 
     IEnumerator RepellCooldown()
