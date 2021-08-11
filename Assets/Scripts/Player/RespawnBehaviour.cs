@@ -23,6 +23,7 @@ public class RespawnBehaviour : MonoBehaviour
             rb.velocity = Vector3.zero;
             hammer.ResetHammer();
             movement.ResetBird();
+            movement.ResetBaloon();
         }
     }
 }

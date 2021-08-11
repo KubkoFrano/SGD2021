@@ -329,4 +329,13 @@ public class ThirdPersonMovement : MonoBehaviour
         StopCoroutine(BirdHat());
         App.inGameScreen.ToggleBirdSlider(baloonIndex, false);
     }
+
+    public void ResetBaloon()
+    {
+        isBalooning = false;
+        StopCoroutine(Baloon());
+
+        baloonFloatTime = maxBaloonFloatTime;
+        App.inGameScreen.UpdateBaloon(baloonIndex, GetTimeNormalized());
+    }
 }
