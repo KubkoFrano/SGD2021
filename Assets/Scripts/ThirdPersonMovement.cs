@@ -198,16 +198,20 @@ public class ThirdPersonMovement : MonoBehaviour
 
     IEnumerator Bird()
     {
-        yield return new WaitForSeconds(buttonHoldTime);
+        if (groundCheck.IsGrounded())
+            yield return new WaitForSeconds(buttonHoldTime);
 
         while (isBirding && hasBird)
         {
+            if (rb.velocity.y < 0)
+                rb.AddForce(Vector3.up, ForceMode.Impulse);
+
             rb.AddForce(Vector3.up * birdHatForce, ForceMode.Force);
+            birdFuel -= Time.deltaTime;
 
             if (rb.velocity.y > birdRiseSpeed)
             {
                 rb.velocity = new Vector3(rb.velocity.x, birdRiseSpeed, rb.velocity.z);
-                birdFuel -= Time.deltaTime;
             }
 
             yield return new WaitForEndOfFrame();
