@@ -3080,9 +3080,9 @@ MonoBehaviour:
   maxBaloonSpeed: 3
   birdHatForce: 20
   birdRiseSpeed: 6
-  birdHatDuration: 10
   birdAcceleration: 25
   maxBirdSpeed: 6
+  maxFuel: 3
   hammerDownForce: 20
   hammerUpForce: 20
   movementAnim: {fileID: 3912149953207109355}
