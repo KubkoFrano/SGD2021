@@ -655,6 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b17fc76affc0374695c14a130fcc7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkParticles: {fileID: 3553755513655331778}
 --- !u!135 &7853761216204639361
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3086,7 +3087,6 @@ MonoBehaviour:
   hammerDownForce: 20
   hammerUpForce: 20
   movementAnim: {fileID: 3912149953207109355}
-  walkParticles: {fileID: 3553755513655331778}
 --- !u!114 &7256028431645177314
 MonoBehaviour:
   m_ObjectHideFlags: 0

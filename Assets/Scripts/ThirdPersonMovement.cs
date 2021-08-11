@@ -60,7 +60,6 @@ public class ThirdPersonMovement : MonoBehaviour
 
     [Header("Do not touch")]
     [SerializeField] Animator movementAnim;
-    [SerializeField] ParticleSystem walkParticles;
 
     private void Start()
     {
@@ -121,15 +120,8 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector2 temp = context.ReadValue<Vector2>();
         movement = new Vector3(temp.x, 0, temp.y).normalized;
 
-        if (groundCheck.IsGrounded())
-            walkParticles.Play();
-
         if (context.canceled)
-        {
             movement = Vector3.zero;
-            walkParticles.Stop();
-        }
-
     }
 
     public void Jump(InputAction.CallbackContext context)

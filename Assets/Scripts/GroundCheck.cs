@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
+    [SerializeField] ParticleSystem walkParticles;
+
     bool isGrounded = false;
     ThirdPersonMovement movement;
+
+    private void Awake()
+    {
+        walkParticles.Stop();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+
+            walkParticles.Play();
 
             if (movement.HasJumped())
                 movement.Land();
@@ -23,6 +32,8 @@ public class GroundCheck : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+
+            walkParticles.Stop();
         }
     }
 
