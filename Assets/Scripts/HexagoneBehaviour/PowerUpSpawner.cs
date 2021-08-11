@@ -45,9 +45,9 @@ public class PowerUpSpawner : MonoBehaviour
     void SpawnPowerUpNearPlayer(Vector3 lowestPlayer)
     {
         Collider[] closeHexagons = Physics.OverlapSphere(lowestPlayer, 16, LayerMask.GetMask("Hexagon"));
-        Collider[] tooClose = Physics.OverlapSphere(lowestPlayer, 4, LayerMask.GetMask("Hexagon"));
+        Collider[] tooClose = Physics.OverlapSphere(lowestPlayer, 3, LayerMask.GetMask("Hexagon"));
 
-        
+
         List<int> listOfRandomIndexes = new List<int>();
 
         for (int i = 0; i < closeHexagons.Length; i++)
@@ -58,20 +58,26 @@ public class PowerUpSpawner : MonoBehaviour
                 if (closeHexagons[i] == tooClose[p]) isntRepeating = false;
 
             }
-            if(isntRepeating)
-            listOfRandomIndexes.Add(i);
+            if (isntRepeating)
+                listOfRandomIndexes.Add(i);
         }
 
-        int randomIndex = listOfRandomIndexes[Random.Range(0, listOfRandomIndexes.Count)];
 
-        if (closeHexagons[randomIndex].gameObject.transform.GetChild(0).childCount == 0)
+
+
+        if (listOfRandomIndexes.Count != 0)
         {
-            
+            int randomIndex = listOfRandomIndexes[Random.Range(0, listOfRandomIndexes.Count)];
+
+            if (closeHexagons[randomIndex].gameObject.transform.GetChild(0).childCount == 0)
+            {
+
                 listOfPowerUPs.Add(Instantiate(PowerUP[Random.Range(0, PowerUP.Length)]));
 
                 listOfPowerUPs[listOfPowerUPs.Count - 1].transform.parent = closeHexagons[randomIndex].gameObject.transform.GetChild(0).transform;
                 listOfPowerUPs[listOfPowerUPs.Count - 1].transform.position = closeHexagons[randomIndex].gameObject.transform.GetChild(0).transform.position;
-                
+
+            }
         }
 
     }
