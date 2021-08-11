@@ -32,13 +32,16 @@ public class ThirdPersonMovement : MonoBehaviour
     [Header("Bird Hat")]
     [SerializeField] float birdHatForce;
     [SerializeField] float birdRiseSpeed;
-    [SerializeField] float birdHatDuration;
+    //[SerializeField] float birdHatDuration;
     [SerializeField] float birdAcceleration;
     [SerializeField] float maxBirdSpeed;
 
+    [SerializeField] float maxFuel;
+
     bool hasBird = false;
     bool isBirding = false;
-    float birdTimer = 0;
+
+    float birdFuel = 0;
 
     [Header("Hammer")]
     [SerializeField] float hammerDownForce;
@@ -204,6 +207,7 @@ public class ThirdPersonMovement : MonoBehaviour
             if (rb.velocity.y > birdRiseSpeed)
             {
                 rb.velocity = new Vector3(rb.velocity.x, birdRiseSpeed, rb.velocity.z);
+                birdFuel -= Time.deltaTime;
             }
 
             yield return new WaitForEndOfFrame();
@@ -244,7 +248,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public void StartBirdHat()
     {
         if (hasBird)
-            birdTimer = birdHatDuration;
+            birdFuel = maxFuel;
         else
             StartCoroutine(BirdHat());
     }
@@ -259,15 +263,14 @@ public class ThirdPersonMovement : MonoBehaviour
             StartCoroutine(Bird());
         }
 
+        birdFuel = maxFuel;
         hasBird = true;
         App.inGameScreen.ToggleBirdSlider(baloonIndex, true);
-        birdTimer = birdHatDuration;
 
 
-        while (birdTimer > 0)
+        while (birdFuel > 0)
         {
-            birdTimer -= Time.deltaTime;
-            App.inGameScreen.UpdateBird(baloonIndex, birdTimer / birdHatDuration);
+            App.inGameScreen.UpdateBird(baloonIndex, birdFuel / maxFuel);
             yield return new WaitForEndOfFrame();
         }
 
