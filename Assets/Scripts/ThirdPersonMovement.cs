@@ -56,9 +56,11 @@ public class ThirdPersonMovement : MonoBehaviour
     Transform cameraTransform;
     GroundCheck groundCheck;
     Rigidbody rb;
+    Rocket rocket;
 
     [Header("Do not touch")]
     [SerializeField] Animator movementAnim;
+    [SerializeField] ParticleSystem walkParticles;
 
     private void Start()
     {
@@ -68,6 +70,7 @@ public class ThirdPersonMovement : MonoBehaviour
         rb.velocity = Vector3.zero;
         baloonFloatTime = maxBaloonFloatTime;
         StartCoroutine(BaloonRecharge());
+        rocket = GetComponentInChildren<Rocket>();
     }
 
 
@@ -118,8 +121,15 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector2 temp = context.ReadValue<Vector2>();
         movement = new Vector3(temp.x, 0, temp.y).normalized;
 
+        if (groundCheck.IsGrounded())
+            walkParticles.Play();
+
         if (context.canceled)
+        {
             movement = Vector3.zero;
+            walkParticles.Stop();
+        }
+
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -201,6 +211,9 @@ public class ThirdPersonMovement : MonoBehaviour
         if (groundCheck.IsGrounded())
             yield return new WaitForSeconds(buttonHoldTime);
 
+        if (isBirding && hasBird)
+            rocket.StartParticles();
+
         while (isBirding && hasBird)
         {
             if (rb.velocity.y < 0)
@@ -216,6 +229,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
+
+        rocket.StopParticles();
 
         isBirding = false;
     }
@@ -259,6 +274,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
     IEnumerator BirdHat()
     {
+        rocket.SetRocket(true);
+
         if (isBalooning)
         {
             StopCoroutine(Baloon());
@@ -282,6 +299,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
         hasBird = false;
         App.inGameScreen.ToggleBirdSlider(baloonIndex, false);
+
+        rocket.SetRocket(false);
     }
 
     public void ActivateHammer()
