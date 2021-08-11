@@ -64,5 +64,8 @@ public class PlayerLobbyBehaviour : MonoBehaviour
     public void SetCharacter(int index)
     {
         characters[index].SetActive(true);
+
+        Animator anim = characters[index].GetComponent<Animator>();
+        playerMovement.SetMovementAnim(anim);
     }
 }

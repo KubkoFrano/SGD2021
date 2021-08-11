@@ -58,8 +58,7 @@ public class ThirdPersonMovement : MonoBehaviour
     Rigidbody rb;
     Rocket rocket;
 
-    [Header("Do not touch")]
-    [SerializeField] Animator movementAnim;
+    Animator movementAnim;
 
     private void Start()
     {
@@ -337,5 +336,10 @@ public class ThirdPersonMovement : MonoBehaviour
 
         baloonFloatTime = maxBaloonFloatTime;
         App.inGameScreen.UpdateBaloon(baloonIndex, GetTimeNormalized());
+    }
+
+    public void SetMovementAnim(Animator anim)
+    {
+        movementAnim = anim;
     }
 }
