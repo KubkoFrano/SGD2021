@@ -7,16 +7,19 @@ public class PowerUpBehaviour : MonoBehaviour
 
     public float lifeTime = 7;
 
-    BehaviourHexagon behaviour;
+    BehaviourHexagon[] behaviour;
+    GameObject topParent;
 
     void Start()
     {
-        behaviour = GetComponentInParent<BehaviourHexagon>();
+        topParent = transform.root.gameObject;
+        behaviour = topParent.GetComponentsInChildren<BehaviourHexagon>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        behaviour.MoveStateChange();
+        foreach(BehaviourHexagon i in behaviour) i.MoveStateChange();
+        
     }
 
     private void Update()
