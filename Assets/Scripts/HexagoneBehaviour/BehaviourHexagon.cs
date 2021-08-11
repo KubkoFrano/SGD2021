@@ -15,7 +15,7 @@ public class BehaviourHexagon : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         
         state = state.Execute();
