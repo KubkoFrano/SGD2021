@@ -28,8 +28,12 @@ public class PowerUpBehaviour : MonoBehaviour
 
         if (lifeTime <= 0)
         {
-            GetComponentInParent<PowerUpSpawner>().RemovePowerUp(this.gameObject);
-            Destroy(this.gameObject);
+            if (!Physics.CheckSphere(this.transform.position, 12, LayerMask.GetMask("Player")))
+            {
+                GetComponentInParent<PowerUpSpawner>().RemovePowerUp(this.gameObject);
+                Destroy(this.gameObject);
+            }
+            
         }
     }
 
