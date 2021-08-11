@@ -11,8 +11,7 @@ public class MoveState : State
     public override State Execute()
     {
 
-        if (data.smoothStart < 1.5f) data.smoothStart += 0.01f;
-        //else data.smoothStart = 1.5f;
+        data.smoothStart += 0.01f;
 
         if      (data.transform.position.y > data.offsetY + data.magnitude) data.direction = -1;
         else if (data.transform.position.y < data.offsetY - data.magnitude) data.direction = 1;
@@ -23,7 +22,7 @@ public class MoveState : State
             return new BaseState(data);
         }
 
-        Vector3 move = new Vector3(data.spawnedPosition.x, data.lastPosition.y + data.direction * data.randomOff * Time.deltaTime * 4, data.spawnedPosition.z);
+        Vector3 move = new Vector3(data.spawnedPosition.x, data.lastPosition.y + data.direction * data.randomOff * Time.deltaTime * 10, data.spawnedPosition.z);
         data.rb.MovePosition(move);
         data.lastPosition = data.transform.position;
 
