@@ -21,10 +21,14 @@ public class MoveState : State
             data.UpdateOnChange();
             return new BaseState(data);
         }
-
-        Vector3 move = new Vector3(data.spawnedPosition.x, data.lastPosition.y + data.direction * data.randomOff * Time.deltaTime * 10, data.spawnedPosition.z);
+        /*
+        Vector3 move = new Vector3(data.spawnedPosition.x, data.lastPosition.y + data.direction * data.randomOff * Time.deltaTime * 7f, data.spawnedPosition.z);
         data.rb.MovePosition(move);
-        data.lastPosition = data.transform.position;
+        data.lastPosition = move;
+        */
+
+        Vector3 newPos = new Vector3(data.spawnedPosition.x, data.transform.position.y, data.spawnedPosition.z) + Vector3.up * .1f * data.direction;
+        data.rb.MovePosition(newPos);
 
         return new MoveState(data);
     }
