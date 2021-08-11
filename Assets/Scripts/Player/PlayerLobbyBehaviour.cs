@@ -7,6 +7,8 @@ using Cinemachine;
 
 public class PlayerLobbyBehaviour : MonoBehaviour
 {
+    [SerializeField] GameObject[] characters;
+
     [Header("Do not touch")]
     public GameObject camera;
     public GameObject cinemachine;
@@ -57,5 +59,13 @@ public class PlayerLobbyBehaviour : MonoBehaviour
     public void SetViewport(Viewport viewport)
     {
         camera.GetComponent<Camera>().rect = new Rect(viewport.X, viewport.Y, viewport.W, viewport.H);
+    }
+
+    public void SetCharacter(int index)
+    {
+        characters[index].SetActive(true);
+
+        Animator anim = characters[index].GetComponent<Animator>();
+        playerMovement.SetMovementAnim(anim);
     }
 }

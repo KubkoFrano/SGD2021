@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class HammerCheck : MonoBehaviour
 {
+    [SerializeField] GameObject hammerParticles;
+    [SerializeField] Transform hitPoint;
+
     Hammer hammer;
 
     bool hasHammer = false;
@@ -22,6 +25,8 @@ public class HammerCheck : MonoBehaviour
             {
                 hammer.Punch();
                 other.gameObject.GetComponent<BehaviourHexagon>()?.Fall();
+
+                Instantiate(hammerParticles, hitPoint.position, Quaternion.Euler(-90, 0, 0));
             }
 
             isGrounded = true;

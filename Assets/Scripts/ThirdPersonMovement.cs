@@ -56,9 +56,9 @@ public class ThirdPersonMovement : MonoBehaviour
     Transform cameraTransform;
     GroundCheck groundCheck;
     Rigidbody rb;
+    Rocket rocket;
 
-    [Header("Do not touch")]
-    [SerializeField] Animator movementAnim;
+    Animator movementAnim;
 
     private void Start()
     {
@@ -68,6 +68,7 @@ public class ThirdPersonMovement : MonoBehaviour
         rb.velocity = Vector3.zero;
         baloonFloatTime = maxBaloonFloatTime;
         StartCoroutine(BaloonRecharge());
+        rocket = GetComponentInChildren<Rocket>();
     }
 
 
@@ -198,20 +199,29 @@ public class ThirdPersonMovement : MonoBehaviour
 
     IEnumerator Bird()
     {
-        yield return new WaitForSeconds(buttonHoldTime);
+        if (groundCheck.IsGrounded())
+            yield return new WaitForSeconds(buttonHoldTime);
+
+        if (isBirding && hasBird)
+            rocket.StartParticles();
 
         while (isBirding && hasBird)
         {
+            if (rb.velocity.y < 0)
+                rb.AddForce(Vector3.up, ForceMode.Impulse);
+
             rb.AddForce(Vector3.up * birdHatForce, ForceMode.Force);
+            birdFuel -= Time.deltaTime;
 
             if (rb.velocity.y > birdRiseSpeed)
             {
                 rb.velocity = new Vector3(rb.velocity.x, birdRiseSpeed, rb.velocity.z);
-                birdFuel -= Time.deltaTime;
             }
 
             yield return new WaitForEndOfFrame();
         }
+
+        rocket.StopParticles();
 
         isBirding = false;
     }
@@ -255,6 +265,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
     IEnumerator BirdHat()
     {
+        rocket.SetRocket(true);
+
         if (isBalooning)
         {
             StopCoroutine(Baloon());
@@ -278,6 +290,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
         hasBird = false;
         App.inGameScreen.ToggleBirdSlider(baloonIndex, false);
+
+        rocket.SetRocket(false);
     }
 
     public void ActivateHammer()
@@ -313,5 +327,19 @@ public class ThirdPersonMovement : MonoBehaviour
         StopCoroutine(Bird());
         StopCoroutine(BirdHat());
         App.inGameScreen.ToggleBirdSlider(baloonIndex, false);
+    }
+
+    public void ResetBaloon()
+    {
+        isBalooning = false;
+        StopCoroutine(Baloon());
+
+        baloonFloatTime = maxBaloonFloatTime;
+        App.inGameScreen.UpdateBaloon(baloonIndex, GetTimeNormalized());
+    }
+
+    public void SetMovementAnim(Animator anim)
+    {
+        movementAnim = anim;
     }
 }

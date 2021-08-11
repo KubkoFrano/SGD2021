@@ -94,7 +94,10 @@ private void Start()
 
         for (int i = 0; i < tempPlayerList.Count; i++)
         {
-            tempPlayerList[i]?.GetComponent<PlayerLobbyBehaviour>().SetMasks(cameraMasks[i], cameraLayers[i]);
+            PlayerLobbyBehaviour lobbyBehaviour = tempPlayerList[i].GetComponent<PlayerLobbyBehaviour>();
+
+            lobbyBehaviour?.GetComponent<PlayerLobbyBehaviour>().SetCharacter(i);
+            lobbyBehaviour?.SetMasks(cameraMasks[i], cameraLayers[i]);
 
             if (playerCount == 2)
             {
