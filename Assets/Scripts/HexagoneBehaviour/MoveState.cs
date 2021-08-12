@@ -27,7 +27,7 @@ public class MoveState : State
         data.lastPosition = move;
         */
 
-        Vector3 newPos = new Vector3(data.spawnedPosition.x, data.transform.position.y, data.spawnedPosition.z) + Vector3.up * .1f * data.direction;
+        Vector3 newPos = new Vector3(data.spawnedPosition.x, data.transform.position.y, data.spawnedPosition.z) + Vector3.up * .05f * data.direction;
         data.rb.MovePosition(newPos);
 
         return new MoveState(data);

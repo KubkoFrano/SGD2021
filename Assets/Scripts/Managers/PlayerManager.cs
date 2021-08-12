@@ -19,7 +19,9 @@ public class PlayerManager : MonoBehaviour
 
     Transform[] playerTransforms;
 
-private void Start()
+    Vector2 centerPosition;
+
+    private void Start()
     {
         App.playerManager = this;
         inputManager = GetComponent<PlayerInputManager>();
@@ -155,5 +157,15 @@ private void Start()
     public Vector3[] GetSpawnPositions()
     {
         return spawnPositions;
+    }
+
+    public void SetCenterPosition(Vector2 pos)
+    {
+        centerPosition = pos;
+    }
+
+    public Vector2 GetCenterPosition()
+    {
+        return centerPosition;
     }
 }
