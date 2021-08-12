@@ -133,7 +133,7 @@ public class ThirdPersonMovement : MonoBehaviour
             isBirding = false;
             return;
         }
-        else
+        else if (!groundCheck.IsGrounded())
         {
             if (hasBird)
             {
