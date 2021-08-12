@@ -148,7 +148,7 @@ public class ThirdPersonMovement : MonoBehaviour
         if (context.performed)
             return;
 
-        StartCoroutine(Baloon());
+        StartCoroutine(Baloon(true));
         StartCoroutine(Bird());
 
         if (!groundCheck.IsGrounded())
@@ -179,10 +179,10 @@ public class ThirdPersonMovement : MonoBehaviour
         isRepelled = false;
     }
 
-    IEnumerator Baloon()
+    IEnumerator Baloon(bool wait)
     {
-        yield return new WaitForSeconds(buttonHoldTime);
-        //rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        if (wait)
+            yield return new WaitForSeconds(buttonHoldTime);
 
         while (baloonFloatTime > 0 && isBalooning)
         {
@@ -271,7 +271,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if (isBalooning)
         {
-            StopCoroutine(Baloon());
+            StopCoroutine(Baloon(true));
             isBalooning = false;
             isBirding = true;
             StartCoroutine(Bird());
@@ -294,6 +294,12 @@ public class ThirdPersonMovement : MonoBehaviour
         App.inGameScreen.ToggleBirdSlider(baloonIndex, false);
 
         rocket.SetRocket(false);
+
+        if (isBirding)
+        {
+            isBalooning = true;
+            StartCoroutine(Baloon(false));
+        }
     }
 
     public void ActivateHammer()
@@ -335,7 +341,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public void ResetBaloon()
     {
         isBalooning = false;
-        StopCoroutine(Baloon());
+        StopCoroutine(Baloon(true));
 
         baloonFloatTime = maxBaloonFloatTime;
         App.inGameScreen.UpdateBaloon(baloonIndex, GetTimeNormalized());
