@@ -49,7 +49,7 @@ public class HexagonOffset : MonoBehaviour
         for (int i = 0; i < HexGenData.HexagoneList.Count; i++)
         {
             float dst = Vector2.Distance(new Vector2(HexGenData.HexagoneList[i].transform.position.x, HexGenData.HexagoneList[i].transform.position.z), target);
-            pos[i] = new Vector3(HexGenData.HexagoneList[i].transform.position.x, (1 - dst / maxDistance) * MaxHeightOffset, HexGenData.HexagoneList[i].transform.position.z);
+            pos[i] = new Vector3(HexGenData.HexagoneList[i].transform.position.x, HexGenData.offsetY + (1 - dst / maxDistance) * MaxHeightOffset, HexGenData.HexagoneList[i].transform.position.z);
             HexGenData.HexagoneList[i].GetComponent<HexagonData>().offsetY = pos[i].y;
             HexGenData.HexagoneList[i].GetComponent<HexagonData>().replaceOffset = true;
         }
