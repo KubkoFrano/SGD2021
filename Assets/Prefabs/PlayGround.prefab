@@ -50,28 +50,27 @@ MonoBehaviour:
   SpacingLenght: 3
   Hexagons:
   - {fileID: 2438704028009901404, guid: 59f07aa8955795642a5033bc56806cfa, type: 3}
-  - {fileID: 8183156947597043405, guid: fd26a6c49692ffc488b765cc33c76a75, type: 3}
-  - {fileID: 1791330647720451434, guid: b85939ae88fe4414b843f94543c8ed79, type: 3}
-  - {fileID: 860332679560726025, guid: 3dc1b2fed26cb714c981f4e7b07e76cf, type: 3}
+  - {fileID: 2412617381388982963, guid: 38d72c96686a98a4aaf43ae4a9d0e58c, type: 3}
+  - {fileID: 8764145505995868317, guid: d618b405c5ec1944398d7cc59d4a0b7c, type: 3}
   randomSpawnableHexagon:
-  - {fileID: 2438704028009901404, guid: 5df3d0e50aa684d47bc3e2122fffa628, type: 3}
-  - {fileID: 8183156947597043405, guid: fd26a6c49692ffc488b765cc33c76a75, type: 3}
-  - {fileID: 1791330647720451434, guid: b85939ae88fe4414b843f94543c8ed79, type: 3}
-  - {fileID: 860332679560726025, guid: 3dc1b2fed26cb714c981f4e7b07e76cf, type: 3}
+  - {fileID: 7076739297760803242, guid: 4bb59ef1443f8644fae8a50f790ffbdd, type: 3}
+  - {fileID: 2412617381388982963, guid: 38d72c96686a98a4aaf43ae4a9d0e58c, type: 3}
+  - {fileID: 8764145505995868317, guid: d618b405c5ec1944398d7cc59d4a0b7c, type: 3}
+  - {fileID: 8764145505995868317, guid: d618b405c5ec1944398d7cc59d4a0b7c, type: 3}
   randomSideHexagon:
-  - {fileID: 2438704028009901404, guid: 5df3d0e50aa684d47bc3e2122fffa628, type: 3}
-  - {fileID: 8183156947597043405, guid: fd26a6c49692ffc488b765cc33c76a75, type: 3}
-  - {fileID: 1791330647720451434, guid: b85939ae88fe4414b843f94543c8ed79, type: 3}
-  - {fileID: 860332679560726025, guid: 3dc1b2fed26cb714c981f4e7b07e76cf, type: 3}
+  - {fileID: 7076739297760803242, guid: 4bb59ef1443f8644fae8a50f790ffbdd, type: 3}
+  - {fileID: 2412617381388982963, guid: 38d72c96686a98a4aaf43ae4a9d0e58c, type: 3}
+  - {fileID: 8764145505995868317, guid: d618b405c5ec1944398d7cc59d4a0b7c, type: 3}
+  - {fileID: 8764145505995868317, guid: d618b405c5ec1944398d7cc59d4a0b7c, type: 3}
   middleHexagon:
-  - {fileID: 2438704028009901404, guid: 5df3d0e50aa684d47bc3e2122fffa628, type: 3}
+  - {fileID: 7076739297760803242, guid: 4bb59ef1443f8644fae8a50f790ffbdd, type: 3}
   HexagoneList: []
   spawnablePlayerPositions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  offsetY: 0
+  offsetY: 5
 --- !u!114 &153638974189926371
 MonoBehaviour:
   m_ObjectHideFlags: 0
