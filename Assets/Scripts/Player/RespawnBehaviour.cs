@@ -20,7 +20,7 @@ public class RespawnBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Water"))
         {
             transform.position = App.playerManager.GetSpawnPositions()[Random.Range(0, 4)];
-            rb.velocity = Vector3.zero;
+            rb.velocity = new Vector3(0, -100, 0);
             hammer.ResetHammer();
             movement.ResetBird();
             movement.ResetBaloon();

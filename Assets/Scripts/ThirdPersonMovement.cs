@@ -327,6 +327,7 @@ public class ThirdPersonMovement : MonoBehaviour
         StopCoroutine(Bird());
         StopCoroutine(BirdHat());
         App.inGameScreen.ToggleBirdSlider(baloonIndex, false);
+        rocket.SetRocket(false);
     }
 
     public void ResetBaloon()
