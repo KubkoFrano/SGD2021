@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class RespawnBehaviour : MonoBehaviour
 {
+    [SerializeField] float respawnMoveDelay;
+    [SerializeField] CinemachineFreeLook cam;
+
     Rigidbody rb;
     Hammer hammer;
     ThirdPersonMovement movement;
@@ -24,6 +28,20 @@ public class RespawnBehaviour : MonoBehaviour
             hammer.ResetHammer();
             movement.ResetBird();
             movement.ResetBaloon();
+
+            Vector2 tempPos = App.playerManager.GetCenterPosition();
+            transform.LookAt(new Vector3(tempPos.x, transform.position.y, tempPos.y));
+
+            StartCoroutine(Recenter());
         }
+    }
+
+    IEnumerator Recenter()
+    {
+        movement.StartRespawning();
+        cam.m_RecenterToTargetHeading.m_enabled = true;
+        yield return new WaitForSeconds(respawnMoveDelay);
+        cam.m_RecenterToTargetHeading.m_enabled = false;
+        movement.StopRespawning();
     }
 }

@@ -34,8 +34,8 @@ public class HexagonOffset : MonoBehaviour
         {
             HexGenData.HexagoneList[i].transform.position = pos[i];
         }
-        
 
+        App.playerManager.SetCenterPosition(target);
     }
 
     public void UpdateTarget(Vector3 lowestPlayer)

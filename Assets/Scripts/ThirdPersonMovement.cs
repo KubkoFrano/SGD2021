@@ -60,6 +60,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
     Animator movementAnim;
 
+    bool isRespawning = false;
+
     private void Start()
     {
         cameraTransform = GetComponentInChildren<Camera>().transform;
@@ -74,7 +76,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (movement.magnitude >= 0.1f)
+        if (movement.magnitude >= 0.1f && !isRespawning)
         {
             float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -342,5 +344,15 @@ public class ThirdPersonMovement : MonoBehaviour
     public void SetMovementAnim(Animator anim)
     {
         movementAnim = anim;
+    }
+
+    public void StartRespawning()
+    {
+        isRespawning = true;
+    }
+
+    public void StopRespawning()
+    {
+        isRespawning = false;
     }
 }
