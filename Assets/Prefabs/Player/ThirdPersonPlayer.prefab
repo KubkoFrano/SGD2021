@@ -6756,7 +6756,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6512892625979372955}
   - component: {fileID: 5818770242149120029}
-  - component: {fileID: 8859651330150772686}
+  - component: {fileID: 5598472663753725685}
   m_Layer: 10
   m_Name: HammerCheck
   m_TagString: Untagged
@@ -6792,8 +6792,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hammerParticles: {fileID: 2065737472190997089, guid: cd9055e6160c09b4bba38e98faee98ee, type: 3}
   hitPoint: {fileID: 1509969536295045344}
---- !u!135 &8859651330150772686
-SphereCollider:
+--- !u!65 &5598472663753725685
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6803,8 +6803,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1.9881301}
+  m_Center: {x: 0, y: 0, z: -0.49906492}
 --- !u!1 &4341354146078936356
 GameObject:
   m_ObjectHideFlags: 0
