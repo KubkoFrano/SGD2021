@@ -12,6 +12,7 @@ public class PlayerScore : MonoBehaviour
 
     [Header("Do not touch")]
     [SerializeField] MeshRenderer meshRenderer;
+    [SerializeField] ParticleSystem scoreParticles;
 
     int score;
     int scoreIndex;
@@ -60,6 +61,7 @@ public class PlayerScore : MonoBehaviour
             yield return new WaitForSeconds(secondsBetweenScores);
             meshRenderer.material.color = scoringColor;
             score += scoreToAdd;
+            scoreParticles.Play();
             App.kingOfTheHill.UpdateScore(scoreIndex, score);
         }
     }
