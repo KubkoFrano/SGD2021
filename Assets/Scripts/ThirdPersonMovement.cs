@@ -306,6 +306,8 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (!groundCheck.IsGrounded())
         {
+            isBalooning = false;
+            StopCoroutine(Baloon(true));
             rb.AddForce(Vector3.down * hammerDownForce, ForceMode.Impulse);
             ResetBird();
         }    
