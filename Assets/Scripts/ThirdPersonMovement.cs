@@ -15,6 +15,8 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] float repellAcceleration;
     [SerializeField] [Range(0, 1)] float slowDownAcc;
     [SerializeField] float repellMaxSpeed;
+    [SerializeField] float startStoppingAfter;
+    [SerializeField] float stopForce;
 
     [Header("Baloon")]
     [SerializeField] float buttonHoldTime;
@@ -172,14 +174,16 @@ public class ThirdPersonMovement : MonoBehaviour
         if (groundCheck.IsGrounded())
             force = new Vector3(force.x, 0, force.z);
 
-        rb.AddForce(force, ForceMode.Impulse);
         ResetBird();
+        rb.AddForce(force, ForceMode.Impulse);
     }
 
     IEnumerator RepellCooldown()
     {
         isRepelled = true;
-        yield return new WaitForSeconds(repellDuration);
+        yield return new WaitForSeconds(startStoppingAfter);
+        rb.AddForce(new Vector3(-rb.velocity.x, 0, -rb.velocity.y) * stopForce);
+        yield return new WaitForSeconds(repellDuration - startStoppingAfter);
         isRepelled = false;
     }
 

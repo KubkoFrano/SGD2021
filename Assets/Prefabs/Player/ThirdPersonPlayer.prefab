@@ -5586,6 +5586,8 @@ MonoBehaviour:
   repellAcceleration: 5
   slowDownAcc: 0
   repellMaxSpeed: 0
+  startStoppingAfter: 0.9
+  stopForce: 10
   buttonHoldTime: 0.5
   baloonForce: 20
   riseSpeed: 2
