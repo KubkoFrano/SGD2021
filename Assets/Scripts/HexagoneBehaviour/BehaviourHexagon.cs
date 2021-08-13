@@ -10,6 +10,8 @@ public class BehaviourHexagon : MonoBehaviour
     private void Start()
     {
         state = new BaseState(GetComponent<HexagonData>());
+
+        state.data.hexFallParticle.Stop();
         state.data.UpdateOnChange();
         
     }

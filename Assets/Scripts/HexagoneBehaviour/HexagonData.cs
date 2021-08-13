@@ -41,6 +41,8 @@ public class HexagonData : MonoBehaviour
     public float randomOff = 0;
     public float revivedHeight;
 
+    public ParticleSystem hexFallParticle;
+
     
     public void UpdateOnChange()
     {

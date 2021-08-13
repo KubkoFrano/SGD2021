@@ -9,14 +9,16 @@ public class FallState : State
     }
     public override State Execute()
     {
+
         if (data.transform.position.y <= -25)
         {
-
+            data.hexFallParticle.Stop();
             data.timeSinceLastChange += Time.deltaTime;
             if (data.timeSinceLastChange > 10f)
             {
                 data.UpdateOnChange();
 
+                
                 return new ReviveState(data);
             }
         }

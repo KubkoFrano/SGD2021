@@ -90,7 +90,10 @@ public class HexagonGeneration : MonoBehaviour
 
                     
                     HexagoneList[i].GetComponent<HexagonData>().SpawnProps = false;
-                    HexagoneList[i].GetComponent<MeshRenderer>().material = randomSpawnableHexagon[randomI].GetComponent<MeshRenderer>().sharedMaterial;
+                    GameObject SpawnProp = Instantiate(randomSpawnableHexagon[randomI]);
+                    SpawnProp.transform.parent = HexagoneList[i].transform.GetChild(1);
+                    SpawnProp.transform.position = HexagoneList[i].transform.position;
+                    //HexagoneList[i].GetComponent<MeshRenderer>().material = randomSpawnableHexagon[randomI].GetComponent<MeshRenderer>().sharedMaterial;
 
 
                     p++;
@@ -122,8 +125,9 @@ public class HexagonGeneration : MonoBehaviour
                     int randomI = Random.Range(0, middleHexagon.Length);
 
                     HexagoneList[i].GetComponent<HexagonData>().SpawnProps = false;
-                    HexagoneList[i].GetComponent<MeshRenderer>().material = middleHexagon[randomI].GetComponent<MeshRenderer>().sharedMaterial;
-
+                    GameObject SpawnProp = Instantiate(middleHexagon[randomI]);
+                    SpawnProp.transform.parent = HexagoneList[i].transform.GetChild(1);
+                    SpawnProp.transform.position = HexagoneList[i].transform.position;
                 }
                 
             }

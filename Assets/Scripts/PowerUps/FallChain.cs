@@ -39,11 +39,10 @@ public class FallChain : MonoBehaviour
     void RedPowerUP(List<Transform> enemies)
     {
 
-        for (int i = 0; i < enemies.Count; i++)
-        {
-            syncFall.targetPlatform = new Vector2(enemies[i].position.x, enemies[i].position.z);     //give hire xz pozition of target enemi player
+        
+            syncFall.targetPlatform = new Vector2(App.playerManager.GetBestPlayerPosition().x, App.playerManager.GetBestPlayerPosition().z);     //give hire xz pozition of target enemi player
             syncFall.ShakeCentralDown();
-        }
+        
     }
 
     void ClearPowerUp()

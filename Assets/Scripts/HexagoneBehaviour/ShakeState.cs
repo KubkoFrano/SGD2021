@@ -27,6 +27,7 @@ public class ShakeState : State
             }
 
             //data.UpdateOnChange();
+            data.hexFallParticle.Play();
             return new FallState(data);
         }
 
