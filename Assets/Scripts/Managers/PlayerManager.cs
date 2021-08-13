@@ -21,6 +21,8 @@ public class PlayerManager : MonoBehaviour
 
     Vector2 centerPosition;
 
+    PlayerScore[] scores;
+
     private void Start()
     {
         App.playerManager = this;
@@ -167,5 +169,36 @@ public class PlayerManager : MonoBehaviour
     public Vector2 GetCenterPosition()
     {
         return centerPosition;
+    }
+
+    public void CreatePlayerScores()
+    {
+        List<PlayerScore> tempScores = new List<PlayerScore>();
+
+        foreach (GameObject player in players)
+        {
+            if (player)
+                tempScores.Add(player.GetComponent<PlayerScore>());
+        }
+
+        scores = new PlayerScore[tempScores.Count];
+
+        for (int i = 0; i < scores.Length; i++)
+        {
+            scores[i] = tempScores[i];
+        }
+    }
+
+    public Vector3 GetBestPlayerPosition()
+    {
+        PlayerScore bestPlayer = scores[0];
+
+        foreach (PlayerScore score in scores)
+        {
+            if (score.GetScore() > bestPlayer.GetScore())
+                bestPlayer = score;
+        }
+
+        return bestPlayer.transform.position;
     }
 }
