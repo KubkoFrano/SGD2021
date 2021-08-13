@@ -18,6 +18,7 @@ Shader "m1r0/SimpleFog"
            #pragma vertex vert
            #pragma fragment frag
            #pragma multi_compile_fog
+
            #include "UnityCG.cginc"
 
            struct appdata
@@ -72,18 +73,20 @@ Shader "m1r0/SimpleFog"
 
            half4 frag(v2f i) : SV_TARGET
            {
-               float2 uv = i.uv * _Scale;
                float depth = LinearEyeDepth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.scrPos)));
                float diff = saturate(_IntersectionThresholdMax * (depth - i.scrPos.w));
+
+               float2 uv = i.uv * _Scale;
 
                float f = valueNoise(uv + _Time.y * float2(1., 0.));
                f = lerp(f, valueNoise(uv * 2. + _Time.y * float2(.5, -.7)), .5);
                f = lerp(f, valueNoise(uv * 4. + _Time.y * float2(-1., .3)), .3);
 
                float4 color = float4(_Color.xyz, f);
+
                fixed4 col = lerp(fixed4(color.rgb, 0.0), color, diff * diff * diff * (diff * (6 * diff - 15) + 10));
 
-               //col = floor(col * 20.) / 20.;
+               
 
                UNITY_APPLY_FOG(i.fogCoord, col);
                return col;
