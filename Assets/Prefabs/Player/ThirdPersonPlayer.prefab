@@ -5826,6 +5826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnMoveDelay: 0.1
   cam: {fileID: 3685033884450872018}
+  respawnParticles: {fileID: 8953215834893150656, guid: 348746d86da69cb4692809d33953b5cf, type: 3}
 --- !u!114 &5587598605376127127
 MonoBehaviour:
   m_ObjectHideFlags: 0

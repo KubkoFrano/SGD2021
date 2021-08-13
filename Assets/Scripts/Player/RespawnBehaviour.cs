@@ -7,6 +7,7 @@ public class RespawnBehaviour : MonoBehaviour
 {
     [SerializeField] float respawnMoveDelay;
     [SerializeField] CinemachineFreeLook cam;
+    [SerializeField] GameObject respawnParticles;
 
     Rigidbody rb;
     Hammer hammer;
@@ -24,6 +25,7 @@ public class RespawnBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Water"))
         {
             transform.position = App.playerManager.GetSpawnPositions()[Random.Range(0, 4)];
+            Instantiate(respawnParticles, transform.position, Quaternion.identity);
             rb.velocity = new Vector3(0, -100, 0);
             hammer.ResetHammer();
             movement.ResetBird();
