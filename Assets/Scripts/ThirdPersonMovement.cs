@@ -168,6 +168,10 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         StartCoroutine(RepellCooldown());
         Vector3 force = (transform.position - otherPos).normalized * repellForce;
+
+        if (groundCheck.IsGrounded())
+            force = new Vector3(force.x, 0, force.z);
+
         rb.AddForce(force, ForceMode.Impulse);
         ResetBird();
     }
