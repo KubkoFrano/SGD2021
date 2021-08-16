@@ -14,6 +14,10 @@ public class PlayerLobbyBehaviour : MonoBehaviour
     public GameObject cinemachine;
     public ThirdPersonMovement playerMovement;
 
+    [SerializeField] GameObject[] hands;
+    [SerializeField] GameObject hammer;
+    [SerializeField] GameObject pistol;
+
     PlayerInput playerInput;
 
     int characterIndex;
@@ -67,5 +71,13 @@ public class PlayerLobbyBehaviour : MonoBehaviour
 
         Animator anim = characters[index].GetComponent<Animator>();
         playerMovement.SetMovementAnim(anim);
+
+        pistol.transform.parent = hands[index].transform;
+        pistol.transform.localPosition = new Vector3(-1.28f, 1, -0.63f);
+        pistol.transform.localRotation = Quaternion.Euler(94.31f, 0, 120);
+
+        hammer.transform.parent = hands[index].transform;
+        hammer.transform.localPosition = new Vector3(-1.28f, 1, -0.63f);
+        hammer.transform.localRotation = Quaternion.Euler(94.31f, 0, 120);
     }
 }
