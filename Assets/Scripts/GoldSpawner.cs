@@ -32,19 +32,34 @@ public class GoldSpawner : MonoBehaviour
 
     void SpawnGoldsNeerMid()
     {
-        Vector3 mid = new Vector3(GetComponent<HexagonOffset>().target.x, 10, GetComponent<HexagonOffset>().target.y);
-        Collider[] middleHexagos = Physics.OverlapSphere(mid, 30, LayerMask.GetMask("Hexagon"));
+        List<GameObject> hex = hexGen.HexagoneList;
 
-        int randomIndex = Random.Range(0, middleHexagos.Length);
+        float[] topHeight = new float[5];
+        GameObject[] topHexagons = new GameObject[5];
 
-        if (middleHexagos[randomIndex].gameObject.transform.GetChild(0).childCount == 0)
+        foreach (GameObject i in hex)
+        {
+            for (int x = 0; x < topHeight.Length; x++)
+            {
+                if (i.transform.position.y > topHeight[x])
+                {
+                    topHeight[x] = i.transform.position.y;
+                    topHexagons[x] = i;
+                    break;
+                }
+            }
+        }
+
+        int randomIndex = Random.Range(0, topHexagons.Length);
+
+        if (topHexagons[randomIndex].gameObject.transform.GetChild(0).childCount == 0)
         {
 
             listOfGolds.Add(Instantiate(GoldPrefab));
 
-            listOfGolds[listOfGolds.Count - 1].transform.parent = middleHexagos[randomIndex].gameObject.transform.GetChild(0).transform;
-            listOfGolds[listOfGolds.Count - 1].transform.position = middleHexagos[randomIndex].gameObject.transform.GetChild(0).transform.position;
-            middleHexagos[randomIndex].gameObject.GetComponent<HexagonData>().neverFalls = true;
+            listOfGolds[listOfGolds.Count - 1].transform.parent = topHexagons[randomIndex].gameObject.transform.GetChild(0).transform;
+            listOfGolds[listOfGolds.Count - 1].transform.position = topHexagons[randomIndex].gameObject.transform.GetChild(0).transform.position;
+            topHexagons[randomIndex].gameObject.GetComponent<HexagonData>().neverFalls = true;
         }
     }
 
