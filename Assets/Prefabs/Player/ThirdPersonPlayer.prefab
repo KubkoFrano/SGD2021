@@ -5776,12 +5776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToAdd: 1
   secondsBetweenScores: 2
-  baseColor:
-    serializedVersion: 2
-    rgba: 4286997087
-  scoringColor:
-    serializedVersion: 2
-    rgba: 4278255602
+  coinValue: 1
   meshRenderer: {fileID: 3685033885495131022}
   scoreParticles: {fileID: 505910027663105811}
 --- !u!114 &2249794607867140311

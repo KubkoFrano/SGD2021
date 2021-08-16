@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerScore : MonoBehaviour
 {
+    [Header("Altitude scoring")]
     [SerializeField] int scoreToAdd;
     [SerializeField] int secondsBetweenScores;
-    [SerializeField] Color32 baseColor;
-    [SerializeField] Color32 scoringColor;
 
+    [Header("Coin scoring")]
+    [SerializeField] int coinValue;
 
     [Header("Do not touch")]
     [SerializeField] MeshRenderer meshRenderer;
@@ -18,10 +19,24 @@ public class PlayerScore : MonoBehaviour
     int scoreIndex;
     bool isScoring;
 
-    private void Start()
+    //Coin scoring
+
+    private void OnCollisionEnter(Collision collision)
     {
-        meshRenderer.material.color = baseColor;
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            AddScore(coinValue);
+        }
     }
+
+    void AddScore(int scoreToAdd)
+    {
+        score += scoreToAdd; 
+        scoreParticles.Play();
+        App.kingOfTheHill.UpdateScore(scoreIndex, score);
+    }
+
+    //Altitude scoring
 
     public int GetScore()
     {
@@ -45,7 +60,6 @@ public class PlayerScore : MonoBehaviour
     public void StopScoring()
     {
         isScoring = false;
-        meshRenderer.material.color = baseColor;
         StopAllCoroutines();
     }
 
@@ -59,7 +73,6 @@ public class PlayerScore : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(secondsBetweenScores);
-            meshRenderer.material.color = scoringColor;
             score += scoreToAdd;
             scoreParticles.Play();
             App.kingOfTheHill.UpdateScore(scoreIndex, score);

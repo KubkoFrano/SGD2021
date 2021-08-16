@@ -17,7 +17,7 @@ public class KingOfTheHill : MonoBehaviour
     private void Start()
     {
         CreatePlayerArray();
-        StartWatchingPlayers();
+        //StartWatchingPlayers();
     }
 
     public void EndMinigame()
