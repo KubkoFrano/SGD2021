@@ -76,7 +76,7 @@ public class PowerUpSpawner : MonoBehaviour
 
                 listOfPowerUPs[listOfPowerUPs.Count - 1].transform.parent = closeHexagons[randomIndex].gameObject.transform.GetChild(0).transform;
                 listOfPowerUPs[listOfPowerUPs.Count - 1].transform.position = closeHexagons[randomIndex].gameObject.transform.GetChild(0).transform.position;
-
+                
             }
         }
 

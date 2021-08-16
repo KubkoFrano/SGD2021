@@ -19,19 +19,9 @@ public class PlayerScore : MonoBehaviour
     int scoreIndex;
     bool isScoring;
 
-    //Coin scoring
-
-    private void OnCollisionEnter(Collision collision)
+    public void AddScore()
     {
-        if (collision.gameObject.CompareTag("Coin"))
-        {
-            AddScore(coinValue);
-        }
-    }
-
-    void AddScore(int scoreToAdd)
-    {
-        score += scoreToAdd; 
+        score += coinValue; 
         scoreParticles.Play();
         App.kingOfTheHill.UpdateScore(scoreIndex, score);
     }

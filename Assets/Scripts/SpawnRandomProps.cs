@@ -10,16 +10,15 @@ public class SpawnRandomProps : MonoBehaviour
 
     void Start()
     {
-        universalPropPos = transform.GetChild(1).GetComponent<Transform>();
+        if (transform.GetComponent<HexagonData>().SpawnProps)
+        {
+            universalPropPos = transform.GetChild(1).GetComponent<Transform>();
 
-        GameObject prop = Instantiate(RandomDecorations[ Random.Range(0, RandomDecorations.Length) ]);
+            GameObject prop = Instantiate(RandomDecorations[Random.Range(0, RandomDecorations.Length)]);
 
             prop.transform.position = universalPropPos.position;
 
             prop.transform.SetParent(universalPropPos);
-            
-       
+        }
     }
-
-    
 }
