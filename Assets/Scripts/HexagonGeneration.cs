@@ -21,6 +21,8 @@ public class HexagonGeneration : MonoBehaviour
 
     public float offsetY = 0;
 
+    public List<int> usedProps = new List<int>();
+
     int[] testSpawn = new int[] { -1, -1, -1, -1 };
     int[] testSide = new int[] { -1, -1, -1, -1 };
 
@@ -129,6 +131,7 @@ public class HexagonGeneration : MonoBehaviour
                     SpawnProp.transform.parent = HexagoneList[i].transform.GetChild(1);
                     SpawnProp.transform.position = HexagoneList[i].transform.position;
                 }
+                
                 
             }
 
