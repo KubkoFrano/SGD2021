@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PunchPistol : MonoBehaviour
 {
+    [SerializeField] GameObject punchParticles;
+
     public void Punch(float radius, float zOffset)
     {
         Collider[] colls = Physics.OverlapSphere(transform.position  + new Vector3(0, 0, zOffset), radius, LayerMask.GetMask("Player"));
@@ -16,6 +18,7 @@ public class PunchPistol : MonoBehaviour
             {
                 coll.gameObject.GetComponent<ThirdPersonMovement>().GetRepelled(GetComponentInParent<ThirdPersonMovement>().gameObject.transform.position);
                 temps.Add(coll.gameObject);
+                Instantiate(punchParticles, transform.position, Quaternion.identity);
             }
         }
     }

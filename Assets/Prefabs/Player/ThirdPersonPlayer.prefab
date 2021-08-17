@@ -1842,6 +1842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da699ae047bb6943990230514081cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  punchParticles: {fileID: 3478325895026972636, guid: 3122d5acb7f3578408cb306aaa6bade8, type: 3}
 --- !u!1 &1154861420408327168
 GameObject:
   m_ObjectHideFlags: 0
@@ -6791,7 +6792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8e86aec720b404dbe9e897a0161390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hammerParticles: {fileID: 2065737472190997089, guid: cd9055e6160c09b4bba38e98faee98ee, type: 3}
+  hammerParticles: {fileID: 6414989808167145794, guid: 731092ca71b68824baa0b8dd8feb4e7b, type: 3}
   hitPoint: {fileID: 1509969536295045344}
 --- !u!65 &5598472663753725685
 BoxCollider:
