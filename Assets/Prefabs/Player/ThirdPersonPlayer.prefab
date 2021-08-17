@@ -5581,7 +5581,7 @@ MonoBehaviour:
   maxSpeed: 8
   turnSmoothTime: 0.1
   jumpForce: 10
-  repellForce: 10
+  repellForce: 20
   repellDuration: 1
   repellAcceleration: 5
   slowDownAcc: 0
@@ -5602,6 +5602,7 @@ MonoBehaviour:
   maxFuel: 3
   hammerDownForce: 20
   hammerUpForce: 20
+  coin: {fileID: 2159755758041999782, guid: 571bfd0ad8b9b66418c1d1c921e2aae4, type: 3}
 --- !u!114 &7256028431645177314
 MonoBehaviour:
   m_ObjectHideFlags: 0

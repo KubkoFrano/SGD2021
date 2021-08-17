@@ -26,6 +26,18 @@ public class PlayerScore : MonoBehaviour
         App.kingOfTheHill.UpdateScore(scoreIndex, score);
     }
 
+    public bool SubtractScore()
+    {
+        if (score >= 0 + coinValue)
+        {
+            score -= coinValue;
+            App.kingOfTheHill.UpdateScore(scoreIndex, score);
+            return true;
+        }
+        else
+            return false;
+    }
+
     //Altitude scoring
 
     public int GetScore()

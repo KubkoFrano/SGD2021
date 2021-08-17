@@ -40,6 +40,7 @@ public class PauseScreen : ScreenBase
         App.screenManager.Hide<InGameScreen>();
         App.gameManager.StartSceneUnloading(App.gameManager.GetLevelScene());
         App.playerManager.DeleteAllPlayers();
+        App.kingOfTheHill.DeleteCoins();
         Hide();
     }
 }
