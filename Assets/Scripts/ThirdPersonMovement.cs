@@ -316,6 +316,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             isBalooning = false;
             StopCoroutine(Baloon(true));
+            rb.velocity = Vector3.zero;
             rb.AddForce(Vector3.down * hammerDownForce, ForceMode.Impulse);
             ResetBird();
         }    
