@@ -8,6 +8,7 @@ public class CoinDeleter : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Water"))
         {
+            App.kingOfTheHill.RemoveCoin(GetComponent<CoinSpawnBehaviour>());
             Destroy(this.gameObject);
         }
     }

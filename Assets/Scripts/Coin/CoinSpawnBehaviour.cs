@@ -27,6 +27,7 @@ public class CoinSpawnBehaviour : MonoBehaviour
 
     IEnumerator Initiate()
     {
+        App.kingOfTheHill.AddCoin(this);
         rb.AddForce(Vector3.up * upForce, ForceMode.Impulse);
         yield return new WaitForSeconds(turnOnColliderAfter);
         coll.enabled = true;
