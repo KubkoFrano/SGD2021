@@ -10,7 +10,7 @@ public class SpawnRandomProps : MonoBehaviour
 
     void Start()
     {
-        if (transform.GetComponent<HexagonData>().SpawnProps && RandomDecorations.Length > 0)
+        if (transform.GetComponent<HexagonData>().SpawnProps)
         {
             universalPropPos = transform.GetChild(1).GetComponent<Transform>();
 
