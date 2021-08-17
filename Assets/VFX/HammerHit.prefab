@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3958903516084392298}
   - component: {fileID: 2588835257159486032}
   - component: {fileID: 4305965238527544040}
+  - component: {fileID: 3998592216934939714}
   m_Layer: 0
   m_Name: HammerHit
   m_TagString: Untagged
@@ -5057,6 +5058,18 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3998592216934939714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414989808167145794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9f0fa05a85a41459cf4ab884590948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4486351112047577149
 PrefabInstance:
   m_ObjectHideFlags: 0
