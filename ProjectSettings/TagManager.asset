@@ -8,6 +8,7 @@ TagManager:
   - Water
   - PlayerOther
   - Coin
+  - CoinMaster
   layers:
   - Default
   - TransparentFX
