@@ -7,26 +7,32 @@ public class GoldSpawner : MonoBehaviour
     public GameObject GoldPrefab;
     public List<GameObject> listOfGolds = new List<GameObject>();
     HexagonGeneration hexGen;
-    public int maxAmmountOfGolds = 3;
-
+    public int maxAmmountOfGoldMasters = 3;
     
 
 
     private void Start()
     {
         hexGen = GetComponent<HexagonGeneration>();
-        
 
     }
     void Update()
     {
+        GameObject []coins = GameObject.FindGameObjectsWithTag("CoinMaster");
 
-        if (listOfGolds.Count < maxAmmountOfGolds && Time.timeSinceLevelLoad > 2)
+        
+
+        if (coins.Length < maxAmmountOfGoldMasters && Time.timeSinceLevelLoad > 2)
         {
-            if (Random.value < 0.01f)
+            if (Random.value < 0.01f || coins.Length == 0)
             {
                 SpawnGoldsNeerMid();
             }
+        }
+
+        foreach(GameObject i in coins)
+        {
+            if (i.transform.childCount == 0) Destroy(i);
         }
     }
 

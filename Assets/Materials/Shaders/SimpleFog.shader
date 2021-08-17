@@ -4,6 +4,7 @@ Shader "m1r0/SimpleFog"
     {
        _Color("Main Color", Color) = (1, 1, 1, .5)
        _Scale("Noise Scale", float) = 1.
+       _NoiseStrenght("Noise Strenght", float) = .05
        _IntersectionThresholdMax("Intersection Threshold Max", float) = 1
     }
         SubShader
@@ -40,6 +41,7 @@ Shader "m1r0/SimpleFog"
            float4 _IntersectionColor;
            float _IntersectionThresholdMax;
            float _Scale;
+           float _NoiseStrenght;
 
            v2f vert(appdata v)
            {
@@ -82,7 +84,8 @@ Shader "m1r0/SimpleFog"
                f = lerp(f, valueNoise(uv * 2. + _Time.y * float2(.5, -.7)), .5);
                f = lerp(f, valueNoise(uv * 4. + _Time.y * float2(-1., .3)), .3);
 
-               float4 color = float4(_Color.xyz, f);
+               //float4 color = float4(_Color.xyz, f);
+               float4 color = float4(_Color.xyz + f * _NoiseStrenght, _Color.w);
 
                fixed4 col = lerp(fixed4(color.rgb, 0.0), color, diff * diff * diff * (diff * (6 * diff - 15) + 10));
 
