@@ -26,8 +26,6 @@ public class HexagonGeneration : MonoBehaviour
     int[] testSpawn = new int[] { -1, -1, -1, -1 };
     int[] testSide = new int[] { -1, -1, -1, -1 };
 
-    int sp = 0;
-    int si = 0;
     int p = 0;
     int o = 0;
 
