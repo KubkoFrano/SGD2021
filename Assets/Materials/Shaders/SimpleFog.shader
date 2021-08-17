@@ -88,7 +88,8 @@ Shader "m1r0/SimpleFog"
                f = lerp(f, valueNoise(uv * 4. + _Time.y * float2(-1., .3)), .3);
 
                //float4 color = float4(_Color.xyz, f);
-               float4 color = float4(_Color.xyz + f * _NoiseStrenght, _Color.w);
+               //float4 color = float4(_Color.xyz + f * _NoiseStrenght, _Color.w);
+               float4 color = _Color;
 
                fixed4 col = lerp(fixed4(color.rgb, 0.0), color, diff * diff * diff * (diff * (6 * diff - 15) + 10));
 

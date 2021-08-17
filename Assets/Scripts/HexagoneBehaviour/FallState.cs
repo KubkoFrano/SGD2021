@@ -9,6 +9,7 @@ public class FallState : State
     }
     public override State Execute()
     {
+        data.spawnGolds = false;
 
         if (data.transform.position.y <= -25)
         {

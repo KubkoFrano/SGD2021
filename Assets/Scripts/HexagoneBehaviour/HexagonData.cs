@@ -37,6 +37,7 @@ public class HexagonData : MonoBehaviour
     public bool replaceOffset = false;
     public bool SpawnProps = true;
     public bool baseState = false;
+    public bool spawnGolds = true;
 
     public float randomOff = 0;
     public float revivedHeight;
