@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: {x: 5, y: 9}
-  SpacingLenght: 3
+  SpacingLenght: 2
   Hexagons:
   - {fileID: 2438704028009901404, guid: 59f07aa8955795642a5033bc56806cfa, type: 3}
   - {fileID: 2412617381388982963, guid: 38d72c96686a98a4aaf43ae4a9d0e58c, type: 3}
@@ -72,6 +72,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   offsetY: 5
+  usedProps: 
 --- !u!114 &153638974189926371
 MonoBehaviour:
   m_ObjectHideFlags: 0
