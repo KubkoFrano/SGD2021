@@ -55,10 +55,14 @@ public class ThirdPersonMovement : MonoBehaviour
     bool isRepelled = false;
     bool hasJumped = false;
 
+    [Header("Do not touch")]
+    [SerializeField] GameObject coin;
+
     Transform cameraTransform;
     GroundCheck groundCheck;
     Rigidbody rb;
     Rocket rocket;
+    PlayerScore score;
 
     Animator movementAnim;
 
@@ -73,6 +77,7 @@ public class ThirdPersonMovement : MonoBehaviour
         baloonFloatTime = maxBaloonFloatTime;
         StartCoroutine(BaloonRecharge());
         rocket = GetComponentInChildren<Rocket>();
+        score = GetComponent<PlayerScore>();
     }
 
 
@@ -168,6 +173,13 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public void GetRepelled(Vector3 otherPos)
     {
+        if (score.SubtractScore())
+        {
+            CoinSpawnBehaviour tempCoin = Instantiate(coin, transform.position + Vector3.up, Quaternion.identity).GetComponent<CoinSpawnBehaviour>();
+            tempCoin.SetOriginalPlayer(this.gameObject);
+            tempCoin.SpawnCoin();
+        }
+
         StartCoroutine(RepellCooldown());
         Vector3 force = (transform.position - otherPos).normalized * repellForce;
 

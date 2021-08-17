@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class CoinGrabber : MonoBehaviour
 {
+    [SerializeField] float pickupCooldown;
+
+    GameObject originalPlayer;
+
+    bool canPickup = false;
+
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && (!originalPlayer || ComparePlayer(collision.gameObject)))
         {
+            GetComponent<CapsuleCollider>().enabled = false;
             collision.gameObject.GetComponent<PlayerScore>()?.AddScore();
-            ActivateShakeState();
+
+            if (!originalPlayer)
+                ActivateShakeState();
 
             ClearCoin();
         }
@@ -21,17 +30,38 @@ public class CoinGrabber : MonoBehaviour
 
     void ClearCoin()
     {
-        GetComponentInParent<GoldSpawner>().RemoveGold(this.gameObject);
+        if (!originalPlayer)
+            GetComponentInParent<GoldSpawner>().RemoveGold(this.gameObject);
 
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     void ActivateShakeState()
     {
-        if (transform.parent.childCount == 1)
+        if (transform.parent.parent.childCount == 1)
         {
             GetComponentInParent<BehaviourHexagon>().state.data.UpdateOnChange();
             GetComponentInParent<BehaviourHexagon>().state = new ShakeState(GetComponentInParent<BehaviourHexagon>().state.data, false);
         }
+    }
+
+    public void SetOriginalPlayer(GameObject player)
+    {
+        originalPlayer = player;
+        StartCoroutine(PlayerCooldown());
+    }
+
+    IEnumerator PlayerCooldown()
+    {
+        yield return new WaitForSeconds(pickupCooldown);
+        canPickup = true;
+    }
+
+    bool ComparePlayer(GameObject player)
+    {
+        if (canPickup)
+            return true;
+        else
+            return originalPlayer != player;
     }
 }
