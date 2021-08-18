@@ -19,7 +19,7 @@ public class FallState : State
             {
                 data.UpdateOnChange();
 
-                
+
                 return new ReviveState(data);
             }
         }
@@ -27,30 +27,11 @@ public class FallState : State
         {
             data.acc -= data.fallSpeed * Time.deltaTime;
 
-            //data.Position = (Vector3.up * - data.acc);
             Vector3 newPos = new Vector3(data.spawnedPosition.x, data.transform.position.y, data.spawnedPosition.z) + Vector3.up * data.acc;
             data.rb.MovePosition(newPos);
 
         }
 
-
-        
-
-
-
-
         return new FallState(data);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -58,6 +58,7 @@ public class SyncFallState : MonoBehaviour
         
     }
 
+    /*
     public void MoveStateChange()
     {
         foreach (GameObject i in HexGen.HexagoneList)
@@ -68,7 +69,7 @@ public class SyncFallState : MonoBehaviour
             behaviour.state = new ShakeState(behaviour.state.data, false);
         }
     }
-
+    */
 
 
 
