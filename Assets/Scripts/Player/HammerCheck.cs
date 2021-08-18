@@ -8,6 +8,7 @@ public class HammerCheck : MonoBehaviour
     [SerializeField] Transform hitPoint;
 
     Hammer hammer;
+    PlayerScore playerScore;
 
     bool hasHammer = false;
     bool isGrounded = false;
@@ -15,6 +16,7 @@ public class HammerCheck : MonoBehaviour
     private void Awake()
     {
         hammer = GetComponentInParent<Hammer>();
+        playerScore = GetComponentInParent<PlayerScore>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,6 +27,7 @@ public class HammerCheck : MonoBehaviour
             {
                 hammer.Punch();
                 other.gameObject.GetComponent<BehaviourHexagon>()?.Fall();
+                playerScore.AddParticularScore(other.gameObject.GetComponent<BehaviourHexagon>().CarrotSmash());
 
                 Instantiate(hammerParticles, hitPoint.position, Quaternion.Euler(-90, 0, 0));
             }

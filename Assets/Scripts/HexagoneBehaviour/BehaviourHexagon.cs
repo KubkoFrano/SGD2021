@@ -28,7 +28,19 @@ public class BehaviourHexagon : MonoBehaviour
     {
         state.data.UpdateOnChange();
         state = new FallState(state.data);
-        Debug.Log("fall");
+    }
+
+    public int CarrotSmash()
+    {
+        if (transform.GetChild(0).childCount == 1)
+            if (transform.GetChild(0).GetChild(0).CompareTag("CoinMaster"))
+            {
+                int kids = transform.GetChild(0).GetChild(0).childCount;
+                Destroy(transform.GetChild(0).GetChild(0).gameObject);
+                return kids;
+            }
+
+        return 0;
     }
 
     public void MoveStateChange()
