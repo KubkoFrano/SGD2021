@@ -65,6 +65,7 @@ public class ThirdPersonMovement : MonoBehaviour
     PlayerScore score;
 
     [SerializeField] Animator movementAnim;
+    [SerializeField] Animator hatAnim;
 
     bool isRespawning = false;
 
@@ -201,6 +202,9 @@ public class ThirdPersonMovement : MonoBehaviour
 
     IEnumerator Baloon(bool wait)
     {
+        if (baloonFloatTime > 0 && isBalooning)
+            hatAnim.SetBool("isJumping", true);
+
         if (wait)
             yield return new WaitForSeconds(buttonHoldTime);
 
@@ -217,6 +221,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
+
+        hatAnim.SetBool("isJumping", false);
     }
 
     IEnumerator Bird()
