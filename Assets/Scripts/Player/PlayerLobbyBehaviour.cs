@@ -7,6 +7,8 @@ using Cinemachine;
 
 public class PlayerLobbyBehaviour : MonoBehaviour
 {
+    [SerializeField] float vibrationDuration;
+
     [SerializeField] GameObject[] characters;
 
     [Header("Do not touch")]
@@ -15,6 +17,7 @@ public class PlayerLobbyBehaviour : MonoBehaviour
     public ThirdPersonMovement playerMovement;
 
     PlayerInput playerInput;
+    Gamepad gamepad;
 
     int characterIndex;
 
@@ -23,6 +26,21 @@ public class PlayerLobbyBehaviour : MonoBehaviour
         App.playerManager.JoinPlayer(this.gameObject);
         characterIndex = App.characterManager.AssignCharacter();
         playerInput = GetComponent<PlayerInput>();
+
+        foreach (Gamepad pad in Gamepad.all)
+        {
+            foreach (InputDevice device in playerInput.user.pairedDevices)
+            {
+                if (pad.FindInParentChain<InputDevice>() == device)
+                    gamepad = pad;
+            }
+        }
+
+        if (gamepad != null)
+        {
+            gamepad?.SetMotorSpeeds(0, 1);
+            StartCoroutine(StopVibrating());
+        }
     }
 
     public void Leave()
@@ -67,5 +85,11 @@ public class PlayerLobbyBehaviour : MonoBehaviour
 
         Animator anim = characters[index].GetComponent<Animator>();
         playerMovement.SetMovementAnim(anim);
+    }
+
+    IEnumerator StopVibrating()
+    {
+        yield return new WaitForSeconds(vibrationDuration);
+        gamepad.ResetHaptics();
     }
 }
