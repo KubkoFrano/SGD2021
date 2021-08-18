@@ -5764,6 +5764,13 @@ MonoBehaviour:
   camera: {fileID: 963194225}
   cinemachine: {fileID: 3685033884450872016}
   playerMovement: {fileID: 3685033884851739438}
+  hands:
+  - {fileID: 631985046190968851}
+  - {fileID: 2206413575502646466}
+  - {fileID: 3726481196503413874}
+  - {fileID: 6556386548759956514}
+  hammer: {fileID: 9017274666567593813}
+  pistol: {fileID: 82559421254181767}
 --- !u!114 &2055330703783609812
 MonoBehaviour:
   m_ObjectHideFlags: 0
