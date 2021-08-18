@@ -11,10 +11,6 @@ public class ShakeState : State
     public override State Execute()
     {
         data.spawnGolds = false;
-        if (data.transform.GetChild(0).childCount == 0)
-        {
-            data.neverFalls = false;
-        }
         if (data.neverFalls == true)
         {
             return new BaseState(data);
