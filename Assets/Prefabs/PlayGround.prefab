@@ -54,10 +54,10 @@ MonoBehaviour:
   - {fileID: 2412617381388982963, guid: 38d72c96686a98a4aaf43ae4a9d0e58c, type: 3}
   - {fileID: 8764145505995868317, guid: d618b405c5ec1944398d7cc59d4a0b7c, type: 3}
   randomSpawnableHexagon:
-  - {fileID: 133633956835675686, guid: c055cddfc81f33541ad3686af4acb99e, type: 3}
-  - {fileID: 6950038525392121280, guid: 322532723fa8349419c6eced02123d01, type: 3}
-  - {fileID: 467810791180062826, guid: bab5cf1891c0a0d448b770b5bae3f212, type: 3}
-  - {fileID: 133633956835675686, guid: c055cddfc81f33541ad3686af4acb99e, type: 3}
+  - {fileID: 3927298338607212250, guid: 6f44a7c2fffac1d4395efb2d69a0ab30, type: 3}
+  - {fileID: 3927298338607212250, guid: 6f44a7c2fffac1d4395efb2d69a0ab30, type: 3}
+  - {fileID: 3927298338607212250, guid: 6f44a7c2fffac1d4395efb2d69a0ab30, type: 3}
+  - {fileID: 3927298338607212250, guid: 6f44a7c2fffac1d4395efb2d69a0ab30, type: 3}
   randomSideHexagon:
   - {fileID: 7076739297760803242, guid: 4bb59ef1443f8644fae8a50f790ffbdd, type: 3}
   - {fileID: 2412617381388982963, guid: 38d72c96686a98a4aaf43ae4a9d0e58c, type: 3}
@@ -132,4 +132,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GoldPrefab: {fileID: 4180276832065685974, guid: 63cd6518ced58d14b966ec02e117fe93, type: 3}
   listOfGolds: []
-  maxAmmountOfGolds: 3
+  maxAmmountOfGoldMasters: 3

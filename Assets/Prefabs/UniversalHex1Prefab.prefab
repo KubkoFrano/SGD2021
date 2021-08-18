@@ -181,6 +181,7 @@ MonoBehaviour:
   replaceOffset: 0
   SpawnProps: 1
   baseState: 0
+  spawnGolds: 1
   randomOff: 0
   revivedHeight: 0
   hexFallParticle: {fileID: 2428163982943153557}

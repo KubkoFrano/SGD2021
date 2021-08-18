@@ -20,8 +20,8 @@ public class GoldSpawner : MonoBehaviour
     {
         GameObject []coins = GameObject.FindGameObjectsWithTag("CoinMaster");
 
-        
 
+        
         if (coins.Length < maxAmmountOfGoldMasters && Time.timeSinceLevelLoad > 2)
         {
             if (Random.value < 0.01f || coins.Length == 0)
@@ -49,9 +49,12 @@ public class GoldSpawner : MonoBehaviour
             {
                 if (i.transform.position.y > topHeight[x])
                 {
-                    topHeight[x] = i.transform.position.y;
-                    topHexagons[x] = i;
-                    break;
+                    if (i.GetComponent<HexagonData>().spawnGolds)
+                    {
+                        topHeight[x] = i.transform.position.y;
+                        topHexagons[x] = i;
+                        break;
+                    }
                 }
             }
         }

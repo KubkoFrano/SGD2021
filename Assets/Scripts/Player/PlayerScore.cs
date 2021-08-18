@@ -21,7 +21,7 @@ public class PlayerScore : MonoBehaviour
 
     public void AddScore()
     {
-        score += coinValue; 
+        score += coinValue;
         scoreParticles.Play();
         App.kingOfTheHill.UpdateScore(scoreIndex, score);
     }
@@ -36,6 +36,16 @@ public class PlayerScore : MonoBehaviour
         }
         else
             return false;
+    }
+
+    public void AddParticularScore(int score)
+    {
+        this.score += score;
+        for (int i = 0; i < score; i++)
+        {
+            scoreParticles.Play();
+        }
+        App.kingOfTheHill.UpdateScore(scoreIndex, this.score);
     }
 
     //Altitude scoring

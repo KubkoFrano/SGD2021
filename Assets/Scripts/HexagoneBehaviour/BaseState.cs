@@ -10,7 +10,7 @@ public class BaseState : State
 
     public override State Execute()
     {
-
+        data.spawnGolds = true;
         data.baseState = true;
         data.timeSinceLastChange += Time.deltaTime;
 
