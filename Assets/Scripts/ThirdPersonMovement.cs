@@ -64,7 +64,7 @@ public class ThirdPersonMovement : MonoBehaviour
     Rocket rocket;
     PlayerScore score;
 
-    Animator movementAnim;
+    [SerializeField] Animator movementAnim;
 
     bool isRespawning = false;
 
@@ -368,11 +368,6 @@ public class ThirdPersonMovement : MonoBehaviour
 
         baloonFloatTime = maxBaloonFloatTime;
         App.inGameScreen.UpdateBaloon(baloonIndex, GetTimeNormalized());
-    }
-
-    public void SetMovementAnim(Animator anim)
-    {
-        movementAnim = anim;
     }
 
     public void StartRespawning()
