@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 153638974189926371}
   - component: {fileID: 153638974189926368}
   - component: {fileID: 6842322580120404975}
+  - component: {fileID: 1687336995574438563}
   m_Layer: 0
   m_Name: PlayGround
   m_TagString: Untagged
@@ -47,14 +48,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: {x: 5, y: 9}
-  SpacingLenght: 3
+  SpacingLenght: 2
   Hexagons:
   - {fileID: 2438704028009901404, guid: 59f07aa8955795642a5033bc56806cfa, type: 3}
   - {fileID: 2412617381388982963, guid: 38d72c96686a98a4aaf43ae4a9d0e58c, type: 3}
   - {fileID: 8764145505995868317, guid: d618b405c5ec1944398d7cc59d4a0b7c, type: 3}
   randomSpawnableHexagon:
   - {fileID: 133633956835675686, guid: c055cddfc81f33541ad3686af4acb99e, type: 3}
-  - {fileID: 1921105662494349001, guid: 72d718237867fe546989c3d2711bc83a, type: 3}
+  - {fileID: 6950038525392121280, guid: 322532723fa8349419c6eced02123d01, type: 3}
   - {fileID: 467810791180062826, guid: bab5cf1891c0a0d448b770b5bae3f212, type: 3}
   - {fileID: 133633956835675686, guid: c055cddfc81f33541ad3686af4acb99e, type: 3}
   randomSideHexagon:
@@ -71,6 +72,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   offsetY: 5
+  usedProps: 
 --- !u!114 &153638974189926371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,3 +118,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0}
   MaxHeightOffset: 10
+--- !u!114 &1687336995574438563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153638974189926372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df2da7b29ac28046afbea0a50d41903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GoldPrefab: {fileID: 4180276832065685974, guid: 63cd6518ced58d14b966ec02e117fe93, type: 3}
+  listOfGolds: []
+  maxAmmountOfGolds: 3

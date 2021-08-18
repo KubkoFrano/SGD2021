@@ -8,6 +8,7 @@ public class KingOfTheHill : MonoBehaviour
 
     PlayerScore[] playerScores;
     ThirdPersonMovement[] movements;
+    List<CoinSpawnBehaviour> coins = new List<CoinSpawnBehaviour>();
 
     private void Awake()
     {
@@ -118,5 +119,23 @@ public class KingOfTheHill : MonoBehaviour
         }
 
         return tempWinner.GetScoreIndex();
+    }
+
+    public void AddCoin(CoinSpawnBehaviour coin)
+    {
+        coins.Add(coin);
+    }
+
+    public void RemoveCoin(CoinSpawnBehaviour coin)
+    {
+        coins.Remove(coin);
+    }
+
+    public void DeleteCoins()
+    {
+        foreach (CoinSpawnBehaviour coin in coins)
+        {
+            Destroy(coin.gameObject);
+        }
     }
 }

@@ -21,13 +21,15 @@ public class HexagonGeneration : MonoBehaviour
 
     public float offsetY = 0;
 
+    public List<int> usedProps = new List<int>();
+
     int[] testSpawn = new int[] { -1, -1, -1, -1 };
     int[] testSide = new int[] { -1, -1, -1, -1 };
 
-    int sp = 0;
-    int si = 0;
     int p = 0;
     int o = 0;
+
+    
 
     void Awake()
     {
@@ -41,7 +43,9 @@ public class HexagonGeneration : MonoBehaviour
         float offsetX = 0; //offset for every row
         int addPart = -1;  //adding that extra part
         float positionOffset = SpacingLenght + 2 * hexagoneRadius;
-        
+
+        float sTest = 0;
+
         for (int y = 0, i = 0; y < scale.y; y++)
         {
             if (y <= (scale.y - 1) / 2)
@@ -73,6 +77,9 @@ public class HexagonGeneration : MonoBehaviour
                 
                 if (isSpawnableCorner(i))
                 {
+                    
+                    
+
                     bool again = true;
                     int randomI = 0;
                     while (again == true)
@@ -93,8 +100,14 @@ public class HexagonGeneration : MonoBehaviour
                     GameObject SpawnProp = Instantiate(randomSpawnableHexagon[randomI]);
                     SpawnProp.transform.parent = HexagoneList[i].transform.GetChild(1);
                     SpawnProp.transform.position = HexagoneList[i].transform.position;
-                    //HexagoneList[i].GetComponent<MeshRenderer>().material = randomSpawnableHexagon[randomI].GetComponent<MeshRenderer>().sharedMaterial;
 
+                    
+
+                    HexagoneList[i].transform.Rotate(0, 60 * sTest, 0);   // 0, 5, 2, 3;
+
+                    if (sTest == 0) sTest = 5;
+                    else if (sTest == 5) sTest = 2;
+                    else if (sTest == 2) sTest = 3;
 
                     p++;
                 }
@@ -129,6 +142,7 @@ public class HexagonGeneration : MonoBehaviour
                     SpawnProp.transform.parent = HexagoneList[i].transform.GetChild(1);
                     SpawnProp.transform.position = HexagoneList[i].transform.position;
                 }
+                
                 
             }
 

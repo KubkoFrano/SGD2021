@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8312729785673769545}
   - component: {fileID: 7368176531599407475}
   - component: {fileID: 9110143115514673611}
-  - component: {fileID: 5220565271733512955}
   m_Layer: 0
   m_Name: HammerHit
   m_TagString: Untagged
@@ -28,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065737472190997089}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 0.34244445, y: 0.3424444, z: 0.3424444}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 7.59, z: -31.9}
+  m_LocalScale: {x: 0.22829631, y: 0.22829631, z: 0.22829631}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &7458164263220016410
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5057,16 +5056,3 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &5220565271733512955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2065737472190997089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f9f0fa05a85a41459cf4ab884590948, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 3
