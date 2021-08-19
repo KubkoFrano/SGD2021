@@ -49,11 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b5474f5db39ff48b1bc9f797a51912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenScreens: 1
-  sprites:
-  - {fileID: 21300000, guid: de6629aa0f61f374eb2d40021bcc07a1, type: 3}
-  - {fileID: 21300000, guid: d66943c44e1519d489e2a80ac697cd3c, type: 3}
-  - {fileID: 21300000, guid: d7794d196371f2842a97ebea7da11af8, type: 3}
+  timeBetweenScreens: 0
+  sprites: []
 --- !u!1 &8075462270613752502
 GameObject:
   m_ObjectHideFlags: 0
