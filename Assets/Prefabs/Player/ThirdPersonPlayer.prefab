@@ -2963,6 +2963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881b20ac760b79c4786defc4eb19ff3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vibrationDuration: 0.25
   camera: {fileID: 963194225}
   cinemachine: {fileID: 3685033884450872016}
   playerMovement: {fileID: 3685033884851739438}
