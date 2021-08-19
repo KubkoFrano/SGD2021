@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
 
 public class Hammer : MonoBehaviour
 {
+    [SerializeField] float rigCooldown;
+
     [Header("Do not touch")]
     [SerializeField] GameObject hammer;
 
@@ -12,6 +15,9 @@ public class Hammer : MonoBehaviour
     ThirdPersonMovement mv;
     InputDecider id;
     HammerCheck hc;
+    RigBuilder rigBuilder;
+
+    bool hasHammer = false;
 
     private void Awake()
     {
@@ -19,13 +25,16 @@ public class Hammer : MonoBehaviour
         mv = GetComponent<ThirdPersonMovement>();
         id = GetComponent<InputDecider>();
         hc = GetComponentInChildren<HammerCheck>();
+        rigBuilder = GetComponentInChildren<RigBuilder>();
     }
 
     public void InitiateHammer()
     {
+        hasHammer = true;
         hammer.SetActive(true);
         pa.SetHammer(true);
         id.SetHammer(true);
+        rigBuilder.enabled = false;
     }
 
     public void Activate(InputAction.CallbackContext context)
@@ -39,19 +48,38 @@ public class Hammer : MonoBehaviour
         mv.HammerPunch();
         hc.SetHammer(false);
 
-        DeleteHammer();
+        DeleteHammer(true);
     }
 
-    public void DeleteHammer()
+    public void DeleteHammer(bool hasCooldown)
     {
         hammer.SetActive(false);
-        pa.SetHammer(false);
         id.SetHammer(false);
+
+        if (hasCooldown)
+            StartCoroutine(RigCooldown());
+        else
+        {
+            rigBuilder.enabled = true;
+            pa.SetHammer(false);
+        }
     }
 
     public void ResetHammer()
     {
-        DeleteHammer();
+        DeleteHammer(false);
         hc.DeleteHammer();
+    }
+
+    IEnumerator RigCooldown()
+    {
+        hasHammer = false;
+        yield return new WaitForSeconds(rigCooldown);
+
+        if (!hasHammer)
+        {
+            rigBuilder.enabled = true;
+            pa.SetHammer(false);
+        }
     }
 }

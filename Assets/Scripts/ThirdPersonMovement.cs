@@ -332,6 +332,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (!groundCheck.IsGrounded())
         {
+            movementAnim.SetTrigger("hitHammer");
             isBalooning = false;
             StopCoroutine(Baloon(true));
             rb.velocity = Vector3.zero;
@@ -344,6 +345,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce(Vector3.up * hammerUpForce, ForceMode.Impulse);
+        movementAnim.SetTrigger("recoverHammer");
     }
 
     public void Land()
