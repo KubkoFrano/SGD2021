@@ -68,11 +68,11 @@ public class HexagonGeneration : MonoBehaviour
                 Vector2 CalculatePos = new Vector2(x * positionOffset + offsetX, y * (positionOffset - 1));
                 Vector3 nextPosition = new Vector3(CalculatePos.x, offsetY, CalculatePos.y);
 
-                Hexagons[0].transform.position = nextPosition;
-                HexagoneList.Add(Instantiate(Hexagons[0]));
+                Hexagons[HexType].transform.position = nextPosition;
+                HexagoneList.Add(Instantiate(Hexagons[HexType]));
                 HexagoneList[i].transform.SetParent(this.transform);
                 
-                HexagoneList[i].GetComponent<Renderer>().material = Hexagons[HexType].GetComponent<MeshRenderer>().sharedMaterial;
+                //HexagoneList[i].GetComponent<Renderer>().material = Hexagons[HexType].GetComponent<MeshRenderer>().sharedMaterial;
 
                 
                 if (isSpawnableCorner(i))
@@ -99,7 +99,7 @@ public class HexagonGeneration : MonoBehaviour
                     HexagoneList[i].GetComponent<HexagonData>().SpawnProps = false;
                     GameObject SpawnProp = Instantiate(randomSpawnableHexagon[randomI]);
                     SpawnProp.transform.parent = HexagoneList[i].transform.GetChild(1);
-                    SpawnProp.transform.position = HexagoneList[i].transform.position;
+                    SpawnProp.transform.position = HexagoneList[i].transform.GetChild(1).transform.position;
                     SpawnProp.transform.Rotate(0, 30, 0);
                     
 
@@ -140,7 +140,7 @@ public class HexagonGeneration : MonoBehaviour
                     HexagoneList[i].GetComponent<HexagonData>().SpawnProps = false;
                     GameObject SpawnProp = Instantiate(middleHexagon[randomI]);
                     SpawnProp.transform.parent = HexagoneList[i].transform.GetChild(1);
-                    SpawnProp.transform.position = HexagoneList[i].transform.position;
+                    SpawnProp.transform.position = HexagoneList[i].transform.GetChild(1).transform.position;
                 }
                 
                 
