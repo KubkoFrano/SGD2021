@@ -50,21 +50,21 @@ MonoBehaviour:
   scale: {x: 5, y: 9}
   SpacingLenght: 2
   Hexagons:
-  - {fileID: 2438704028009901404, guid: 59f07aa8955795642a5033bc56806cfa, type: 3}
-  - {fileID: 2412617381388982963, guid: 38d72c96686a98a4aaf43ae4a9d0e58c, type: 3}
-  - {fileID: 8764145505995868317, guid: d618b405c5ec1944398d7cc59d4a0b7c, type: 3}
+  - {fileID: 2438704028009901404, guid: aa639d184b0e5294b93998897a70a597, type: 3}
+  - {fileID: 2438704028009901404, guid: eb04c19a0d0849a46b642eb848a4abd1, type: 3}
+  - {fileID: 2438704028009901404, guid: 422fd68c3168be74ea0a30e450d14cc5, type: 3}
   randomSpawnableHexagon:
-  - {fileID: 3927298338607212250, guid: 6f44a7c2fffac1d4395efb2d69a0ab30, type: 3}
-  - {fileID: 3927298338607212250, guid: 6f44a7c2fffac1d4395efb2d69a0ab30, type: 3}
-  - {fileID: 3927298338607212250, guid: 6f44a7c2fffac1d4395efb2d69a0ab30, type: 3}
-  - {fileID: 3927298338607212250, guid: 6f44a7c2fffac1d4395efb2d69a0ab30, type: 3}
+  - {fileID: 2509289114166290050, guid: bd19cad32230f664f96fd25f3205a291, type: 3}
+  - {fileID: 2509289114166290050, guid: bd19cad32230f664f96fd25f3205a291, type: 3}
+  - {fileID: 2509289114166290050, guid: bd19cad32230f664f96fd25f3205a291, type: 3}
+  - {fileID: 2509289114166290050, guid: bd19cad32230f664f96fd25f3205a291, type: 3}
   randomSideHexagon:
   - {fileID: 7076739297760803242, guid: 4bb59ef1443f8644fae8a50f790ffbdd, type: 3}
   - {fileID: 2412617381388982963, guid: 38d72c96686a98a4aaf43ae4a9d0e58c, type: 3}
   - {fileID: 8764145505995868317, guid: d618b405c5ec1944398d7cc59d4a0b7c, type: 3}
   - {fileID: 8764145505995868317, guid: d618b405c5ec1944398d7cc59d4a0b7c, type: 3}
   middleHexagon:
-  - {fileID: 5088143343761623179, guid: 65d6e964ce60f5b4aa38133c7b3dbafd, type: 3}
+  - {fileID: 3431096157883412948, guid: 69c53c2c69f28374981507eccd301a48, type: 3}
   HexagoneList: []
   spawnablePlayerPositions:
   - {x: 0, y: 0, z: 0}
