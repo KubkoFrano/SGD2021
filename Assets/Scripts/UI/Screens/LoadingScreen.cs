@@ -22,12 +22,15 @@ public class LoadingScreen : ScreenBase
 
     IEnumerator Loading()
     {
-        foreach (Sprite sprite in sprites)
+        if (sprites.Length > 0)
         {
-            image.sprite = sprite;
-            yield return new WaitForSeconds(timeBetweenScreens);
+            foreach (Sprite sprite in sprites)
+            {
+                image.sprite = sprite;
+                yield return new WaitForSeconds(timeBetweenScreens);
+            }
         }
-
+        
         Time.timeScale = 1;
         App.gameManager.StartSceneLoading(App.gameManager.GetLevelScene());
         App.screenManager.Show<InGameScreen>();
