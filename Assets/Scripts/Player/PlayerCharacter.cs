@@ -6,12 +6,7 @@ public class PlayerCharacter : MonoBehaviour
 {
     [SerializeField] Material[] materials;
 
-    SkinnedMeshRenderer meshRenderer;
-
-    private void Awake()
-    {
-        meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
-    }
+    [SerializeField] SkinnedMeshRenderer meshRenderer;
 
     public void SetCharacter(int index)
     {
