@@ -100,7 +100,7 @@ public class HexagonGeneration : MonoBehaviour
                     GameObject SpawnProp = Instantiate(randomSpawnableHexagon[randomI]);
                     SpawnProp.transform.parent = HexagoneList[i].transform.GetChild(1);
                     SpawnProp.transform.position = HexagoneList[i].transform.position;
-
+                    SpawnProp.transform.Rotate(0, 30, 0);
                     
 
                     HexagoneList[i].transform.Rotate(0, 60 * sTest, 0);   // 0, 5, 2, 3;
