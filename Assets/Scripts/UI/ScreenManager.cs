@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ScreenManager : MonoBehaviour
 {
-
     private ScreenBase[] screens;
 
     void Start()

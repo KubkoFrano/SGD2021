@@ -930,4 +930,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b434419286fad42b1b46d008018ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstButton: {fileID: 153119866697147707}
   winnerText: {fileID: 5343392415657637143}
