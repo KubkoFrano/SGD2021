@@ -14,7 +14,6 @@ public class PauseScreen : ScreenBase
 
     public override void Hide()
     {
-        App.gameManager.SetGameState(GameState.game);
         base.Hide();
     }
 
@@ -30,6 +29,7 @@ public class PauseScreen : ScreenBase
     public void SettingsButtonClicked()
     {
         App.screenManager.Show<SettingsScreen>();
+        App.gameManager.SetGameState(GameState.settings);
         Hide();
     }
 

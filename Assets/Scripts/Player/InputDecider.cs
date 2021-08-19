@@ -42,6 +42,7 @@ public class InputDecider : MonoBehaviour
         else if (App.gameManager.CompareGameState(GameState.pause) && App.gameManager.CompareCurrentController(this.gameObject))
         {
             App.screenManager.Hide<PauseScreen>();
+            App.gameManager.SetGameState(GameState.game);
             Time.timeScale = 1;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
