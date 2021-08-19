@@ -11,7 +11,7 @@ public class ScreenManager : MonoBehaviour
     {
         App.screenManager = this;
         screens = GetComponentsInChildren<ScreenBase>(true);
-        Show<MenuScreen>();
+        Show<LaunchScreen>();
     }
 
     public void Show<T>()
