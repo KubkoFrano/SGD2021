@@ -5,6 +5,7 @@ Shader "m1r0/Luminate"
         //_MainTex ("Texture", 2D) = "white" {}
         _Color1("Color1", Color) = (1., 1., 1., 1.)
         _Color2("Color2", Color) = (1., 1., 1., 1.)
+        _Strenght("Strenght", float) = 1.
     }
     SubShader
     {
@@ -41,6 +42,7 @@ Shader "m1r0/Luminate"
 
             float4 _Color1;
             float4 _Color2;
+            float _Strenght;
 
             v2f vert (appdata v) 
             {
@@ -69,13 +71,13 @@ Shader "m1r0/Luminate"
                 a = sin(a * 7.);
                 
                 a = max(0, a);
-                float d = .25 - dot(uv, uv);
+                float d = max(0., .25 - dot(uv, uv));
 
                 
                 a *= d;
-                float3 color = _Color1 * step(0, a) + _Color2 * step(0, w);
-                return float4(color * (a + w), 1.);
-                return float4(_Color1.rgb, a);
+                //float3 color = _Color1 * step(0, a) + _Color2 * step(0, w);
+                //return float4(color * (a + w), 1.);
+                return float4(_Color2.rgb * (w * _Strenght), 0);
             }
             ENDCG
         }
