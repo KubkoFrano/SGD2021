@@ -8,13 +8,12 @@ using Cinemachine;
 public class PlayerLobbyBehaviour : MonoBehaviour
 {
     [SerializeField] float vibrationDuration;
-
-    [SerializeField] GameObject[] characters;
-
+	
     [Header("Do not touch")]
     public GameObject camera;
     public GameObject cinemachine;
     public ThirdPersonMovement playerMovement;
+    public PlayerCharacter character;
 
     PlayerInput playerInput;
     Gamepad gamepad;
@@ -81,10 +80,7 @@ public class PlayerLobbyBehaviour : MonoBehaviour
 
     public void SetCharacter(int index)
     {
-        characters[index].SetActive(true);
-
-        Animator anim = characters[index].GetComponent<Animator>();
-        playerMovement.SetMovementAnim(anim);
+        character.SetCharacter(index);
     }
 
     IEnumerator StopVibrating()
