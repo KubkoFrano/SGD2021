@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-    MeshRenderer mesh;
+    [SerializeField] MeshRenderer mesh;
     ParticleSystem[] particles;
 
     private void Awake()
     {
-        mesh = GetComponent<MeshRenderer>();
         particles = GetComponentsInChildren<ParticleSystem>();
 
         SetRocket(false);
