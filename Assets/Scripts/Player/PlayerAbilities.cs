@@ -49,7 +49,7 @@ public class PlayerAbilities : MonoBehaviour
     IEnumerator ManagePunch()
     {
         yield return new WaitForSeconds(punchSeconds);
-        pistol.Punch(checkRadius, zOffset);
+        pistol.Punch();
     }
 
     public void SetHammer(bool value)

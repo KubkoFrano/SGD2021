@@ -5,21 +5,44 @@ using UnityEngine;
 public class PunchPistol : MonoBehaviour
 {
     [SerializeField] GameObject punchParticles;
+    [SerializeField] Transform particlesPosition;
 
-    public void Punch(float radius, float zOffset)
+    List<Collider> colls = new List<Collider>();
+    ThirdPersonMovement movement;
+
+    private void Start()
     {
-        Collider[] colls = Physics.OverlapSphere(transform.position  + new Vector3(0, 0, zOffset), radius, LayerMask.GetMask("Player"));
-        List<GameObject> temps = new List<GameObject>();
+        movement = GetComponentInParent<ThirdPersonMovement>();
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+            colls.Add(other);
+    }
 
-        foreach (Collider coll in colls)
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+            colls.Remove(other);
+    }
+
+    public void Punch()
+    {
+        bool playParticles = false;
+
+        foreach (Collider c in colls)
         {
-            if (coll.gameObject.CompareTag("Player") && !temps.Contains(coll.gameObject))
+            ThirdPersonMovement temp = c.gameObject.GetComponent<ThirdPersonMovement>();
+            if (movement != temp)
             {
-                coll.gameObject.GetComponent<ThirdPersonMovement>().GetRepelled(GetComponentInParent<ThirdPersonMovement>().gameObject.transform.position);
-                temps.Add(coll.gameObject);
-                Instantiate(punchParticles, transform.position, Quaternion.identity);
+                temp.GetRepelled(movement.gameObject.transform.position);
+                playParticles = true;
+                Debug.Log("Pow");
             }
         }
+
+        if (playParticles)
+            Instantiate(punchParticles, particlesPosition.position, Quaternion.identity);
     }
 }
