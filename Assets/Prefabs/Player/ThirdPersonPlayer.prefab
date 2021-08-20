@@ -2824,17 +2824,11 @@ MonoBehaviour:
   repellMaxSpeed: 0
   startStoppingAfter: 0.9
   stopForce: 10
-  buttonHoldTime: 0.5
-  baloonForce: 20
-  riseSpeed: 2
-  maxBaloonFloatTime: 3
-  baloonRechargeSpeed: 0.8
-  baloonAcceleration: 10
-  maxBaloonSpeed: 3
   birdHatForce: 20
   birdRiseSpeed: 6
   birdAcceleration: 25
   maxBirdSpeed: 6
+  buttonHoldTime: 0.5
   maxFuel: 3
   hammerDownForce: 20
   hammerUpForce: 20

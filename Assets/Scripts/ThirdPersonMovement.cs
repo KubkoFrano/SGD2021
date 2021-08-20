@@ -18,28 +18,17 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] float startStoppingAfter;
     [SerializeField] float stopForce;
 
-    [Header("Baloon")]
-    [SerializeField] float buttonHoldTime;
-    [SerializeField] float baloonForce;
-    [SerializeField] float riseSpeed;
-    [SerializeField] float maxBaloonFloatTime;
-    [SerializeField] float baloonRechargeSpeed;
-    [SerializeField] float baloonAcceleration;
-    [SerializeField] float maxBaloonSpeed;
-
-    bool isBalooning = false;
-    float baloonFloatTime;
-    int baloonIndex = -1;
-
     [Header("Bird Hat")]
     [SerializeField] float birdHatForce;
     [SerializeField] float birdRiseSpeed;
     //[SerializeField] float birdHatDuration;
     [SerializeField] float birdAcceleration;
     [SerializeField] float maxBirdSpeed;
+    [SerializeField] float buttonHoldTime;
 
     [SerializeField] float maxFuel;
 
+    int baloonIndex;
     bool hasBird = false;
     bool isBirding = false;
 
@@ -75,8 +64,6 @@ public class ThirdPersonMovement : MonoBehaviour
         groundCheck = GetComponentInChildren<GroundCheck>().Assign(this);
         rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
-        baloonFloatTime = maxBaloonFloatTime;
-        StartCoroutine(BaloonRecharge());
         rocket = GetComponentInChildren<Rocket>();
         score = GetComponent<PlayerScore>();
     }
@@ -94,8 +81,6 @@ public class ThirdPersonMovement : MonoBehaviour
 
             if (isBirding)
                 rb.AddForce(moveDirection.normalized * birdAcceleration);
-            else if (isBalooning)
-                rb.AddForce(moveDirection.normalized * baloonAcceleration);
             else
                 rb.AddForce(moveDirection.normalized * (isRepelled ? repellAcceleration : acceleration));
 
@@ -109,8 +94,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if (isBirding)
             tempSpeed = maxBirdSpeed;
-        if (isBalooning)
-            tempSpeed = maxBaloonSpeed;
+
         else
             tempSpeed = maxSpeed;
 
@@ -137,7 +121,6 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (context.canceled)
         {
-            isBalooning = false;
             isBirding = false;
             return;
         }
@@ -146,17 +129,13 @@ public class ThirdPersonMovement : MonoBehaviour
             if (hasBird)
             {
                 isBirding = true;
-                isBalooning = false;
             } 
-            else
-                isBalooning = true;
         }
 
 
         if (context.performed)
             return;
 
-        StartCoroutine(Baloon(true));
         StartCoroutine(Bird());
 
         if (!groundCheck.IsGrounded())
@@ -200,31 +179,6 @@ public class ThirdPersonMovement : MonoBehaviour
         isRepelled = false;
     }
 
-    IEnumerator Baloon(bool wait)
-    {
-        if (baloonFloatTime > 0 && isBalooning)
-            hatAnim.SetBool("isJumping", true);
-
-        if (wait)
-            yield return new WaitForSeconds(buttonHoldTime);
-
-        while (baloonFloatTime > 0 && isBalooning)
-        {
-            rb.AddForce(Vector3.up * baloonForce, ForceMode.Force);
-
-            if (rb.velocity.y > riseSpeed)
-            {
-                rb.velocity = new Vector3(rb.velocity.x, riseSpeed, rb.velocity.z);
-            }
-
-            baloonFloatTime -= Time.deltaTime;
-
-            yield return new WaitForEndOfFrame();
-        }
-
-        hatAnim.SetBool("isJumping", false);
-    }
-
     IEnumerator Bird()
     {
         if (groundCheck.IsGrounded())
@@ -254,33 +208,9 @@ public class ThirdPersonMovement : MonoBehaviour
         isBirding = false;
     }
 
-    IEnumerator BaloonRecharge()
-    {
-        while (true)
-        {
-            if (!isBalooning)
-            {
-                baloonFloatTime += baloonRechargeSpeed * Time.deltaTime;
-
-                if (baloonFloatTime > maxBaloonFloatTime)
-                    baloonFloatTime = maxBaloonFloatTime;
-            }
-
-            //Refresh UI
-            if (baloonIndex != -1)
-                App.inGameScreen.UpdateBaloon(baloonIndex, GetTimeNormalized());
-            yield return new WaitForEndOfFrame();
-        }
-    }
-
     public void SetBaloonIndex(int index)
     {
         baloonIndex = index;
-    }
-
-    float GetTimeNormalized()
-    {
-        return baloonFloatTime / maxBaloonFloatTime;
     }
 
     public void StartBirdHat()
@@ -294,14 +224,6 @@ public class ThirdPersonMovement : MonoBehaviour
     IEnumerator BirdHat()
     {
         rocket.SetRocket(true);
-
-        if (isBalooning)
-        {
-            StopCoroutine(Baloon(true));
-            isBalooning = false;
-            isBirding = true;
-            StartCoroutine(Bird());
-        }
 
         birdFuel = maxFuel;
         hasBird = true;
@@ -320,12 +242,6 @@ public class ThirdPersonMovement : MonoBehaviour
         App.inGameScreen.ToggleBirdSlider(baloonIndex, false);
 
         rocket.SetRocket(false);
-
-        if (isBirding)
-        {
-            isBalooning = true;
-            StartCoroutine(Baloon(false));
-        }
     }
 
     public void ActivateHammer()
@@ -333,8 +249,6 @@ public class ThirdPersonMovement : MonoBehaviour
         if (!groundCheck.IsGrounded())
         {
             movementAnim.SetTrigger("hitHammer");
-            isBalooning = false;
-            StopCoroutine(Baloon(true));
             rb.velocity = Vector3.zero;
             rb.AddForce(Vector3.down * hammerDownForce, ForceMode.Impulse);
             ResetBird();
@@ -367,15 +281,6 @@ public class ThirdPersonMovement : MonoBehaviour
         StopCoroutine(BirdHat());
         App.inGameScreen.ToggleBirdSlider(baloonIndex, false);
         rocket.SetRocket(false);
-    }
-
-    public void ResetBaloon()
-    {
-        isBalooning = false;
-        StopCoroutine(Baloon(true));
-
-        baloonFloatTime = maxBaloonFloatTime;
-        App.inGameScreen.UpdateBaloon(baloonIndex, GetTimeNormalized());
     }
 
     public void StartRespawning()
