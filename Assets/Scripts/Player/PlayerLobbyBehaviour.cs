@@ -85,7 +85,7 @@ public class PlayerLobbyBehaviour : MonoBehaviour
 
     IEnumerator StopVibrating()
     {
-        yield return new WaitForSeconds(vibrationDuration);
+        yield return new WaitForSecondsRealtime(vibrationDuration);
         gamepad.ResetHaptics();
     }
 }
