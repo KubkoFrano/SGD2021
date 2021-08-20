@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PowerUP:
-  - {fileID: 1498969261715667998, guid: 4ff92b88265603c4cb1e0bf5834f7234, type: 3}
-  - {fileID: 2991494639146038997, guid: 6d84c5f4e373f7a4397edc8830b00439, type: 3}
+  - {fileID: 2673534244046720297, guid: 6b2347910e3bdf9458098b0e3f44bc5b, type: 3}
+  - {fileID: 2673534244046720297, guid: f7e946d139de4af4480f0149091dbd20, type: 3}
   - {fileID: 3255948776742736177, guid: aed9cde3d8cb62544abbf9c1d3c75ee5, type: 3}
   listOfPowerUPs: []
   maxAmmountOfPowerUPs: 9
