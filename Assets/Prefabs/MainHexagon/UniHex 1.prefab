@@ -61,7 +61,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2438704028009901404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30, y: 5, z: 88}
+  m_LocalPosition: {x: 42, y: 5, z: 88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2438704029335660140}
@@ -210,7 +210,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RandomDecorations:
-  - {fileID: 3265284281708750668, guid: cf7943b1c154238438c5ab659be6f16b, type: 3}
+  - {fileID: 8780288320031525474, guid: 89be45ad2aa651c4ea909d2c5c187298, type: 3}
+  - {fileID: 8551563250049583964, guid: 90ec2a3ed47e4734482ae2a83511191e, type: 3}
+  - {fileID: 4703526264840471313, guid: f3a73de2506615c49a17d4666565b99b, type: 3}
+  - {fileID: 6598579783385797650, guid: e9f473479966f0f40a0a949ef4e6cd6a, type: 3}
 --- !u!1 &2438704029335660141
 GameObject:
   m_ObjectHideFlags: 0
