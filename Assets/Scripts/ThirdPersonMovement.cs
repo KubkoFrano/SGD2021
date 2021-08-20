@@ -17,6 +17,7 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] float repellMaxSpeed;
     [SerializeField] float startStoppingAfter;
     [SerializeField] float stopForce;
+    [SerializeField] int maxJumpCount;
 
     [Header("Bird Hat")]
     [SerializeField] float birdHatForce;
@@ -57,6 +58,7 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] Animator hatAnim;
 
     bool isRespawning = false;
+    int jumpCount;
 
     private void Start()
     {
@@ -138,9 +140,11 @@ public class ThirdPersonMovement : MonoBehaviour
 
         StartCoroutine(Bird());
 
-        if (!groundCheck.IsGrounded())
+        if (!groundCheck.IsGrounded() && jumpCount < 1)
             return;
 
+        jumpCount--;
+        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
         if (!hasJumped)
@@ -291,5 +295,10 @@ public class ThirdPersonMovement : MonoBehaviour
     public void StopRespawning()
     {
         isRespawning = false;
+    }
+
+    public void ResetJumpCount()
+    {
+        jumpCount = maxJumpCount;
     }
 }

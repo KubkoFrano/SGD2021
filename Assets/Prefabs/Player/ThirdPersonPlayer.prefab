@@ -2824,6 +2824,7 @@ MonoBehaviour:
   repellMaxSpeed: 0
   startStoppingAfter: 0.9
   stopForce: 10
+  maxJumpCount: 2
   birdHatForce: 20
   birdRiseSpeed: 6
   birdAcceleration: 25

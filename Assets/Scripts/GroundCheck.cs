@@ -20,12 +20,14 @@ public class GroundCheck : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            movement.ResetJumpCount();
 
             walkParticles.Play();
             landParticles.Play();
 
             if (movement.HasJumped())
                 movement.Land();
+                
         }
     }
 
