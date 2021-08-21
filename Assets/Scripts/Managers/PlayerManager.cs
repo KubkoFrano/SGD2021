@@ -201,4 +201,9 @@ public class PlayerManager : MonoBehaviour
 
         return bestPlayer.transform.position;
     }
+
+    public PlayerScore[] GetPlayerScores()
+    {
+        return scores;
+    }
 }

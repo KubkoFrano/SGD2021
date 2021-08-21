@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PowerUpSpawner : MonoBehaviour
 {
@@ -21,9 +23,9 @@ public class PowerUpSpawner : MonoBehaviour
     void Update()
     {
 
-        if (listOfPowerUPs.Count < maxAmmountOfPowerUPs && Time.timeSinceLevelLoad > 2)
+        if (listOfPowerUPs.Count < maxAmmountOfPowerUPs)
         {
-            if (Random.value < 0.01f)
+            if (Random.value < 0.02f)
             {
                 SpawnPowerUpNearPlayer(LowestPlayer());
             }
@@ -32,14 +34,20 @@ public class PowerUpSpawner : MonoBehaviour
 
     Vector3 LowestPlayer()
     {
-        Vector3 LowestPlayerPos = new Vector3(0, 1000, 0);
+        PlayerScore[] scores = App.playerManager.GetPlayerScores();
+        Vector3 target;
 
-        for (int i = 0; i < playerTransform.Length; i++)
-        {
-            if (LowestPlayerPos.y > playerTransform[i].position.y) LowestPlayerPos = playerTransform[i].position;
-        }
+        Array.Sort(scores, new Comparison<PlayerScore>(
+                  (i1, i2) => i1.GetScore().CompareTo(i2.GetScore())));
+        
 
-        return LowestPlayerPos;
+        if      (Random.value < .5 * (4 / scores.Length)) target = new Vector3(scores[0].transform.position.x, 0, scores[0].transform.position.z);
+        else if (Random.value < .8 * (4 / scores.Length)) target = new Vector3(scores[1].transform.position.x, 0,scores[1].transform.position.z);
+        else                                              target = new Vector3(scores[2].transform.position.x, 0,scores[2].transform.position.z);
+
+
+
+        return target;
     }
 
     void SpawnPowerUpNearPlayer(Vector3 lowestPlayer)

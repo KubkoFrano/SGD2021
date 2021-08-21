@@ -85,7 +85,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Difference: 3.52
+    - _Difference: 3.24
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _Gloss: 1
@@ -101,7 +101,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Strenght: 14.48
+    - _Strenght: 14.42
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
