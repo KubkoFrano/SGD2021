@@ -317,10 +317,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materials:
-  - {fileID: 2100000, guid: c9b514a42b47d05489225d74c63a48f3, type: 2}
   - {fileID: 2100000, guid: ee12bb1938a19cf4cb33f5babe71ac1b, type: 2}
   - {fileID: 2100000, guid: d9b2d15729b193c4384fb40538341323, type: 2}
   - {fileID: 2100000, guid: 4bf90135554cc1f4cbbf07e2b2075356, type: 2}
+  - {fileID: 2100000, guid: c9b514a42b47d05489225d74c63a48f3, type: 2}
   meshRenderer: {fileID: 4742990834966289375}
 --- !u!1 &138469543554806713
 GameObject:
