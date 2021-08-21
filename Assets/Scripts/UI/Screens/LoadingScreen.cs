@@ -33,18 +33,16 @@ public class LoadingScreen : ScreenBase
         
         Time.timeScale = 1;
         App.gameManager.StartSceneLoading(App.gameManager.GetLevelScene());
-        App.screenManager.Show<InGameScreen>();
         App.playerManager.InitPlayers();
         App.playerManager.SetupCameras();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        App.timer.StartTimer();
-        App.inGameScreen.ResetScores();
-        App.inGameScreen.SetPlayerNumber(App.playerManager.GetPlayerCount());
+
+
         App.playerManager.CreatePlayerTransforms();
         App.playerManager.CreatePlayerScores();
-        App.gameManager.SetGameState(GameState.game);
-        App.inGameScreen.ResetBirds();
+
+        App.screenManager.Show<CountDownScreen>();
         Hide();
     }
 }
