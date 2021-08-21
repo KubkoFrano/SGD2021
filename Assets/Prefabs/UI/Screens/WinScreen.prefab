@@ -229,7 +229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6846993994706628154
 RectTransform:
   m_ObjectHideFlags: 0
@@ -545,7 +545,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game over
+  m_text: Winner
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -931,4 +931,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstButton: {fileID: 153119866697147707}
-  winnerText: {fileID: 5343392415657637143}

@@ -201,7 +201,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 10
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 16384
@@ -831,6 +831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652344196113}
   - component: {fileID: 919132148405782188}
+  - component: {fileID: 919132148405782189}
   m_Layer: 14
   m_Name: Winner
   m_TagString: Untagged
@@ -856,6 +857,25 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d9b2d15729b193c4384fb40538341323, type: 2}
   - {fileID: 2100000, guid: 4bf90135554cc1f4cbbf07e2b2075356, type: 2}
   - {fileID: 2100000, guid: c9b514a42b47d05489225d74c63a48f3, type: 2}
+--- !u!95 &919132148405782189
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148405782187}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3471d86ba9627c24a8ee5ef1f83ee7e7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1031632035633555020
 Transform:
   m_ObjectHideFlags: 0
@@ -1220,6 +1240,7 @@ GameObject:
   - component: {fileID: 2438704027941756158}
   - component: {fileID: 2438704027941756159}
   - component: {fileID: 2438704027941756144}
+  - component: {fileID: 2438704027941756151}
   m_Layer: 14
   m_Name: UniversalHex1Prefab
   m_TagString: Ground
@@ -1227,6 +1248,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &2438704027941756151
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2438704027941756150}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b95979eed0f553f49ac9506a3fbdfabe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &2438704027941756158
 Transform:
   m_ObjectHideFlags: 0
@@ -1235,7 +1275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2438704027941756150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -3.3, z: 12.6}
+  m_LocalPosition: {x: -0.5, y: -24, z: 12.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 543450652344196113}
