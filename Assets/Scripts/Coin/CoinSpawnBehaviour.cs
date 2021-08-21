@@ -17,7 +17,7 @@ public class CoinSpawnBehaviour : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        grabber = GetComponent<CoinGrabber>();
+        grabber = GetComponentInChildren<CoinGrabber>();
     }
 
     public void SpawnCoin()
