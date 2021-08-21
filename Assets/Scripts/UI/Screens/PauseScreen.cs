@@ -35,6 +35,7 @@ public class PauseScreen : ScreenBase
 
     public void MenuButtonClicked()
     {
+        App.gameManager.StartSceneLoading("MenuScene");
         App.gameManager.SetGameState(GameState.menu);
         App.screenManager.Show<MenuScreen>();
         App.screenManager.Hide<InGameScreen>();

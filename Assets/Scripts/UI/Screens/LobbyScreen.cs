@@ -30,6 +30,7 @@ public class LobbyScreen : ScreenBase
             return;
 
         App.screenManager.Show<LoadingScreen>();
+        App.gameManager.StartSceneUnloading("MenuScene");
         Hide();
     }
 }

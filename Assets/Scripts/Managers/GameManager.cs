@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         App.gameManager = this;
-        StartCoroutine(LoadSelectedScene("UIScene"));
+        StartSceneLoading("UIScene");
+        StartSceneLoading("MenuScene");
     }
 
     IEnumerator LoadSelectedScene(string sceneName)
