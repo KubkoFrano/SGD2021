@@ -3008,6 +3008,7 @@ MonoBehaviour:
   scoreToAdd: 1
   secondsBetweenScores: 2
   coinValue: 1
+  coinParticlesInterval: 0.25
   meshRenderer: {fileID: 3685033885495131022}
   scoreParticles: {fileID: 505910027663105811}
 --- !u!114 &2249794607867140311

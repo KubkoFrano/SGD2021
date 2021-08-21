@@ -10,6 +10,7 @@ public class PlayerScore : MonoBehaviour
 
     [Header("Coin scoring")]
     [SerializeField] int coinValue;
+    [SerializeField] float coinParticlesInterval;
 
     [Header("Do not touch")]
     [SerializeField] MeshRenderer meshRenderer;
@@ -40,12 +41,18 @@ public class PlayerScore : MonoBehaviour
 
     public void AddParticularScore(int score)
     {
-        this.score += score;
-        for (int i = 0; i < score; i++)
+        StartCoroutine(AddMoreCoins(score));
+    }
+
+    IEnumerator AddMoreCoins(int scoreToAdd)
+    {
+        for (; scoreToAdd > 0; scoreToAdd--)
         {
+            score++;
             scoreParticles.Play();
+            App.kingOfTheHill.UpdateScore(scoreIndex, this.score);
+            yield return new WaitForSeconds(coinParticlesInterval);
         }
-        App.kingOfTheHill.UpdateScore(scoreIndex, this.score);
     }
 
     //Altitude scoring
