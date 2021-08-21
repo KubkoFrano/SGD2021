@@ -51,13 +51,18 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
-  triggerIndependentSounds: []
-  minTimeBetweenAmbient: 0
-  maxTimeBetweenAmbient: 0
-  currentSoundtrack:
-    name: InGameSoundtrack
-    clip: {fileID: 8300000, guid: c11ea14707d098c4693aa01337ecddd3, type: 3}
-    output: {fileID: 7570066141479017901, guid: ee97d25a3d8a4a846b279f4f1933b3a8, type: 2}
+  - name: BeepLow
+    clip: {fileID: 8300000, guid: 1758e9a006175004cbc3365c6168367e, type: 3}
+    output: {fileID: 4350520369330208570, guid: ee97d25a3d8a4a846b279f4f1933b3a8, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
+  - name: BeepHigh
+    clip: {fileID: 8300000, guid: b189b5c8a4f25794bacde737cdf337a6, type: 3}
+    output: {fileID: 4350520369330208570, guid: ee97d25a3d8a4a846b279f4f1933b3a8, type: 2}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  triggerIndependentSounds: []
+  minTimeBetweenAmbient: 0
+  maxTimeBetweenAmbient: 0

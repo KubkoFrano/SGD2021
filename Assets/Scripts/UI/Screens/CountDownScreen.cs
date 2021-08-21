@@ -28,10 +28,12 @@ public class CountDownScreen : ScreenBase
 
         for (int i = seconds; i > 0; i--)
         {
+            App.audioManager.Play("BeepLow");
             counter.text = i.ToString();
             yield return new WaitForSeconds(1);
         }
 
+        App.audioManager.Play("BeepHigh");
         counter.text = "Go!";
         twoPlayers.SetActive(false);
         fourPlayers.SetActive(false);

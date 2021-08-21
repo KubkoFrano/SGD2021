@@ -61,12 +61,13 @@ public class AudioManager : MonoBehaviour
 
     public void ContinueSoundtrack()
     {
-        curretSoundtrack.source.UnPause();
+        curretSoundtrack?.source.UnPause();
     }
 
     public void StopSoundTrack()
     {
         curretSoundtrack.source.Stop();
+        curretSoundtrack = null;
     }
 
     public void PlayLoop(string name)
