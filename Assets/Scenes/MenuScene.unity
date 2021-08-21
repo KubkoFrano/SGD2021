@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4420167, g: 0.6919817, b: 0.92438525, a: 1}
+  m_IndirectSpecularColor: {r: 0.4420167, g: 0.69198173, b: 0.92438525, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -469,7 +469,6 @@ GameObject:
   m_Component:
   - component: {fileID: 31661383}
   - component: {fileID: 31661382}
-  - component: {fileID: 31661381}
   - component: {fileID: 31661384}
   m_Layer: 0
   m_Name: Main Camera
@@ -478,14 +477,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &31661381
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31661380}
-  m_Enabled: 1
 --- !u!20 &31661382
 Camera:
   m_ObjectHideFlags: 0
@@ -514,7 +505,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: -100
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 2065
@@ -14970,6 +14961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 281357894}
+  spawningHexes: 0
   timeSinceLastChange: 6.319995
   elevateStateTime: 49.328552
   shakeDuration: 3
@@ -22138,6 +22130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 371297577}
+  spawningHexes: 0
   timeSinceLastChange: 3.6599972
   elevateStateTime: 3.9206128
   shakeDuration: 3
@@ -31059,6 +31052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 572288726}
+  spawningHexes: 0
   timeSinceLastChange: 6.319995
   elevateStateTime: 69.47781
   shakeDuration: 3
@@ -37399,6 +37393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 854748067}
+  spawningHexes: 0
   timeSinceLastChange: 6.319995
   elevateStateTime: 51.790356
   shakeDuration: 3
@@ -39929,6 +39924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 969325273}
+  spawningHexes: 0
   timeSinceLastChange: 6.319995
   elevateStateTime: 65.01458
   shakeDuration: 3
@@ -54335,6 +54331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1365570177}
+  spawningHexes: 0
   timeSinceLastChange: 0.32
   elevateStateTime: 4.025622
   shakeDuration: 3
@@ -79827,7 +79824,7 @@ GameObject:
   - component: {fileID: 1869973508}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Water
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80363,6 +80360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1887438921}
+  spawningHexes: 0
   timeSinceLastChange: 6.319995
   elevateStateTime: 7.1146398
   shakeDuration: 3
@@ -85446,6 +85444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2105830586}
+  spawningHexes: 0
   timeSinceLastChange: 6.319995
   elevateStateTime: 66.96901
   shakeDuration: 3
