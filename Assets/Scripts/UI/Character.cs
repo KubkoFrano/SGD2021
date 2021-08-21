@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-    [SerializeField] Color32 baseColor;
-    [SerializeField] Color32 highlightColor;
+    [SerializeField] Sprite baseSprite;
+    [SerializeField] Sprite highlightedSprite;
 
     bool isOccupied = false;
 
@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
     private void Awake()
     {
         image = GetComponent<Image>();
-        image.color = baseColor;
+        image.sprite = baseSprite;
     }
 
     public bool IsOccupied()
@@ -28,12 +28,12 @@ public class Character : MonoBehaviour
         if (value)
         {
             isOccupied = true;
-            image.color = highlightColor;
+            image.sprite = highlightedSprite;
         }
         else
         {
             isOccupied = false;
-            image.color = baseColor;
+            image.sprite = baseSprite;
         }
     }
 }
