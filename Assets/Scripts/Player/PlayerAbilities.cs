@@ -33,7 +33,6 @@ public class PlayerAbilities : MonoBehaviour
     {
         if (context.canceled || context.performed || !App.gameManager.CompareGameState(GameState.game) || !canPunch)
             return;
-
         StartCoroutine(ManagePunch());
         StartCoroutine(PunchCooldown());
         anim.SetTrigger("Punch");

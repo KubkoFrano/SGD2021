@@ -1,0 +1,198 @@
+fileFormatVersion: 2
+guid: 9e1d24eff04d24d4cab6f4c634efc2b3
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: 2978552836854243206
+    second: Cylinder|Circle.001Action
+  - first:
+      74: -1088143528546739785
+    second: Cylinder|Circle.002_Circle.001Action.001
+  - first:
+      74: -88723805440604879
+    second: Cylinder|CylinderAction
+  - first:
+      74: 5055317669198644058
+    second: Cylinder|klobuk_Circle.003Action
+  - first:
+      74: 6971125973162888761
+    second: Cylinder|klobuk_Circle.003Action.003
+  - first:
+      74: 682388653494965917
+    second: Cylinder|klobuk_Circle.003Action.005
+  - first:
+      74: -5113986771024740758
+    second: Cylinder|klobuk_Circle.003Action.006
+  - first:
+      74: -1582093495351324406
+    second: Cylinder|klobuk_Circle.006Action
+  - first:
+      74: -3483092500629238889
+    second: Cylinder|klobuk_Circle.006Action.008
+  - first:
+      74: -3399228114858097665
+    second: Cylinder|klobuk_Circle.006Action.012
+  - first:
+      74: 3551756168688784795
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|Action.001|klobuk_Circle.00
+  - first:
+      74: -6130521455500987796
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|Action.002|klobuk_Circle.00
+  - first:
+      74: -6965632566570630538
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|Action.003|klobuk_Circle.00
+  - first:
+      74: -4568565091381096904
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|Action|klobuk_Circle.008|Ac
+  - first:
+      74: -2499878686037820180
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|Circle.001Action|klobuk_Cir
+  - first:
+      74: -9002653488684674345
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|Circle.002_Circle.001Action
+  - first:
+      74: 500539159195482690
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|CylinderAction|klobuk_Circl
+  - first:
+      74: -68927564131506034
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|Key.001Action.004|klobuk_Ci
+  - first:
+      74: 3667544960053341989
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|klobuk_Circle.003Action.001
+  - first:
+      74: -83254381087055439
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|klobuk_Circle.003Action.003
+  - first:
+      74: 9048152227031583364
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|klobuk_Circle.003Action.005
+  - first:
+      74: -6626897789037812051
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|klobuk_Circle.003Action.006
+  - first:
+      74: 768870034302691207
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|klobuk_Circle.003Action|klo
+  - first:
+      74: -5192236077516509004
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|klobuk_Circle.006Action.001
+  - first:
+      74: -4684799107958314087
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|klobuk_Circle.006Action.002
+  - first:
+      74: 2878659202265193609
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|klobuk_Circle.006Action.003
+  - first:
+      74: 271097194957816778
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|klobuk_Circle.006Action.004
+  - first:
+      74: 4276865771672414938
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|klobuk_Circle.006Action.005
+  - first:
+      74: -6858332115610126357
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|klobuk_Circle.006Action.006
+  - first:
+      74: -29855199747243075
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|klobuk_Circle.006Action|klo
+  - first:
+      74: 8873043379509973092
+    second: Cylinder|klobuk_Circle.009|klobuk_Circle.008|Plane.002Action.001|klobuk_
+  - first:
+      74: 3851611245356911224
+    second: Cylinder|Plane.002Action.001
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

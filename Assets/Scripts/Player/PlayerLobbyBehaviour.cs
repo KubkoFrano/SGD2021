@@ -14,6 +14,7 @@ public class PlayerLobbyBehaviour : MonoBehaviour
     public GameObject cinemachine;
     public ThirdPersonMovement playerMovement;
     public PlayerCharacter character;
+    public HatManager hatManager;
 
     PlayerInput playerInput;
     Gamepad gamepad;
@@ -51,6 +52,7 @@ public class PlayerLobbyBehaviour : MonoBehaviour
 
     public void InitPlayer()
     {
+        hatManager.EnableHat(characterIndex);
         playerMovement.enabled = true;
         camera.SetActive(true);
         cinemachine.SetActive(true);

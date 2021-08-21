@@ -33,7 +33,7 @@ public class CoinGrabber : MonoBehaviour
         if (!originalPlayer)
             GetComponentInParent<GoldSpawner>().RemoveGold(this.gameObject);
 
-        App.kingOfTheHill.RemoveCoin(GetComponent<CoinSpawnBehaviour>());
+        App.kingOfTheHill.RemoveCoin(GetComponentInParent<CoinSpawnBehaviour>());
         Destroy(transform.parent.gameObject);
     }
 
