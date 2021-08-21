@@ -8,6 +8,10 @@ public class Winner : MonoBehaviour
 
     [SerializeField] Material[] materials;
 
+    [SerializeField] float[] riseHeights;
+
+    [SerializeField] float riseSpeed;
+
     HatManager hatManager;
 
     private void Awake()
@@ -15,11 +19,25 @@ public class Winner : MonoBehaviour
         hatManager = GetComponentInChildren<HatManager>();
     }
 
-    private void Start()
+    public void SetPlayer(int index)
     {
-        int index = App.playerManager.GetBestPlayerIndex();
-
         mesh.material = materials[index];
         hatManager.EnableHat(index);
+    }
+
+    public void RiseHex(int height)
+    {
+        StartCoroutine(ManageRise(height));
+    }
+
+    IEnumerator ManageRise(int height)
+    {
+        while (transform.parent.localPosition.y < riseHeights[height])
+        {
+            transform.parent.localPosition += Vector3.up * Time.deltaTime * riseSpeed;
+            yield return new WaitForEndOfFrame();
+        }
+
+        transform.parent.localPosition = new Vector3(transform.parent.localPosition.x, riseHeights[height], transform.parent.localPosition.z);
     }
 }

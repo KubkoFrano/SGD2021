@@ -214,4 +214,9 @@ public class PlayerManager : MonoBehaviour
 
         return bestPlayer.GetScoreIndex();
     }
+
+    public PlayerScore[] GetPlayerScores()
+    {
+        return scores;
+    }
 }
