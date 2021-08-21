@@ -24,6 +24,7 @@ public class WinScreen : ScreenBase
         App.gameManager.SetGameState(GameState.menu);
         App.screenManager.Show<MenuScreen>();
         App.playerManager.DeleteAllPlayers();
+        App.gameManager.StartSceneLoading("MenuScene");
         Hide();
     }
 

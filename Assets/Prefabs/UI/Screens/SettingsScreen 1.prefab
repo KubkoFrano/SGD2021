@@ -2754,6 +2754,7 @@ MonoBehaviour:
   mainSlider: {fileID: 8661039586183596872}
   sfxSlider: {fileID: 1927540695912887005}
   ambientSlider: {fileID: 3214722517626944577}
+  musicSlider: {fileID: 3796244655916957640}
 --- !u!1 &8565104960008930761
 GameObject:
   m_ObjectHideFlags: 0

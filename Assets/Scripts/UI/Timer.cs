@@ -58,11 +58,13 @@ public class Timer : MonoBehaviour
 
     public void StartTimer()
     {
+        App.audioManager.PlaySoundTrack();
         StartCoroutine(GameTimer());
     }
 
     public void StopTimer()
     {
+        App.audioManager.StopSoundTrack();
         StopCoroutine(GameTimer());
     }
 }

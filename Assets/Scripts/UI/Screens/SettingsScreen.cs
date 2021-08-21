@@ -11,6 +11,7 @@ public class SettingsScreen : ScreenBase
     public Slider mainSlider;
     public Slider sfxSlider;
     public Slider ambientSlider;
+    public Slider musicSlider;
 
     public void BackButtonClicked()
     {
@@ -31,6 +32,7 @@ public class SettingsScreen : ScreenBase
         LoadValue("masterVol", mainSlider);
         LoadValue("sfxVol", sfxSlider);
         LoadValue("ambientVol", ambientSlider);
+        LoadValue("musicVol", musicSlider);
     }
 
     public override void Hide()
@@ -38,6 +40,7 @@ public class SettingsScreen : ScreenBase
         PlayerPrefs.SetFloat("masterVol", mainSlider.value);
         PlayerPrefs.SetFloat("sfxVol", sfxSlider.value);
         PlayerPrefs.SetFloat("ambientVol", ambientSlider.value);
+        PlayerPrefs.SetFloat("musicVol", musicSlider.value);
 
         base.Hide();
     }
@@ -55,6 +58,11 @@ public class SettingsScreen : ScreenBase
     public void SetAmbientVolume()
     {
         mainMixer.SetFloat("ambientVol", Mathf.Log10(Mathf.Max(ambientSlider.value, 0.0001f)) * 20f);
+    }
+
+    public void SetMusicVolume()
+    {
+        mainMixer.SetFloat("musicVol", Mathf.Log10(Mathf.Max(musicSlider.value, 0.0001f)) * 20f);
     }
 
     void LoadValue(string key, Slider slider)

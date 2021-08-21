@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     public float maxTimeBetweenAmbient;
 
     Sound currentAmbient;
+    Sound curretSoundtrack;
 
     private void Awake()
     {
@@ -45,6 +46,27 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = FindSound(name);
         s.source.PlayOneShot(s.clip);
+    }
+
+    public void PlaySoundTrack()
+    {
+        curretSoundtrack = FindSound("InGameSoundtrack");
+        curretSoundtrack.source.Play();
+    }
+
+    public void PauseSoundTrack()
+    {
+        curretSoundtrack.source.Pause();
+    }
+
+    public void ContinueSoundtrack()
+    {
+        curretSoundtrack.source.UnPause();
+    }
+
+    public void StopSoundTrack()
+    {
+        curretSoundtrack.source.Stop();
     }
 
     public void PlayLoop(string name)
