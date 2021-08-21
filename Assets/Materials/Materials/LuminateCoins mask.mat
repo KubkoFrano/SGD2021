@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LuminateCoins mask
-  m_Shader: {fileID: 4800000, guid: c4491f015eb4eaf43a7220237a1b75ff, type: 3}
+  m_Shader: {fileID: 4800000, guid: 7f0775df1e3523b4892a0a15fedeaed8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -85,7 +85,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Difference: -0.48
+    - _Difference: 3.52
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _Gloss: 1
@@ -101,15 +101,15 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Strenght: 5.07
+    - _Strenght: 14.48
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.22974515, g: 1, b: 0, a: 1}
-    - _Color2: {r: 1, g: 0.8227806, b: 0, a: 1}
+    - _Color1: {r: 1, g: 0.08972882, b: 0, a: 1}
+    - _Color2: {r: 1, g: 0.914049, b: 0, a: 1}
     - _Color3: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
