@@ -31,14 +31,16 @@ public class PunchPistol : MonoBehaviour
     {
         bool playParticles = false;
 
+        List<ThirdPersonMovement> tempT = new List<ThirdPersonMovement>();
+
         foreach (Collider c in colls)
         {
             ThirdPersonMovement temp = c.gameObject.GetComponent<ThirdPersonMovement>();
-            if (movement != temp)
+            if (movement != temp && !tempT.Contains(temp))
             {
+                tempT.Add(temp);
                 temp.GetRepelled(movement.gameObject.transform.position);
                 playParticles = true;
-                Debug.Log("Pow");
             }
         }
 
