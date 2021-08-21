@@ -5,8 +5,6 @@ using TMPro;
 
 public class WinScreen : ScreenBase
 {
-    [SerializeField] TextMeshProUGUI winnerText;
-
     private void Awake()
     {
         App.winScreen = this;
@@ -24,12 +22,8 @@ public class WinScreen : ScreenBase
         App.gameManager.SetGameState(GameState.menu);
         App.screenManager.Show<MenuScreen>();
         App.playerManager.DeleteAllPlayers();
+        App.gameManager.StartSceneUnloading("WinScene");
         App.gameManager.StartSceneLoading("MenuScene");
         Hide();
-    }
-
-    public void SetWinnerText(int winner)
-    {
-        winnerText.text = "Winner: " + winner;
     }
 }

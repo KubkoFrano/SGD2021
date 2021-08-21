@@ -202,6 +202,19 @@ public class PlayerManager : MonoBehaviour
         return bestPlayer.transform.position;
     }
 
+    public int GetBestPlayerIndex()
+    {
+        PlayerScore bestPlayer = scores[0];
+
+        foreach (PlayerScore score in scores)
+        {
+            if (score.GetScore() > bestPlayer.GetScore())
+                bestPlayer = score;
+        }
+
+        return bestPlayer.GetScoreIndex();
+    }
+
     public PlayerScore[] GetPlayerScores()
     {
         return scores;
