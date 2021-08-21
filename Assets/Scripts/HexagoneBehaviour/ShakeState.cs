@@ -11,10 +11,9 @@ public class ShakeState : State
     public override State Execute()
     {
         data.spawnGolds = false;
-        if (data.neverFalls == true)
-        {
-            return new BaseState(data);
-        }
+        if (data.neverFalls == true || data.spawningHexes) return new BaseState(data);
+
+
         data.timeSinceLastChange += Time.deltaTime;
         data.transform.position =  data.lastPosition + new Vector3(Random.value * .5f, 0, Random.value * .5f);
 
@@ -27,7 +26,7 @@ public class ShakeState : State
                 //data.shakeMultiplePlatforms = false;
             }
 
-            //data.UpdateOnChange();
+            data.UpdateOnChange();
             data.hexFallParticle.Play();
             return new FallState(data);
         }
