@@ -15,7 +15,10 @@ public class SettingsScreen : ScreenBase
     public void BackButtonClicked()
     {
         if (App.gameManager.CompareGameState(GameState.menu))
+        {
             App.screenManager.Show<MenuScreen>();
+            App.menuPostProcessing.SwitchPostProcessing(false);
+        }          
         else
             App.screenManager.Show<PauseScreen>();
 

@@ -13,4 +13,5 @@ public static class App
     public static InGameScreen inGameScreen;
     public static KingOfTheHill kingOfTheHill;
     public static WinScreen winScreen;
+    public static MenuPostProcessing menuPostProcessing;
 }
