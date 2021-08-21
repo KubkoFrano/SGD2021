@@ -32,6 +32,7 @@ public class KingOfTheHill : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         App.winScreen.SetWinnerText(GetWinner());
+        App.gameManager.StartSceneLoading("WinScene");
     }
 
     public void UpdateScore(int index, int score)
