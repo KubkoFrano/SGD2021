@@ -13,6 +13,7 @@ Shader "m1r0/LuminateCoinMasked"
         _Difference("Difference", float) = 2.
         _Color3("Gloss Color", Color) = (1., 1., 1., 1.)
         _Gloss("Gloss", float) = 1.
+        _Density("Density", float) = 1.
     }
     SubShader
     {
@@ -58,6 +59,7 @@ Shader "m1r0/LuminateCoinMasked"
             float _Strenght;
             float _Difference;
             float _Gloss;
+            float _Density;
 
             v2f vert (appdata v) 
             {
@@ -100,22 +102,22 @@ Shader "m1r0/LuminateCoinMasked"
 
             fixed4 frag(v2f i) : SV_Target
             {
-                float3 camDir = normalize(_WorldSpaceCameraPos - i.worldPos);
-                float3 normals = normalize(i.normal);
-                float3 LightDir = normalize(_WorldSpaceLightPos0);
+                float2 uv = (.5 - i.uv) * 2.;
 
-                float f = dot(camDir, normals);
+                float f = max(0., 1. - dot(uv, uv));
 
                 f = pow(f, _Strenght);
 
 
-                float3 color = lerp(_Color1.rgb, _Color2.rgb, pow(f, _Difference)) * f;
+                float3 color = lerp(_Color2.rgb, _Color1.rgb, pow(f, _Difference)) * f;
 
 
 
                 color = saturate(color);
-                color *= i.color.w;
 
+                color *= _Density;
+                
+                color *= i.color.w;
                 return float4(color, 1.);
             }
             ENDCG

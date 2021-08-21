@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HammerMat 1
-  m_Shader: {fileID: 4800000, guid: cf14e0f5382fd4c4d8c7e17d2c6d2f37, type: 3}
+  m_Shader: {fileID: 4800000, guid: c4491f015eb4eaf43a7220237a1b75ff, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -83,9 +83,10 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
+    - _Density: 1
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Difference: 0.67
+    - _Difference: 0.46
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _Gloss: 2.14
@@ -101,14 +102,14 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Strenght: 0.8
+    - _Strenght: 5.01
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.20677024, g: 0.21698111, b: 0, a: 1}
+    - _Color1: {r: 0, g: 0.5660378, b: 0.37894225, a: 1}
     - _Color2: {r: 1, g: 0.95132554, b: 0, a: 1}
     - _Color3: {r: 0.254717, g: 0.2416831, b: 0.09011214, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
