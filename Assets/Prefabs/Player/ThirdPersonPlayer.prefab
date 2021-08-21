@@ -3023,7 +3023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   punchForce: 1000
-  punchCooldown: 2
+  punchCooldown: 0.5
   punchSeconds: 0.1
   checkRadius: 1.8
   zOffset: -0.5
