@@ -114,7 +114,7 @@ Shader "m1r0/LuminatePowerUp"
                 f = 1. - f;
                 float3 color = lerp(_Color1.rgb, _Color2.rgb, pow(f, _Difference)) * f;
                 color = lerp(color, reflectColor,  reflection);
-                return float4(color, 1.);
+                return saturate(float4(color, 1.));
             }
             ENDCG
         }
