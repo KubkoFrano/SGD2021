@@ -50,13 +50,13 @@ public class InGameScreen : ScreenBase
     {
         if (num == 2)
         {
-            texts[2].gameObject.SetActive(false);
-            texts[3].gameObject.SetActive(false);
+            texts[2].gameObject.transform.parent.gameObject.SetActive(false);
+            texts[3].gameObject.transform.parent.gameObject.SetActive(false);
         }
         else
         {
-            texts[2].gameObject.SetActive(true);
-            texts[3].gameObject.SetActive(true);
+            texts[2].gameObject.transform.parent.gameObject.SetActive(true);
+            texts[3].gameObject.transform.parent.gameObject.SetActive(true);
         }
     }
 }
