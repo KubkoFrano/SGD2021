@@ -2,35 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class LoadingScreen : ScreenBase
 {
-    [SerializeField] float timeBetweenScreens;
-    [SerializeField] Sprite[] sprites;
+    [SerializeField] VideoClip[] videos;
 
-    Image image;
+    VideoPlayer videoPlayer;
+
+    int index = 0;
 
     private void Awake()
     {
-        image = GetComponentInChildren<Image>();
+        videoPlayer = GetComponentInChildren<VideoPlayer>();
     }
 
     private void OnEnable()
     {
-        StartCoroutine(Loading());
+        PlayNext();
     }
 
-    IEnumerator Loading()
+    public void PlayNext()
     {
-        if (sprites.Length > 0)
+        if (index == videos.Length)
         {
-            foreach (Sprite sprite in sprites)
-            {
-                image.sprite = sprite;
-                yield return new WaitForSeconds(timeBetweenScreens);
-            }
+            index = 0;
+            Load();
+            return;
         }
-        
+        videoPlayer.clip = videos[index];
+        videoPlayer.Play();
+        index++;    
+    }
+
+    public void Load()
+    {
         Time.timeScale = 1;
         App.gameManager.StartSceneLoading(App.gameManager.GetLevelScene());
         App.playerManager.InitPlayers();
