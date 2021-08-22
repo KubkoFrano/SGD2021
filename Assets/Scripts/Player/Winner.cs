@@ -39,5 +39,8 @@ public class Winner : MonoBehaviour
         }
 
         transform.parent.localPosition = new Vector3(transform.parent.localPosition.x, riseHeights[height], transform.parent.localPosition.z);
+
+        if (height == 0)
+            App.winScreen.ShowButton();
     }
 }
