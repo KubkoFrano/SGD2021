@@ -7,6 +7,11 @@ public class Podium : MonoBehaviour
 {
     [SerializeField] Winner[] players;
 
+    private void Awake()
+    {
+        App.podium = this;
+    }
+
     private void Start()
     {
         AssignSkins();
@@ -58,6 +63,9 @@ public class Podium : MonoBehaviour
             }
 
             players[i].RiseHex(hexToRise);
+
+            if (hexToRise == 0)
+                players[i].SetName(finalScores[i].GetScoreIndex());
         }
     }
 
@@ -74,5 +82,13 @@ public class Podium : MonoBehaviour
         }
 
         return temp;
+    }
+
+    public void DeleteNames()
+    {
+        foreach (Winner player in players)
+        {
+            player.DeleteName();
+        }
     }
 }

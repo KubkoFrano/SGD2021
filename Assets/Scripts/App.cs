@@ -14,4 +14,5 @@ public static class App
     public static KingOfTheHill kingOfTheHill;
     public static WinScreen winScreen;
     public static MenuPostProcessing menuPostProcessing;
+    public static Podium podium;
 }

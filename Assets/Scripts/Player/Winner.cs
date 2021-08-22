@@ -12,6 +12,8 @@ public class Winner : MonoBehaviour
 
     [SerializeField] float riseSpeed;
 
+    [SerializeField] Name nameObj;
+
     HatManager hatManager;
 
     private void Awake()
@@ -42,5 +44,15 @@ public class Winner : MonoBehaviour
 
         if (height == 0)
             App.winScreen.ShowButton();
+    }
+
+    public void SetName(int index)
+    {
+        nameObj.SetName(index);
+    }
+
+    public void DeleteName()
+    {
+        nameObj.DeleteName();
     }
 }

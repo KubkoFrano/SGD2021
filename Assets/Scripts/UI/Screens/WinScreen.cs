@@ -24,6 +24,7 @@ public class WinScreen : ScreenBase
 
     public void MenuButtonClicked()
     {
+        App.podium.DeleteNames();
         App.gameManager.SetGameState(GameState.menu);
         firstButton.SetActive(false);
         App.audioManager.Stop("WinMusic");
