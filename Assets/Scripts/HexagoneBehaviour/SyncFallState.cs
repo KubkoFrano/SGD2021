@@ -27,8 +27,10 @@ public class SyncFallState : MonoBehaviour
 
         behaviour = this.transform.GetChild(HexGen.HexagoneList[index].transform.GetSiblingIndex()).GetComponent<BehaviourHexagon>();
 
-        behaviour.state.data.UpdateOnChange();
-        behaviour.state = new ShakeState(behaviour.state.data, true);
+        if (behaviour.state.data.ImFalling == false) {
+            behaviour.state.data.UpdateOnChange();
+            behaviour.state = new ShakeState(behaviour.state.data, true);
+        }
 
     }
     
@@ -38,7 +40,7 @@ public class SyncFallState : MonoBehaviour
     {
         int randomAmmount = Random.Range(1, 5);
 
-        int n = 0;
+        //int n = 0;
         foreach (GameObject i in HexGen.HexagoneList)
         {
             if (Vector2.Distance(new Vector2(i.transform.position.x,                          i.transform.position.z), 
@@ -48,9 +50,12 @@ public class SyncFallState : MonoBehaviour
                 
                     behaviour = this.transform.GetChild(i.transform.GetSiblingIndex()).GetComponent<BehaviourHexagon>();
 
+                if (behaviour.state.data.ImFalling == false)
+                {
                     behaviour.state.data.UpdateOnChange();
                     behaviour.state = new ShakeState(behaviour.state.data, false);
-                    n++;
+                }
+                 //   n++;
                 
             }
         }

@@ -9,6 +9,7 @@ public class FallState : State
     }
     public override State Execute()
     {
+        data.ImFalling = true;
         data.spawnGolds = false;
         if (data.spawningHexes) return new BaseState(data);
 
@@ -20,7 +21,7 @@ public class FallState : State
             {
                 data.UpdateOnChange();
 
-
+                data.ImFalling = false;
                 return new ReviveState(data);
             }
         }

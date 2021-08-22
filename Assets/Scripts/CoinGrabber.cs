@@ -49,10 +49,13 @@ public class CoinGrabber : MonoBehaviour
 
     void ActivateShakeState()
     {
-        if (transform.parent.parent.childCount == 1)
+        if (GetComponentInParent<BehaviourHexagon>().state.data.ImFalling == false)
         {
-            GetComponentInParent<BehaviourHexagon>().state.data.UpdateOnChange();
-            GetComponentInParent<BehaviourHexagon>().state = new ShakeState(GetComponentInParent<BehaviourHexagon>().state.data, false);
+            if (transform.parent.parent.childCount == 1)
+            {
+                GetComponentInParent<BehaviourHexagon>().state.data.UpdateOnChange();
+                GetComponentInParent<BehaviourHexagon>().state = new ShakeState(GetComponentInParent<BehaviourHexagon>().state.data, false);
+            }
         }
     }
 

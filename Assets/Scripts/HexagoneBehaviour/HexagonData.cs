@@ -12,6 +12,7 @@ public class HexagonData : MonoBehaviour
     }
     public Rigidbody rb;
 
+    public bool ImFalling = false;
     public bool spawningHexes = false;
     public float timeSinceLastChange;
     public float elevateStateTime;
