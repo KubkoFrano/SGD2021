@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5962872980621220118}
   - component: {fileID: 7480613606884496784}
   - component: {fileID: 6185534705466111951}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4733990475618184181}
   - component: {fileID: 8117832749702081533}
   - component: {fileID: 7305003676568900496}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MainButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 79698a921823dab45ba1b944e19e29c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dacdb47dc02852e458b81a555204fe8f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 6090224509467725241}
   - component: {fileID: 321995726225143535}
   - component: {fileID: 2713153480904326399}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,11 +290,11 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5939733558017257466}
   m_Enabled: 1
-  m_VideoClip: {fileID: 0}
+  m_VideoClip: {fileID: 32900000, guid: 4c13a85a6a2e39f498882482d08fc65c, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 2e33e4f0f6e29f44fa3e37b6c7547fae, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
@@ -303,14 +303,12 @@ VideoPlayer:
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
   m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 0
@@ -327,7 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9032416615559665862}
   - component: {fileID: 1726125796666101249}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LaunchScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,3 +366,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstButton: {fileID: 3870002416709374010}
   videoPlayer: {fileID: 2713153480904326399}
+  image: {fileID: 8117832749702081533}
