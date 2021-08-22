@@ -56,6 +56,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     [SerializeField] Animator movementAnim;
     [SerializeField] Animator hatAnim;
+    [SerializeField] Transform armature;
 
     bool isRespawning = false;
     int jumpCount;
@@ -138,7 +139,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         StartCoroutine(Bird());
 
-        if (!groundCheck.IsGrounded() && jumpCount < 1)
+        if (!groundCheck.IsGrounded() && jumpCount < 1 && !isBirding)
             return;
 
         jumpCount--;
@@ -261,12 +262,14 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce(Vector3.up * hammerUpForce, ForceMode.Impulse);
+        armature.localPosition = Vector3.zero;
         movementAnim.SetTrigger("recoverHammer");
     }
 
     public void Land()
     {
         movementAnim.SetTrigger("land");
+        armature.localPosition = Vector3.zero;
         hasJumped = false;
     }
 
@@ -298,5 +301,11 @@ public class ThirdPersonMovement : MonoBehaviour
     public void ResetJumpCount()
     {
         jumpCount = maxJumpCount;
+    }
+
+    public void ToIdle()
+    {
+        movementAnim.SetTrigger("toIdle");
+        armature.localPosition = Vector3.zero;
     }
 }
