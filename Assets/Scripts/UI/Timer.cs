@@ -11,12 +11,12 @@ public class Timer : MonoBehaviour
 
     int timer;
 
-    TextMeshProUGUI text;
+    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] TextMeshProUGUI text2;
 
     private void Awake()
     {
         App.timer = this;
-        text = GetComponent<TextMeshProUGUI>();
     }
 
     private void Start()
@@ -46,6 +46,7 @@ public class Timer : MonoBehaviour
         int seconds = timer % 60;
 
         text.text = FixTime(minutes) + " : " + FixTime(seconds);
+        text2.text = FixTime(minutes) + " : " + FixTime(seconds);
     }
 
     string FixTime(int time)
