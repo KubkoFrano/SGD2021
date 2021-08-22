@@ -78,7 +78,7 @@ public class PowerUpSpawner : MonoBehaviour
 
             if (closeHexagons[randomIndex].gameObject.transform.GetChild(0).childCount == 0)
             {
-                if (!closeHexagons[randomIndex].GetComponent<HexagonData>().neverFalls)
+                if (!closeHexagons[randomIndex].GetComponent<HexagonData>().neverFalls || closeHexagons[randomIndex].GetComponent<HexagonData>().SpawnProps)
                 {
                     listOfPowerUPs.Add(Instantiate(PowerUP[Random.Range(0, PowerUP.Length)]));
 
