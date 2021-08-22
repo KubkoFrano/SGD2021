@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class ScreenBase : MonoBehaviour
 {
-    [SerializeField] GameObject firstButton;
+    [SerializeField] protected GameObject firstButton;
 
     public virtual void Show()
     {

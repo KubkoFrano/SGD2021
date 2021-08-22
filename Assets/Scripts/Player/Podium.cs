@@ -11,6 +11,8 @@ public class Podium : MonoBehaviour
     {
         AssignSkins();
         StartCoroutine(ManageRising());
+        App.audioManager.StopSoundTrack();
+        App.audioManager.PlayLoop("WinMusic");
     }
 
     IEnumerator ManageRising()
