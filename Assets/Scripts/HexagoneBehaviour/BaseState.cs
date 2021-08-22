@@ -29,7 +29,8 @@ public class BaseState : State
             data.UpdateOnChange();
             return new LevitateState(data);
         }
-        else if (Random.value < 0.0002f)         //Change it later!!!
+        //else if (Random.value < 0.0002f)         //Change it later!!!
+        else if(false)
         {
             data.UpdateOnChange();
             return new ShakeState(data, false);
