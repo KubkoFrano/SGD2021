@@ -68,37 +68,25 @@ public class HexagonGeneration : MonoBehaviour
                 Vector2 CalculatePos = new Vector2(x * positionOffset + offsetX, y * (positionOffset - 1));
                 Vector3 nextPosition = new Vector3(CalculatePos.x, offsetY, CalculatePos.y);
 
-                Hexagons[HexType].transform.position = nextPosition;
+               /* Hexagons[HexType].transform.position = nextPosition;
                 HexagoneList.Add(Instantiate(Hexagons[HexType]));
-                HexagoneList[i].transform.SetParent(this.transform);
+                HexagoneList[i].transform.SetParent(this.transform);*/
                 
                 //HexagoneList[i].GetComponent<Renderer>().material = Hexagons[HexType].GetComponent<MeshRenderer>().sharedMaterial;
 
                 
                 if (isSpawnableCorner(i))
                 {
+
+                    Hexagons[0].transform.position = nextPosition;
+                    HexagoneList.Add(Instantiate(Hexagons[0]));
+                    HexagoneList[i].transform.SetParent(this.transform);
                     
-                    
-
-                    bool again = true;
-                    int randomI = 0;
-                    while (again == true)
-                    {
-                        again = false;
-                        randomI = Random.Range(0, (int)(randomSpawnableHexagon.Length));
-
-                        for (int t = 0; t < randomSpawnableHexagon.Length; t++)
-                        {
-                            if (randomI == testSpawn[t]) again = true;
-                        }
-
-                    }
-                    testSpawn[p] = randomI;
 
                     
                     HexagoneList[i].GetComponent<HexagonData>().spawningHexes = true;
                     HexagoneList[i].GetComponent<HexagonData>().SpawnProps = false;
-                    GameObject SpawnProp = Instantiate(randomSpawnableHexagon[randomI]);
+                    GameObject SpawnProp = Instantiate(randomSpawnableHexagon[0]);
                     SpawnProp.transform.parent = HexagoneList[i].transform.GetChild(1);
                     SpawnProp.transform.position = HexagoneList[i].transform.GetChild(1).transform.position;
                     
@@ -111,6 +99,13 @@ public class HexagonGeneration : MonoBehaviour
 
                     p++;
                 }
+                else
+                {
+                    Hexagons[HexType].transform.position = nextPosition;
+                    HexagoneList.Add(Instantiate(Hexagons[HexType]));
+                    HexagoneList[i].transform.SetParent(this.transform);
+                }
+                /*
                 else if (isSide(i))
                 {
                     bool again = true;
@@ -133,7 +128,8 @@ public class HexagonGeneration : MonoBehaviour
 
                     o++;
                 }
-                else if (isMiddle(i))
+                */
+                if (isMiddle(i))
                 {
                     int randomI = Random.Range(0, middleHexagon.Length);
 
