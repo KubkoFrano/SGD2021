@@ -53,6 +53,6 @@ public class PlayerAbilities : MonoBehaviour
 
     public void SetHammer(bool value)
     {
-        anim.gameObject.SetActive(!value);
+        pistol.Toggle(!value);
     }
 }

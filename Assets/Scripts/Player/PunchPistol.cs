@@ -10,6 +10,10 @@ public class PunchPistol : MonoBehaviour
     List<Collider> colls = new List<Collider>();
     ThirdPersonMovement movement;
 
+    bool canPunch = true;
+
+    [SerializeField] SkinnedMeshRenderer mesh;
+
     private void Start()
     {
         movement = GetComponentInParent<ThirdPersonMovement>();
@@ -46,5 +50,11 @@ public class PunchPistol : MonoBehaviour
 
         if (playParticles)
             Instantiate(punchParticles, particlesPosition.position, Quaternion.identity);
+    }
+
+    public void Toggle(bool canPunch)
+    {
+        mesh.enabled = canPunch;
+        this.canPunch = canPunch;
     }
 }

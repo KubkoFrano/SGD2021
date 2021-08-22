@@ -983,6 +983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   punchParticles: {fileID: 3478325895026972636, guid: 3122d5acb7f3578408cb306aaa6bade8, type: 3}
   particlesPosition: {fileID: 0}
+  mesh: {fileID: 0}
 --- !u!1 &1376070479834190983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,6 +1181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   punchParticles: {fileID: 3478325895026972636, guid: 3122d5acb7f3578408cb306aaa6bade8, type: 3}
   particlesPosition: {fileID: 1194907748829521487}
+  mesh: {fileID: 5921788870890535067}
 --- !u!1 &1609778511583283676
 GameObject:
   m_ObjectHideFlags: 0
