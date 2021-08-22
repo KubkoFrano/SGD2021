@@ -7,6 +7,7 @@ public class PauseScreen : ScreenBase
     public override void Show()
     {
         base.Show();
+        App.inGamePostProcessing.Blur();
         App.gameManager.SetGameState(GameState.pause);
         Time.timeScale = 0;
         Cursor.visible = true;
@@ -15,6 +16,7 @@ public class PauseScreen : ScreenBase
 
     public override void Hide()
     {
+        App.inGamePostProcessing.Unblur();
         App.audioManager.ContinueSoundtrack();
         base.Hide();
     }
