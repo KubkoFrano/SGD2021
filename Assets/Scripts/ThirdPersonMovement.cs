@@ -170,6 +170,7 @@ public class ThirdPersonMovement : MonoBehaviour
             force = new Vector3(force.x, 0, force.z);
 
         ResetBird();
+        rb.velocity = Vector3.zero;
         rb.AddForce(force, ForceMode.Impulse);
     }
 

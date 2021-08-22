@@ -2734,7 +2734,7 @@ MonoBehaviour:
   m_Follow: {fileID: 3685033884851739437}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 100
+    FieldOfView: 90
     OrthographicSize: 10
     NearClipPlane: 0.01
     FarClipPlane: 5000
@@ -2800,14 +2800,14 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_BindingMode: 4
-  m_SplineCurvature: 0.2
+  m_SplineCurvature: 0.473
   m_Orbits:
-  - m_Height: 7.8
-    m_Radius: 4.5
-  - m_Height: 4.5
-    m_Radius: 7.05
-  - m_Height: 0.58
-    m_Radius: 4.5
+  - m_Height: 5.22
+    m_Radius: 1.96
+  - m_Height: 3.42
+    m_Radius: 4
+  - m_Height: 0.8
+    m_Radius: 4
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 1730327532959482462}
