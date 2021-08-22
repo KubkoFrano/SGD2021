@@ -15,4 +15,5 @@ public static class App
     public static WinScreen winScreen;
     public static MenuPostProcessing menuPostProcessing;
     public static Podium podium;
+    public static InGamePostProcessing inGamePostProcessing;
 }
