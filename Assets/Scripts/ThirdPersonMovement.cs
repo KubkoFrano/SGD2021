@@ -73,7 +73,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (movement.magnitude >= 0.1f && !isRespawning)
+        if (movement.magnitude >= 0.1f && !isRespawning && App.gameManager.CompareGameState(GameState.game))
         {
             float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -109,10 +109,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (!App.gameManager.CompareGameState(GameState.game))
-            return;
-
         Vector2 temp = context.ReadValue<Vector2>();
+
         movement = new Vector3(temp.x, 0, temp.y).normalized;
 
         if (context.canceled)
