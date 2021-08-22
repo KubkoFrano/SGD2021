@@ -20,10 +20,14 @@ public class FallChain : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            RedPowerUP();
 
-        RedPowerUP();
-
-        ClearPowerUp();
+            ClearPowerUp();
+        }
+        else if (collision.gameObject.CompareTag("Water"))
+            ClearPowerUp();
     }
 
     void RedPowerUP()

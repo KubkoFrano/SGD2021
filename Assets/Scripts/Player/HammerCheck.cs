@@ -26,6 +26,7 @@ public class HammerCheck : MonoBehaviour
             if (hasHammer)
             {
                 hammer.Punch();
+                
                 other.gameObject.GetComponent<BehaviourHexagon>()?.Fall();
                 playerScore.AddParticularScore(other.gameObject.GetComponent<BehaviourHexagon>().CarrotSmash());
 

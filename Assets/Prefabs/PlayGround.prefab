@@ -55,16 +55,13 @@ MonoBehaviour:
   - {fileID: 2438704028009901404, guid: 422fd68c3168be74ea0a30e450d14cc5, type: 3}
   randomSpawnableHexagon:
   - {fileID: 5059140509988443917, guid: 4e43ff88ab9817d4a909d6648a8f0002, type: 3}
-  - {fileID: 5059140509988443917, guid: 4e43ff88ab9817d4a909d6648a8f0002, type: 3}
-  - {fileID: 5059140509988443917, guid: 4e43ff88ab9817d4a909d6648a8f0002, type: 3}
-  - {fileID: 5059140509988443917, guid: 4e43ff88ab9817d4a909d6648a8f0002, type: 3}
   randomSideHexagon:
   - {fileID: 7076739297760803242, guid: 4bb59ef1443f8644fae8a50f790ffbdd, type: 3}
   - {fileID: 2412617381388982963, guid: 38d72c96686a98a4aaf43ae4a9d0e58c, type: 3}
   - {fileID: 8764145505995868317, guid: d618b405c5ec1944398d7cc59d4a0b7c, type: 3}
   - {fileID: 8764145505995868317, guid: d618b405c5ec1944398d7cc59d4a0b7c, type: 3}
   middleHexagon:
-  - {fileID: 3431096157883412948, guid: 69c53c2c69f28374981507eccd301a48, type: 3}
+  - {fileID: 3889849857455762062, guid: 91771cd8f6e44174595222a96377738e, type: 3}
   HexagoneList: []
   spawnablePlayerPositions:
   - {x: 0, y: 0, z: 0}
