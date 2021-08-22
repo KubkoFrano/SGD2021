@@ -31,14 +31,29 @@ public class RespawnBehaviour : MonoBehaviour
             movement.ResetBird();
             movement.ToIdle();
 
-            Vector2 tempPos = App.playerManager.GetCenterPosition();
-            transform.LookAt(new Vector3(tempPos.x, transform.position.y, tempPos.y));
-
-            StartCoroutine(Recenter());
+            Recenter();
         }
     }
 
-    IEnumerator Recenter()
+    public void RecenterWithDelay(float delay)
+    {
+        StartCoroutine(Delay(delay));
+    }
+
+    IEnumerator Delay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Recenter();
+    }
+
+    public void Recenter()
+    {
+        Vector2 tempPos = App.playerManager.GetCenterPosition();
+        transform.LookAt(new Vector3(tempPos.x, transform.position.y, tempPos.y));
+        StartCoroutine(ManageRecentering());
+    }
+
+    IEnumerator ManageRecentering()
     {
         movement.StartRespawning();
         cam.m_RecenterToTargetHeading.m_enabled = true;

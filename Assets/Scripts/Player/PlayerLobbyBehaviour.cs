@@ -18,6 +18,7 @@ public class PlayerLobbyBehaviour : MonoBehaviour
 
     PlayerInput playerInput;
     Gamepad gamepad;
+    RespawnBehaviour respawn;
 
     int characterIndex;
 
@@ -26,6 +27,7 @@ public class PlayerLobbyBehaviour : MonoBehaviour
         App.playerManager.JoinPlayer(this.gameObject);
         characterIndex = App.characterManager.AssignCharacter();
         playerInput = GetComponent<PlayerInput>();
+        respawn = GetComponent<RespawnBehaviour>();
 
         foreach (Gamepad pad in Gamepad.all)
         {
@@ -57,6 +59,7 @@ public class PlayerLobbyBehaviour : MonoBehaviour
         camera.SetActive(true);
         cinemachine.SetActive(true);
         cinemachine.GetComponent<CinemachineInputProvider>().PlayerIndex = playerInput.playerIndex;
+        respawn.RecenterWithDelay(0.5f);
     }
 
     public void SetCharasterIndex(int index)
