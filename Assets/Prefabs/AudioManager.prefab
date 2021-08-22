@@ -63,6 +63,18 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
+  - name: WinMusic
+    clip: {fileID: 8300000, guid: 45ac82c19df64a9479cbb4393da3a7ae, type: 3}
+    output: {fileID: 7570066141479017901, guid: ee97d25a3d8a4a846b279f4f1933b3a8, type: 2}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: WinSound
+    clip: {fileID: 8300000, guid: 6c2f66c2098495f4896c8d5aca5b98d3, type: 3}
+    output: {fileID: 4350520369330208570, guid: ee97d25a3d8a4a846b279f4f1933b3a8, type: 2}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
   triggerIndependentSounds: []
   minTimeBetweenAmbient: 0
   maxTimeBetweenAmbient: 0

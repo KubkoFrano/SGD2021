@@ -26,6 +26,7 @@ public class WinScreen : ScreenBase
     {
         App.gameManager.SetGameState(GameState.menu);
         firstButton.SetActive(false);
+        App.audioManager.Stop("WinMusic");
         App.screenManager.Show<MenuScreen>();
         App.playerManager.DeleteAllPlayers();
         App.gameManager.StartSceneUnloading("WinScene");
@@ -39,7 +40,7 @@ public class WinScreen : ScreenBase
         {
             firstButton.SetActive(true);
             SetSelectedButton();
-            //Play sound
+            App.audioManager.Play("WinSound");
         }
     }
 }
