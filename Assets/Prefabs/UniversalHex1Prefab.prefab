@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2438704028009901403}
+  spawningHexes: 0
   timeSinceLastChange: 0
   elevateStateTime: 0
   shakeDuration: 3

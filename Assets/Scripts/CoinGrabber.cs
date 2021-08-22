@@ -22,6 +22,10 @@ public class CoinGrabber : MonoBehaviour
 
             ClearCoin();
         }
+        else if(collision.gameObject.CompareTag("Water"))
+        {
+            DrawnCoin();
+        }
 
         
         
@@ -34,6 +38,12 @@ public class CoinGrabber : MonoBehaviour
             GetComponentInParent<GoldSpawner>().RemoveGold(this.gameObject);
 
         App.kingOfTheHill.RemoveCoin(GetComponentInParent<CoinSpawnBehaviour>());
+        Destroy(transform.parent.gameObject);
+    }
+
+    void DrawnCoin()
+    {
+        //App.kingOfTheHill.RemoveCoin(GetComponentInParent<CoinSpawnBehaviour>());
         Destroy(transform.parent.gameObject);
     }
 

@@ -68,7 +68,7 @@ public class GoldSpawner : MonoBehaviour
 
             listOfGolds[listOfGolds.Count - 1].transform.parent = topHexagons[randomIndex].gameObject.transform.GetChild(0).transform;
             listOfGolds[listOfGolds.Count - 1].transform.position = topHexagons[randomIndex].gameObject.transform.GetChild(0).transform.position;
-            topHexagons[randomIndex].gameObject.GetComponent<HexagonData>().neverFalls = true;
+            //topHexagons[randomIndex].gameObject.GetComponent<HexagonData>().neverFalls = true;
         }
     }
 
@@ -77,7 +77,6 @@ public class GoldSpawner : MonoBehaviour
     {
         if (coin.transform.parent.childCount == 1)
         {
-            coin.GetComponentInParent<HexagonData>().neverFalls = false;
             listOfGolds.Remove(coin.transform.parent.gameObject);
         }
     }

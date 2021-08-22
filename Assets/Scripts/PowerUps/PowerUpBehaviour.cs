@@ -18,7 +18,12 @@ public class PowerUpBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        foreach(BehaviourHexagon i in behaviour) i.MoveStateChange();
+        if (other.gameObject.CompareTag("Water"))
+        {
+            GetComponentInParent<PowerUpSpawner>().RemovePowerUp(this.gameObject);
+            Destroy(this.gameObject);
+        }
+        foreach (BehaviourHexagon i in behaviour) i.MoveStateChange();
         
     }
 
