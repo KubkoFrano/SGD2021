@@ -29,6 +29,7 @@ public class RespawnBehaviour : MonoBehaviour
             rb.velocity = new Vector3(0, -100, 0);
             hammer.ResetHammer();
             movement.ResetBird();
+            movement.ToIdle();
 
             Vector2 tempPos = App.playerManager.GetCenterPosition();
             transform.LookAt(new Vector3(tempPos.x, transform.position.y, tempPos.y));
