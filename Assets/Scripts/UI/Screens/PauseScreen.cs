@@ -11,6 +11,7 @@ public class PauseScreen : ScreenBase
         App.gameManager.SetGameState(GameState.pause);
         Time.timeScale = 0;
         Cursor.visible = true;
+        App.countDownScreen.HideCounter();
     }
 
     public override void Hide()

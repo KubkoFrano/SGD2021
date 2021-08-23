@@ -11,6 +11,11 @@ public class CountDownScreen : ScreenBase
     [SerializeField] GameObject fourPlayers;
     [SerializeField] TextMeshProUGUI counter;
 
+    private void Awake()
+    {
+        App.countDownScreen = this;
+    }
+
     public override void Show()
     {
         base.Show();
@@ -49,5 +54,10 @@ public class CountDownScreen : ScreenBase
 
         counter.gameObject.SetActive(false);
         Hide();
+    }
+
+    public void HideCounter()
+    {
+        counter.gameObject.SetActive(false);
     }
 }

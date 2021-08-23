@@ -16,4 +16,5 @@ public static class App
     public static MenuPostProcessing menuPostProcessing;
     public static Podium podium;
     public static InGamePostProcessing inGamePostProcessing;
+    public static CountDownScreen countDownScreen;
 }
