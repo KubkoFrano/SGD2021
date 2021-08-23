@@ -38,6 +38,7 @@ public class InputDecider : MonoBehaviour
             App.screenManager.Show<PauseScreen>();
             App.gameManager.SetCurrentController(this.gameObject);
             Cursor.lockState = CursorLockMode.None;
+            App.audioManager.PauseSoundTrack();
         }
         else if (App.gameManager.CompareGameState(GameState.pause) && App.gameManager.CompareCurrentController(this.gameObject))
         {
@@ -46,6 +47,7 @@ public class InputDecider : MonoBehaviour
             Time.timeScale = 1;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            App.audioManager.ContinueSoundtrack();
         }
     }
 

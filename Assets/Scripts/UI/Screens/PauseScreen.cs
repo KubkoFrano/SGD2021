@@ -11,18 +11,17 @@ public class PauseScreen : ScreenBase
         App.gameManager.SetGameState(GameState.pause);
         Time.timeScale = 0;
         Cursor.visible = true;
-        App.audioManager.PauseSoundTrack();
     }
 
     public override void Hide()
     {
         App.inGamePostProcessing.Unblur();
-        App.audioManager.ContinueSoundtrack();
         base.Hide();
     }
 
     public void BackButtonClicked()
     {
+        App.audioManager.ContinueSoundtrack();
         App.gameManager.SetGameState(GameState.game);
         Time.timeScale = 1;
         Cursor.visible = false;
