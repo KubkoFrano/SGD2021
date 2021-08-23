@@ -94,7 +94,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Click
-    clip: {fileID: 8300000, guid: a4562d579aa3db84b9a0adfb6583750e, type: 3}
+    clip: {fileID: 8300000, guid: 8d64d085ae636bf4fae646b63fc840d6, type: 3}
     output: {fileID: 4350520369330208570, guid: ee97d25a3d8a4a846b279f4f1933b3a8, type: 2}
     volume: 1
     loop: 0

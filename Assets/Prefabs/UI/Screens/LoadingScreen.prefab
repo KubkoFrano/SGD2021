@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4326349089799735400}
   - component: {fileID: 828415581371054220}
+  - component: {fileID: 5423938966852769300}
   m_Layer: 0
   m_Name: LoadingScreen
   m_TagString: Untagged
@@ -54,6 +55,18 @@ MonoBehaviour:
   - {fileID: 32900000, guid: e706d363d9f6419439dc5c5755119d9c, type: 3}
   - {fileID: 32900000, guid: 79b2204a2f6995d47bb52301e79d18b7, type: 3}
   - {fileID: 32900000, guid: a498d842cecd6ca4b95d7afc2ffb89e7, type: 3}
+--- !u!114 &5423938966852769300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326349089799735401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b388c0d3f81ef49a2c095ba2b44cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5218233011230877907
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +190,18 @@ MonoBehaviour:
       - m_Target: {fileID: 828415581371054220}
         m_TargetAssemblyTypeName: LoadingScreen, Assembly-CSharp
         m_MethodName: PlayNext
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5423938966852769300}
+        m_TargetAssemblyTypeName: ClickSound, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1644,6 +1644,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3677929717750148470}
+        m_TargetAssemblyTypeName: ClickSound, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2728368736588606418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2339,6 +2351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8315804020539007861}
   - component: {fileID: 1211105854176942344}
+  - component: {fileID: 3677929717750148470}
   m_Layer: 5
   m_Name: SettingsScreen 1
   m_TagString: Untagged
@@ -2384,6 +2397,18 @@ MonoBehaviour:
   sfxSlider: {fileID: 1927540695912887005}
   ambientSlider: {fileID: 3214722517626944577}
   musicSlider: {fileID: 3796244655916957640}
+--- !u!114 &3677929717750148470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8498702401500697296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b388c0d3f81ef49a2c095ba2b44cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8565104960008930761
 GameObject:
   m_ObjectHideFlags: 0

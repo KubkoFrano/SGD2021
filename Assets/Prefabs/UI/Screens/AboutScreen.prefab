@@ -559,6 +559,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2542259540902910685}
+        m_TargetAssemblyTypeName: ClickSound, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6368155690657450178
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1581812433353674174}
   - component: {fileID: 1059363886374528141}
+  - component: {fileID: 2542259540902910685}
   m_Layer: 0
   m_Name: AboutScreen
   m_TagString: Untagged
@@ -609,3 +622,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstButton: {fileID: 4403473258106728027}
+--- !u!114 &2542259540902910685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6368155690657450178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b388c0d3f81ef49a2c095ba2b44cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
