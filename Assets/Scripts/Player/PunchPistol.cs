@@ -49,7 +49,10 @@ public class PunchPistol : MonoBehaviour
         }
 
         if (playParticles)
+        {
             Instantiate(punchParticles, particlesPosition.position, Quaternion.identity);
+            App.audioManager.Play("Punch");
+        }
     }
 
     public void Toggle(bool canPunch)

@@ -45,6 +45,7 @@ public class Hammer : MonoBehaviour
 
     public void Punch()
     {
+        App.audioManager.Play("Hammer");
         mv.HammerPunch();
         hc.SetHammer(false);
 

@@ -75,6 +75,30 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
+  - name: Hammer
+    clip: {fileID: 8300000, guid: 0a3c11b50aedae04ba004472164cc79b, type: 3}
+    output: {fileID: 4350520369330208570, guid: ee97d25a3d8a4a846b279f4f1933b3a8, type: 2}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Punch
+    clip: {fileID: 8300000, guid: ae5739f3f5a9fa74fa331cc07822d3ab, type: 3}
+    output: {fileID: 4350520369330208570, guid: ee97d25a3d8a4a846b279f4f1933b3a8, type: 2}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Coin
+    clip: {fileID: 8300000, guid: 2d2c80aee0a8e42459e7b555a4feae48, type: 3}
+    output: {fileID: 4350520369330208570, guid: ee97d25a3d8a4a846b279f4f1933b3a8, type: 2}
+    volume: 0.271
+    loop: 0
+    source: {fileID: 0}
+  - name: Click
+    clip: {fileID: 8300000, guid: a4562d579aa3db84b9a0adfb6583750e, type: 3}
+    output: {fileID: 4350520369330208570, guid: ee97d25a3d8a4a846b279f4f1933b3a8, type: 2}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
   triggerIndependentSounds: []
   minTimeBetweenAmbient: 0
   maxTimeBetweenAmbient: 0

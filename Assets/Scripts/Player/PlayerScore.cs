@@ -25,6 +25,7 @@ public class PlayerScore : MonoBehaviour
         score += coinValue;
         scoreParticles.Play();
         App.kingOfTheHill.UpdateScore(scoreIndex, score);
+        App.audioManager.Play("Coin");
     }
 
     public bool SubtractScore()
@@ -51,6 +52,7 @@ public class PlayerScore : MonoBehaviour
             score++;
             scoreParticles.Play();
             App.kingOfTheHill.UpdateScore(scoreIndex, this.score);
+            App.audioManager.Play("Coin");
             yield return new WaitForSeconds(coinParticlesInterval);
         }
     }
