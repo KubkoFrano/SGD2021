@@ -38,7 +38,7 @@ ModelImporter:
       name: Scene
       takeName: Scene
       internalID: 0
-      firstFrame: 11
+      firstFrame: 20
       lastFrame: 250
       wrapMode: 0
       orientationOffsetY: 0
@@ -62,7 +62,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 2
     isReadable: 0
   meshes:
     lODScreenPercentages: []

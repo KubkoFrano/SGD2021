@@ -91,7 +91,7 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         else
             movementAnim.SetBool("isRunning", false);
-            
+
         float tempMag = Mathf.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.z * rb.velocity.z);
         float tempSpeed;
 
@@ -130,7 +130,7 @@ public class ThirdPersonMovement : MonoBehaviour
             if (hasBird)
             {
                 isBirding = true;
-            } 
+            }
         }
 
 
@@ -145,13 +145,14 @@ public class ThirdPersonMovement : MonoBehaviour
         jumpCount--;
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        movementAnim.ResetTrigger("land");
 
         if (!hasJumped)
         {
             movementAnim.SetTrigger("jump");
             hasJumped = true;
         }
-        
+
     }
 
     public void GetRepelled(Vector3 otherPos)
@@ -256,7 +257,7 @@ public class ThirdPersonMovement : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.AddForce(Vector3.down * hammerDownForce, ForceMode.Impulse);
             ResetBird();
-        }    
+        }
     }
 
     public void HammerPunch()
@@ -272,6 +273,7 @@ public class ThirdPersonMovement : MonoBehaviour
         movementAnim.SetTrigger("land");
         armature.localPosition = Vector3.zero;
         hasJumped = false;
+        StartCoroutine(ResetLater());
     }
 
     public bool HasJumped()
@@ -307,6 +309,12 @@ public class ThirdPersonMovement : MonoBehaviour
     public void ToIdle()
     {
         movementAnim.SetTrigger("toIdle");
+        armature.localPosition = Vector3.zero;
+    }
+
+    IEnumerator ResetLater()
+    {
+        yield return new WaitForSeconds(1);
         armature.localPosition = Vector3.zero;
     }
 }
