@@ -24,6 +24,7 @@ public class CountDownScreen : ScreenBase
         else
             fourPlayers.SetActive(true);
 
+        counter.gameObject.SetActive(true);
         StartCoroutine(Timer());
     }
 
