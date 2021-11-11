@@ -28,7 +28,8 @@ public class HammerCheck : MonoBehaviour
                 hammer.Punch();
                 
                 other.gameObject.GetComponent<BehaviourHexagon>()?.Fall();
-                playerScore.AddParticularScore(other.gameObject.GetComponent<BehaviourHexagon>().CarrotSmash());
+                if (other.gameObject.GetComponent<BehaviourHexagon>())
+                    playerScore.AddParticularScore(other.gameObject.GetComponent<BehaviourHexagon>().CarrotSmash());
 
                 Instantiate(hammerParticles, hitPoint.position, Quaternion.Euler(-90, 0, 0));
             }

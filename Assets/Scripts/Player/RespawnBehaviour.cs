@@ -5,6 +5,7 @@ using Cinemachine;
 
 public class RespawnBehaviour : MonoBehaviour
 {
+    [SerializeField] float recenteringTime;
     [SerializeField] float respawnMoveDelay;
     [SerializeField] CinemachineFreeLook cam;
     [SerializeField] GameObject respawnParticles;
@@ -56,9 +57,9 @@ public class RespawnBehaviour : MonoBehaviour
     IEnumerator ManageRecentering()
     {
         movement.StartRespawning();
-        cam.m_RecenterToTargetHeading.m_enabled = true;
+        cam.m_RecenterToTargetHeading.m_RecenteringTime = 0;
         yield return new WaitForSeconds(respawnMoveDelay);
-        cam.m_RecenterToTargetHeading.m_enabled = false;
+        cam.m_RecenterToTargetHeading.m_RecenteringTime = recenteringTime;
         movement.StopRespawning();
     }
 }

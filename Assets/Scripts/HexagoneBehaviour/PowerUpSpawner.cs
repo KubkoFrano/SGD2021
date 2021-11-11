@@ -23,7 +23,7 @@ public class PowerUpSpawner : MonoBehaviour
     void Update()
     {
 
-        if (listOfPowerUPs.Count < maxAmmountOfPowerUPs)
+        if (listOfPowerUPs.Count < maxAmmountOfPowerUPs && App.gameManager.CompareGameState(GameState.game))
         {
             if (Random.value < 0.02f)
             {
